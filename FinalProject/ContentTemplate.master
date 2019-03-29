@@ -1,0 +1,16 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Template.Master" AutoEventWireup="true" CodeBehind="ContentTemplate.master.cs" Inherits="FinalProject.NestedMasterPage1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <asp:ContentPlaceHolder ID="PageTitle" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row"> 
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+</asp:Content>
