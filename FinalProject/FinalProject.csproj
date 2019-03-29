@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="content\css\sb-admin-2.css" />
     <Content Include="content\css\sb-admin-2.min.css" />
+    <Content Include="content\css\style.css" />
     <Content Include="content\img\laptop.jpg" />
     <Content Include="content\img\undraw_posting_photo.svg" />
     <Content Include="content\js\demo\chart-area-demo.js" />
@@ -1647,6 +1648,8 @@
     <Content Include="content\vendor\jquery\jquery.min.js" />
     <Content Include="content\vendor\jquery\jquery.slim.js" />
     <Content Include="content\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="LoginForm.aspx" />
+    <Content Include="RegisterForm.aspx" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
   </ItemGroup>
@@ -1658,7 +1661,21 @@
     <Compile Include="ContentTemplate.master.designer.cs">
       <DependentUpon>ContentTemplate.master</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.aspx.cs">
+      <DependentUpon>LoginForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginForm.aspx.designer.cs">
+      <DependentUpon>LoginForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterForm.aspx.cs">
+      <DependentUpon>RegisterForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.aspx.designer.cs">
+      <DependentUpon>RegisterForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Template.Master.cs">
       <DependentUpon>Template.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
