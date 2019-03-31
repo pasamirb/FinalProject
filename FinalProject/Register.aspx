@@ -60,6 +60,10 @@
                   </div>
                 </div>
                 <asp:Button ID="btnRegister" runat="server" CssClass="btn btn-primary btn-user btn-block" Text="Register" OnClick="btnRegister_Click" />
+                <div class="form-group" id ="message-div">
+                    <asp:Label ID="EmailDuplicateMessage" runat="server" CssClass ="text-danger"
+                        Text="Email already Exists" Visible="False"></asp:Label>
+                </div>
                 </form>
                 <hr/>
               <div class="text-center">
