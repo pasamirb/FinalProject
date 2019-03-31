@@ -35,7 +35,14 @@ namespace FinalProject
 
                 Console.WriteLine("Hello World.");
                 Console.WriteLine(except.StackTrace.ToString());
+                Console.WriteLine("Message : " + except.Message);
                 Debug.WriteLine(except.StackTrace.ToString());
+                //Debug.WriteLine(except.InnerException.StackTrace.ToString());
+                Debug.WriteLine("Message : " + except.Message);
+                if (except.Message.Contains("UQ__User__C9F284569F661914"))
+                {
+                    EmailDuplicateMessage.Visible = true;
+                }
             }
         }
     }
