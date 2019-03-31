@@ -30,9 +30,8 @@ namespace FinalProject
                 if(result>0)
                     Response.Redirect("~/loginForm.aspx");
             }
-            catch(Exception except)
+            catch (Exception except)
             {
-
                 Console.WriteLine("Hello World.");
                 Console.WriteLine(except.StackTrace.ToString());
                 Debug.WriteLine(except.StackTrace.ToString());
