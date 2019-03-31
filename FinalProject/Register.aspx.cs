@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Diagnostics;
 using FinalProject.FinalProjectDatasetTableAdapters;
 
 namespace FinalProject
@@ -24,10 +25,18 @@ namespace FinalProject
             string email = txtEmail.Text;
             string username = txtEmail.Text;
             string password = txtPassword.Text;
+            try { 
+                int result = adpUser.RegisterUser(firstName,lastName,username,password,email);
+                if(result>0)
+                    Response.Redirect("~/loginForm.aspx");
+            }
+            catch(Exception except)
+            {
 
-            int result = adpUser.RegisterUser(firstName,lastName,username,password,email);
-            if(result>0)
-                Response.Redirect("~/loginForm.aspx");
+                Console.WriteLine("Hello World.");
+                Console.WriteLine(except.StackTrace.ToString());
+                Debug.WriteLine(except.StackTrace.ToString());
+            }
         }
     }
 }
