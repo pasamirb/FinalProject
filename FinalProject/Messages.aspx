@@ -6,7 +6,10 @@
     <h1 class="h3 mb-0 text-gray-800">Messages</h1>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="frame" class="col-md-12 p-0">
+        <asp:UpdatePanel ID="pnlMessage" runat="server">
+                    <ContentTemplate>
 	<div id="sidepanel">
 		<div id="profile">
 			<div class="wrap">
@@ -36,7 +39,10 @@
 			<input type="text" placeholder="Search contacts..." />
 		</div>
 		<div id="contacts">
-			<ul>
+            <ul>
+            <%--<asp:ListView ID="lvContacts" runat="server">
+        <ItemTemplate>--%>
+			
 				<li class="contact">
 					<div class="wrap">
 						<img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
@@ -127,11 +133,16 @@
 						</div>
 					</div>
 				</li>
-			</ul>
+			
+            <%--</ItemTemplate>
+          </asp:ListView>--%>
+                </ul>
 		</div>
         <div id="bottom-bar">
-			<button id="buyer"><span>Buyer</span></button>
-			<button id="seller"><span>Seller</span></button>
+			<%--<button runat="server" id="btnBuyer"><span>Buyer</span></button>--%>
+            <asp:LinkButton ID="btnBuyer" runat="server"><span>Buyer</span></asp:LinkButton>
+			<%--<button runat="server" id="btnSeller"></button>--%>
+            <asp:LinkButton ID="btnSeller" runat="server"><span>Seller</span></asp:LinkButton>
 		</div>
 	</div>
 	<div class="content">
@@ -182,5 +193,7 @@
 			</div>
 		</div>
 	</div>
+                        </ContentTemplate>
+            </asp:UpdatePanel>
 </div>
 </asp:Content>
