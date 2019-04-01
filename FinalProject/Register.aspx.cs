@@ -40,7 +40,8 @@ namespace FinalProject
                 Debug.WriteLine("Message : " + except.Message);
                 if (except.Message.Contains("UQ__User__C9F284569F661914"))
                 {
-                    EmailDuplicateMessage.Visible = true;
+                    lblMessage.Visible = true;
+                    lblMessage.Text = "Email alreday registered.";
                 }
             }
         }

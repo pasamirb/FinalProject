@@ -46,6 +46,9 @@
                     <div class="form-group">
                       <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-user" placeholder="Password" TextMode="Password"></asp:TextBox>
                     </div>
+                    <div class="form-group">
+                        <asp:Label ID="lblMessage" runat="server" CssClass ="alert alert-danger d-md-block" Visible="False"></asp:Label>
+                    </div>
                     <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-primary btn-user btn-block" Text="Login" OnClick="btnLogin_Click"/>
                   <hr/>
                   <div class="text-center">

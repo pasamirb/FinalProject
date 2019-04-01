@@ -59,11 +59,10 @@
                     <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="form-control form-control-user" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
                   </div>
                 </div>
-                <asp:Button ID="btnRegister" runat="server" CssClass="btn btn-primary btn-user btn-block" Text="Register" OnClick="btnRegister_Click" />
-                <div class="form-group" id ="message-div">
-                    <asp:Label ID="EmailDuplicateMessage" runat="server" CssClass ="text-danger"
-                        Text="Email already Exists" Visible="False"></asp:Label>
+                <div class="form-group">
+                    <asp:Label ID="lblMessage" runat="server" CssClass ="alert alert-danger d-md-block" Visible="False"></asp:Label>
                 </div>
+                <asp:Button ID="btnRegister" runat="server" CssClass="btn btn-primary btn-user btn-block" Text="Register" OnClick="btnRegister_Click" />
                 </form>
                 <hr/>
               <div class="text-center">
