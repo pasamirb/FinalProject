@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using FinalProject.model;
 
 
 namespace FinalProject
@@ -19,7 +20,7 @@ namespace FinalProject
         protected void Session_Start(object sender, EventArgs e)
         {
             if (Session["user"] == null)
-                Session["user"] = new model.User();
+                Session["user"] = new User();
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

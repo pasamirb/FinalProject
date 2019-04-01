@@ -14,8 +14,25 @@ namespace FinalProject.model
         public string Email { get; private set; }
         public string Image { get; private set; }
         public string Company { get; private set; }
-        public string PhoneNumber { get; private set; }
+        public long Phone { get; private set; }
         public DateTime CreationDate { get; private set; }
 
+        public User(int userId, string firstName, string lastName, string userName, string email, string image, string company, long phone, DateTime creationDate)
+        {
+            UserId = userId;
+            FirstName = firstName;
+            LastName = lastName;
+            UserName = userName;
+            Email = email;
+            Image = image;
+            Company = company;
+            Phone = phone;
+            CreationDate = creationDate;
+        }
+
+        public User()
+        {
+
+        }
     }
 }

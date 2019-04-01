@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FinalProject.model;
 
 namespace FinalProject
 {
@@ -11,7 +12,8 @@ namespace FinalProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            User user = (User)Session["user"];
+            Response.Write("<strong>" + user.FirstName + "</strong>");
         }
     }
 }
