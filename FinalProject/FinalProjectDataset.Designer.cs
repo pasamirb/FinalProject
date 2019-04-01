@@ -761,11 +761,11 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public long UserPhone {
                 get {
-                    try {
-                        return ((long)(this[this.tableUser.UserPhoneColumn]));
+                    if (this.IsUserPhoneNull()) {
+                        return 0;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserPhone\' in table \'User\' is DBNull.", e);
+                    else {
+                        return ((long)(this[this.tableUser.UserPhoneColumn]));
                     }
                 }
                 set {
@@ -777,11 +777,11 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string UserCompany {
                 get {
-                    try {
-                        return ((string)(this[this.tableUser.UserCompanyColumn]));
+                    if (this.IsUserCompanyNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserCompany\' in table \'User\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableUser.UserCompanyColumn]));
                     }
                 }
                 set {
@@ -793,11 +793,11 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string UserImage {
                 get {
-                    try {
-                        return ((string)(this[this.tableUser.UserImageColumn]));
+                    if (this.IsUserImageNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserImage\' in table \'User\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableUser.UserImageColumn]));
                     }
                 }
                 set {

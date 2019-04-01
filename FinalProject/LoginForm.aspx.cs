@@ -5,8 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FinalProject.FinalProjectDatasetTableAdapters;
+using FinalProject.service;
+using FinalProject.model;
+
 namespace FinalProject
-{
+{ 
     public partial class LoginWebPage : System.Web.UI.Page
     {
         UserTableAdapter adpUser = new UserTableAdapter();
@@ -19,17 +22,14 @@ namespace FinalProject
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            UserService userService = new UserService();
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            
-            table = adpUser.GetUserByUserNameAndUserPassword(email, password);
-            foreach(TableRow row in table.Rows)
-            {
-               
-            }
-            
+            User user = userService.GetUserByUserNameAndUserPassword(email, password);
+            Session["user"] = user;
 
+            Response.Redirect("~/Default.aspx");
         }
     }
 }
