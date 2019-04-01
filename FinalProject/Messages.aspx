@@ -129,6 +129,10 @@
 				</li>
 			</ul>
 		</div>
+        <div id="bottom-bar">
+			<button id="buyer"><span>Buyer</span></button>
+			<button id="seller"><span>Seller</span></button>
+		</div>
 	</div>
 	<div class="content">
 		<div class="contact-profile">
