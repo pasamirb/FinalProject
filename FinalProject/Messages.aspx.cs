@@ -19,13 +19,21 @@ namespace FinalProject
             user = (User)Session["user"];
             if (user.UserId == 0)
                 Response.Redirect("~/LoginForm.aspx");
+            if (!Page.IsPostBack)
+            {
+                BindData();
+            }
+            
+        }
 
+        private void BindData()
+        {
             tblMessage = adpMessage.GetContactsAsBuyer(user.UserId);
             lvContacts.DataSource = tblMessage;
             lvContacts.DataBind();
         }
 
-        protected void btnSeller_Click(object sender, EventArgs e)
+            protected void btnSeller_Click(object sender, EventArgs e)
         {
             if (user != null)
             {
@@ -44,5 +52,15 @@ namespace FinalProject
                 lvContacts.DataBind();
             }
         }
+        protected void UsersListView_SelectedIndexChanging(object sender, ListViewSelectEventArgs e)
+        {
+            lvContacts.SelectedIndex = e.NewSelectedIndex;
+        }
+
+        protected void UsersListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("test " + lvContacts.SelectedIndex);
+        }
+        
     }
 }

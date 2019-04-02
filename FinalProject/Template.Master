@@ -40,6 +40,12 @@
           <span>Dashboard</span></a>
       </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="Messages.aspx">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Messages</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
