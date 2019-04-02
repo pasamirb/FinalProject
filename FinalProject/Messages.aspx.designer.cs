@@ -22,13 +22,22 @@ namespace FinalProject {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// pnlMessage control.
+        /// pnlMessages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel pnlMessage;
+        protected global::System.Web.UI.UpdatePanel pnlMessages;
+        
+        /// <summary>
+        /// lvContacts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvContacts;
         
         /// <summary>
         /// btnBuyer control.

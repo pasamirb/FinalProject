@@ -1240,6 +1240,8 @@ namespace FinalProject {
             
             private global::System.Data.DataColumn columnUserImage;
             
+            private global::System.Data.DataColumn columnProductName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public MessageDataTable() {
@@ -1339,6 +1341,14 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ProductNameColumn {
+                get {
+                    return this.columnProductName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1374,7 +1384,7 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MessageRow AddMessageRow(UserRow parentUserRowByFK_Message_From_User, UserRow parentUserRowByFK_Message_To_User, int ProductId, int UserId, string UserFirstName, string UserLastName, string UserCompany, string UserImage) {
+            public MessageRow AddMessageRow(UserRow parentUserRowByFK_Message_From_User, UserRow parentUserRowByFK_Message_To_User, int ProductId, int UserId, string UserFirstName, string UserLastName, string UserCompany, string UserImage, string ProductName) {
                 MessageRow rowMessageRow = ((MessageRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1384,7 +1394,8 @@ namespace FinalProject {
                         UserFirstName,
                         UserLastName,
                         UserCompany,
-                        UserImage};
+                        UserImage,
+                        ProductName};
                 if ((parentUserRowByFK_Message_From_User != null)) {
                     columnValuesArray[0] = parentUserRowByFK_Message_From_User[10];
                 }
@@ -1421,6 +1432,7 @@ namespace FinalProject {
                 this.columnUserLastName = base.Columns["UserLastName"];
                 this.columnUserCompany = base.Columns["UserCompany"];
                 this.columnUserImage = base.Columns["UserImage"];
+                this.columnProductName = base.Columns["ProductName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1442,6 +1454,8 @@ namespace FinalProject {
                 base.Columns.Add(this.columnUserCompany);
                 this.columnUserImage = new global::System.Data.DataColumn("UserImage", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserImage);
+                this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductName);
                 this.columnMessageFromUserId.AllowDBNull = false;
                 this.columnMessageToUserId.AllowDBNull = false;
                 this.columnProductId.AllowDBNull = false;
@@ -1452,6 +1466,8 @@ namespace FinalProject {
                 this.columnUserLastName.MaxLength = 50;
                 this.columnUserCompany.MaxLength = 50;
                 this.columnUserImage.MaxLength = 50;
+                this.columnProductName.AllowDBNull = false;
+                this.columnProductName.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2173,6 +2189,17 @@ namespace FinalProject {
                 }
                 set {
                     this[this.tableMessage.UserImageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ProductName {
+                get {
+                    return ((string)(this[this.tableMessage.ProductNameColumn]));
+                }
+                set {
+                    this[this.tableMessage.ProductNameColumn] = value;
                 }
             }
             
@@ -3144,6 +3171,7 @@ FROM     Category INNER JOIN
             tableMapping.ColumnMappings.Add("UserLastName", "UserLastName");
             tableMapping.ColumnMappings.Add("UserCompany", "UserCompany");
             tableMapping.ColumnMappings.Add("UserImage", "UserImage");
+            tableMapping.ColumnMappings.Add("ProductName", "ProductName");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3160,22 +3188,25 @@ FROM     Category INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Message.MessageFromUserId, Message.MessageToUserId, Message.ProductId, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
+            this._commandCollection[0].CommandText = @"SELECT        Message.MessageFromUserId, Message.MessageToUserId, Message.ProductId, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, Product.ProductName
 FROM            Message INNER JOIN
                          Product ON Message.ProductId = Product.ProductId INNER JOIN
                          [User] ON Message.MessageFromUserId = [User].UserId
 WHERE        (Message.MessageToUserId = @UserId) AND (Product.UserId = @UserId)
-GROUP BY Message.MessageFromUserId, Message.MessageToUserId, Product.UserId, Message.ProductId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage";
+GROUP BY Message.MessageFromUserId, Message.MessageToUserId, Product.UserId, Message.ProductId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, Product.ProductName
+ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MessageToUserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Message.MessageFromUserId, Message.MessageToUserId, Message.ProductId, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
+            this._commandCollection[1].CommandText = @"SELECT        Message.MessageFromUserId, Message.MessageToUserId, Message.ProductId, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, Product.ProductName, 
+                         MAX(Message.MessageCreationDateTime) AS Expr1
 FROM            Message INNER JOIN
                          Product ON Message.ProductId = Product.ProductId AND Message.MessageToUserId = Product.UserId INNER JOIN
                          [User] ON Message.MessageToUserId = [User].UserId
 WHERE        (Message.MessageFromUserId = @UserId)
-GROUP BY Message.MessageFromUserId, Message.MessageToUserId, Product.UserId, Message.ProductId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage";
+GROUP BY Message.MessageFromUserId, Message.MessageToUserId, Product.UserId, Message.ProductId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, Product.ProductName
+ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MessageFromUserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

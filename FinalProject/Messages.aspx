@@ -7,14 +7,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div id="frame" class="col-md-12 p-0">
-        <asp:UpdatePanel ID="pnlMessage" runat="server">
+    
+        <asp:UpdatePanel ID="pnlMessages" class="col-md-12 p-0"  runat="server">
                     <ContentTemplate>
+                        <div id="frame" class="col-md-12 p-0">
 	<div id="sidepanel">
 		<div id="profile">
 			<div class="wrap">
 				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
-				<p>Mike Ross</p>
+				<p><%= user.FirstName %> <%= user.LastName %></p>
 				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
 				<div id="status-options">
 					<ul>
@@ -34,25 +35,25 @@
 				</div>
 			</div>
 		</div>
-		<div id="search">
+		<%--<div id="search">
 			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
 			<input type="text" placeholder="Search contacts..." />
-		</div>
+		</div>--%>
 		<div id="contacts">
             <ul>
-            <%--<asp:ListView ID="lvContacts" runat="server">
-        <ItemTemplate>--%>
+           <asp:ListView ID="lvContacts" runat="server">
+        <ItemTemplate>
 			
 				<li class="contact">
 					<div class="wrap">
 						<img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
 						<div class="meta">
-							<p class="name">Louis Litt</p>
-							<p class="preview">You just got LITT up, Mike.</p>
+							<p class="name"><%# Eval("UserFirstName")  %> <%# Eval("UserLastName")  %></p>
+							<p class="preview"><%# Eval("ProductName")  %></p>
 						</div>
 					</div>
 				</li>
-				<li class="contact active">
+				<%--<li class="contact active">
 					<div class="wrap">
 						<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 						<div class="meta">
@@ -132,17 +133,17 @@
 							<p class="preview"><span>You:</span> That's bullshit. This deal is solid.</p>
 						</div>
 					</div>
-				</li>
+				</li>--%>
 			
-            <%--</ItemTemplate>
-          </asp:ListView>--%>
+            </ItemTemplate>
+          </asp:ListView>
                 </ul>
 		</div>
         <div id="bottom-bar">
 			<%--<button runat="server" id="btnBuyer"><span>Buyer</span></button>--%>
-            <asp:LinkButton ID="btnBuyer" runat="server"><span>Buyer</span></asp:LinkButton>
+            <asp:LinkButton ID="btnBuyer" runat="server" OnClick="btnBuyer_Click"><span>Selling Products</span></asp:LinkButton>
 			<%--<button runat="server" id="btnSeller"></button>--%>
-            <asp:LinkButton ID="btnSeller" runat="server"><span>Seller</span></asp:LinkButton>
+            <asp:LinkButton ID="btnSeller" runat="server" OnClick="btnSeller_Click"><span>Buying Products</span></asp:LinkButton>
 		</div>
 	</div>
 	<div class="content">
@@ -193,7 +194,7 @@
 			</div>
 		</div>
 	</div>
-                        </ContentTemplate>
+                  </div>     </ContentTemplate>
             </asp:UpdatePanel>
-</div>
+
 </asp:Content>

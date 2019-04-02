@@ -477,16 +477,25 @@
 }
 
 #frame #sidepanel #contacts ul li.contact .wrap .meta {
-    padding: 5px 0 0 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-@media screen and (max-width: 735px) {
-    #frame #sidepanel #contacts ul li.contact .wrap .meta {
-        display: none;
+#frame #sidepanel #contacts ul li.contact .wrap .meta p {
+    margin-bottom:0;    
+}
+
+    @media screen and (max-width: 735px) {
+        #frame #sidepanel #contacts ul li.contact .wrap .meta {
+            display: none;
+        }
     }
-}
 
-#frame #sidepanel #contacts ul li.contact .wrap .meta .name {
+    #frame #sidepanel #contacts ul li.contact .wrap .meta .name {
     font-weight: 600;
 }
 
