@@ -1,12 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ContentTemplate.master" AutoEventWireup="true" CodeBehind="Messages.aspx.cs" Inherits="FinalProject.WebForm2" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <link href="content/css/message.css" rel="stylesheet" type="text/css">
+    <script runat="server">
+        protected void ImageButton1_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
+                LinkButton linkButton = (LinkButton)sender;
+                trigger.ControlID = linkButton.UniqueID;
+                trigger.EventName = "UsersListView_SelectedIndexChanged";
+                this.pnlMessages.Triggers.Add(trigger);
+            }
+            catch
+            {
+
+
+
+
+            }
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageTitle" runat="server">
     <h1 class="h3 mb-0 text-gray-800">Messages</h1>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+
+    </asp:ScriptManager>
     
         <asp:UpdatePanel ID="pnlMessages" class="col-md-12 p-0"  runat="server">
                     <ContentTemplate>
@@ -43,7 +65,7 @@
             <ul>
            <asp:ListView ID="lvContacts" AutoPostBack="true" runat="server" OnSelectedIndexChanging="UsersListView_SelectedIndexChanging" OnSelectedIndexChanged="UsersListView_SelectedIndexChanged">
         <ItemTemplate>
-            <asp:LinkButton ID="LinkButton1" CommandName="Select" runat="server" >
+            <asp:LinkButton ID="LinkButton1" CommandName="Select" runat="server" OnLoad="ImageButton1_Load">
 				
                 <li class="contact">
                     <div class="wrap">
@@ -120,6 +142,9 @@
 		</div>
 	</div>
                   </div>     </ContentTemplate>
+                <%--<Triggers>
+                  <asp:AsyncPostBackTrigger ControlID="LinkButton1" EventName="UsersListView_SelectedIndexChanged" />
+               </Triggers>--%>
             </asp:UpdatePanel>
 
 </asp:Content>

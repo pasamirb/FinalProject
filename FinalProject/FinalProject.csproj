@@ -1654,7 +1654,7 @@
     <Content Include="content\vendor\jquery\jquery.slim.js" />
     <Content Include="content\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Global.asax" />
-    <Content Include="LoginForm.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="content\css\message.css" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
@@ -1687,12 +1687,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.aspx.cs">
-      <DependentUpon>LoginForm.aspx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginForm.aspx.designer.cs">
-      <DependentUpon>LoginForm.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="model\Message.cs" />
     <Compile Include="model\User.cs" />

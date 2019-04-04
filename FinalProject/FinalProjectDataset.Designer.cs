@@ -5389,7 +5389,7 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductCreationDateTime, 
@@ -5398,6 +5398,16 @@ FROM     Category INNER JOIN
                   Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                   [User] ON Product.UserId = [User].UserId";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductCreationDateTime, 
+                         [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
+FROM            Category INNER JOIN
+                         Product ON Category.CategoryId = Product.CategoryId INNER JOIN
+                         [User] ON Product.UserId = [User].UserId
+WHERE        (Product.CategoryId = @CategoryId)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CategoryId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5419,6 +5429,23 @@ FROM     Category INNER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual FinalProjectDataset.ProductDetailDataTable GetProducts() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            FinalProjectDataset.ProductDetailDataTable dataTable = new FinalProjectDataset.ProductDetailDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FinalProjectDataset.ProductDetailDataTable GetProductsByCategoryId(global::System.Nullable<int> CategoryId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((CategoryId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CategoryId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             FinalProjectDataset.ProductDetailDataTable dataTable = new FinalProjectDataset.ProductDetailDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

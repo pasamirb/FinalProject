@@ -796,7 +796,12 @@
     outline: none;
 }
 
-.contacts ul a {
+#contacts ul a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#contacts ul a:hover {
     text-decoration: none;
     color: inherit;
 }

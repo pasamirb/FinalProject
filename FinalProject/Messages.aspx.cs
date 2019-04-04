@@ -26,7 +26,7 @@ namespace FinalProject
         {
             user = (User)Session["user"];
             if (user.UserId == 0)
-                Response.Redirect("~/LoginForm.aspx");
+                Response.Redirect("~/Login.aspx");
             //selectedContact = new FinalProjectDataset.ContactsRow(null);
             if (!Page.IsPostBack)
             {

@@ -6,7 +6,7 @@
     <h1 class="h3 mb-0 text-gray-800">Add Products</h1>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <div class="card shadow">
+    <div class="card shadow col-md-12">
         <div class="card-body">
             <div class="form-group row">
                 <asp:Label ID="lblProductName" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Name:"></asp:Label>
