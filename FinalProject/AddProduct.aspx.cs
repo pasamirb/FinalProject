@@ -21,7 +21,7 @@ namespace FinalProject
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
-            adpCategory.Fill(tblCategory);
+            tblCategory = adpCategory.GetCategory();
             ddlProductCategory.DataSource = tblCategory;
             ddlProductCategory.DataTextField = tblCategory.CategoryNameColumn.ToString();
             ddlProductCategory.DataValueField = tblCategory.CategoryIdColumn.ToString();
