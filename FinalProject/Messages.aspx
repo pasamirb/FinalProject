@@ -55,8 +55,6 @@
 					</div>
 				</li>
                 </asp:LinkButton>
-				
-			
             </ItemTemplate>
           </asp:ListView>
                 </ul>
@@ -71,15 +69,20 @@
 	<div class="content">
 		<div class="contact-profile">
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-			<p>Harvey Specter</p>
+			<p id="chatUser" runat="server">Harvey Specter</p>
 		</div>
 		<div class="messages">
 			<ul>
-				<li class="sent">
+                <asp:ListView ID="lvMessage" AutoPostBack="true" runat="server" OnSelectedIndexChanging="UsersListView_SelectedIndexChanging" OnSelectedIndexChanged="UsersListView_SelectedIndexChanged">
+        <ItemTemplate>
+            
+				<li class="<%# Eval("isSender").ToString().ToUpper() == "TRUE" ? "sent" : "replies" %>">
 					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-					<p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
+					<p><%# Eval("MessageText") %></p>
 				</li>
-				<li class="replies">
+                </ItemTemplate>
+                    </asp:ListView>
+				<%--<li class="replies">
 					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 					<p>When you're backed against the wall, break the god damn thing down.</p>
 				</li>
@@ -106,13 +109,13 @@
 				<li class="replies">
 					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 					<p>Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
-				</li>
+				</li>--%>
 			</ul>
 		</div>
 		<div class="message-input">
 			<div class="wrap">
-			<input type="text" placeholder="Write your message..." />
-			<button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+			    <asp:TextBox ID="txtMessage" runat="server" placeholder="Enter your message" ></asp:TextBox>
+			    <asp:LinkButton ID="LinkButton2" CssClass="submit" runat="server" OnClick="LinkButton2_Click"><i class="fa fa-paper-plane" aria-hidden="true"></i></asp:LinkButton>
 			</div>
 		</div>
 	</div>

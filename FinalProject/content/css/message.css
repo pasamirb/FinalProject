@@ -771,7 +771,7 @@
     opacity: 1;
 }
 
-#frame .content .message-input .wrap button {
+#frame .content .message-input .wrap .submit {
     float: right;
     border: none;
     width: 50px;
@@ -779,18 +779,24 @@
     cursor: pointer;
     background: #32465a;
     color: #f5f5f5;
+    text-align:center;
 }
 
 @media screen and (max-width: 735px) {
-    #frame .content .message-input .wrap button {
+    #frame .content .message-input .wrap .submit {
         padding: 16px 0;
     }
 }
 
-#frame .content .message-input .wrap button:hover {
+#frame .content .message-input .wrap .submit:hover {
     background: #435f7a;
 }
 
-#frame .content .message-input .wrap button:focus {
+#frame .content .message-input .wrap .submit:focus {
     outline: none;
+}
+
+.contacts ul a {
+    text-decoration: none;
+    color: inherit;
 }
