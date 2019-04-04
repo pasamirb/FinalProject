@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using FinalProject.FinalProjectDatasetTableAdapters;
 using FinalProject.model;
+using System.Drawing;
+using System.IO;
 
 namespace FinalProject
 {
@@ -21,15 +23,26 @@ namespace FinalProject
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
+     
+         if (!Page.IsPostBack)
+            {
+                BindData();
+    }
+
+}
+
+private void BindData()
+{
             tblCategory = adpCategory.GetCategory();
             ddlProductCategory.DataSource = tblCategory;
             ddlProductCategory.DataTextField = tblCategory.CategoryNameColumn.ToString();
             ddlProductCategory.DataValueField = tblCategory.CategoryIdColumn.ToString();
             ddlProductCategory.DataBind();
             ddlProductCategory.Items.Insert(0, "Select Category");
+
         }
 
-        protected void btnAddProduct_Click(object sender, EventArgs e)
+protected void btnAddProduct_Click(object sender, EventArgs e)
         {
             string productName = txtProductName.Text;
             string productDesc = txtPtoductDesc.Text;
@@ -38,50 +51,60 @@ namespace FinalProject
             string productBrand = txtProductBrand.Text;
             string productImage = flProductImage.FileName;
             int userId = user.UserId;
-            int categoryId = ddlProductCategory.SelectedIndex;
+            int categoryId = int.Parse(ddlProductCategory.SelectedValue);
 
-
-            int rowInserted = adpProduct.Insert(productName, productDesc, productType, productPrice,  productBrand, productImage, userId, categoryId);
+            bool result = uploadFile();
+            if (result)
+            {
+                productImage = Server.MapPath("~/Uploads/")  + productImage;
+                productImage = "";
+                int rowInserted = adpProduct.Insert(productName, productDesc, productType, productPrice, productBrand, productImage, userId, categoryId);
+            }
         }
 
-        //private bool uploadFile()
-        //{
-        //    if (FileUpload1.HasFile)
-        //    {
-        //        string fileName = FileUpload1.FileName;
-        //        string fileExtenstion = Path.GetExtension(fileName);
+        private bool uploadFile()
+        {
+            bool result = false;
+            if (flProductImage.HasFile)
+            {
+                
+                string fileName = flProductImage.FileName;
+                string fileExtenstion = Path.GetExtension(fileName);
 
-        //        // check for the file extenstion
-        //        if (fileExtenstion.ToLower() == ".pdf")
-        //        {
-        //            // get file size, in bytes
-        //            int fileSize = FileUpload1.PostedFile.ContentLength;
+                // check for the file extenstion
+                if (fileExtenstion.ToLower() == ".jpg")
+                {
+                    // get file size, in bytes
+                    int fileSize = flProductImage.PostedFile.ContentLength;
 
-        //            // if file size less than or equal to 2MB
-        //            if (fileSize <= 2097152)
-        //            {
-        //                // save file in Uploads folder
-        //                FileUpload1.SaveAs(Server.MapPath("~/Uploads/") + fileName);
-        //                lblMessage.Text = "File successfully uploaded";
-        //                lblMessage.ForeColor = Color.Green;
-        //            }
-        //            else
-        //            {
-        //                lblMessage.Text = "File size exceeds the limit of 2MB";
-        //                lblMessage.ForeColor = Color.Red;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            lblMessage.Text = "Only PDF files are allowed";
-        //            lblMessage.ForeColor = Color.Red;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        lblMessage.Text = "Please select a file";
-        //        lblMessage.ForeColor = Color.Red;
-        //    }
-        //}
+                    // if file size less than or equal to 2MB
+                    if (fileSize <= 2097152)
+                    {
+                        // save file in Uploads folder
+                        flProductImage.SaveAs(Server.MapPath("~/Uploads/") + fileName);
+                        //lblMessage.Text = "File successfully uploaded";
+                        //lblMessage.ForeColor = Color.Green;
+                        result = true;
+                    }
+                    else
+                    {
+                        //lblMessage.Text = "File size exceeds the limit of 2MB";
+                        //lblMessage.ForeColor = Color.Red;
+                    }
+                }
+                else
+                {
+                    //lblMessage.Text = "Only PDF files are allowed";
+                    //lblMessage.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                //lblMessage.Text = "Please select a file";
+                //lblMessage.ForeColor = Color.Red;
+            }
+            return result;
+        }
+        
     }
 }

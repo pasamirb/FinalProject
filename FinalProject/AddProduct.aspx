@@ -38,7 +38,7 @@
             <div class="form-group row">
                 <asp:Label ID="lblProductBrand" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Brand:"></asp:Label>
                 <div class="col-sm-10">
-                    <asp:TextBox ID="txtProductBrand" type="number" runat="server" CssClass="form-control" placeholder="Enter Product Brand"></asp:TextBox>
+                    <asp:TextBox ID="txtProductBrand" type="text" runat="server" CssClass="form-control" placeholder="Enter Product Brand"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group row">
