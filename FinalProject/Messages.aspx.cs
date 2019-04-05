@@ -25,28 +25,24 @@ namespace FinalProject
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
-            if (user.UserId == 0)
-                Response.Redirect("~/Login.aspx");
+            //if (user.UserId == 0)
+            //    Response.Redirect("~/Login.aspx");
             //selectedContact = new FinalProjectDataset.ContactsRow(null);
             if (!Page.IsPostBack)
             {
                 BindData();
             }
-            
-            
-            
         }
 
         private void BindData()
         {
-            
             tblContacts = adpContacts.GetContactsAsBuyer(user.UserId);
             lvContacts.DataSource = tblContacts;
             lvContacts.DataBind();
             Cache["tbl"] = tblContacts;
         }
 
-            protected void btnSeller_Click(object sender, EventArgs e)
+        protected void btnSeller_Click(object sender, EventArgs e)
         {
             if (user != null)
             {
@@ -56,7 +52,6 @@ namespace FinalProject
                 Cache["tbl"] = tblContacts;
             }
         }
-
         protected void btnBuyer_Click(object sender, EventArgs e)
         {
             if (user != null)
@@ -66,14 +61,6 @@ namespace FinalProject
                 lvContacts.DataBind();
                 Cache["tbl"] = tblContacts;
             }
-            //foreach (DataRow row in tblMessage.Rows)
-            //{
-            //    foreach (DataColumn column in tblMessage.Columns)
-            //    {
-            //        object item = row[column];
-            //        System.Diagnostics.Debug.WriteLine(item);
-            //    }
-            //}
         }
         protected void UsersListView_SelectedIndexChanging(object sender, ListViewSelectEventArgs e)
         {

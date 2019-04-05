@@ -47,9 +47,15 @@
                       <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-user" placeholder="Password" TextMode="Password"></asp:TextBox>
                     </div>
                     <div class="form-group">
+                      <div class="custom-control custom-checkbox small">
+                        <asp:CheckBox ID="cbRememberMe" CssClass="custom-control-input" runat="server" Text="" />
+                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
                         <asp:Label ID="lblMessage" runat="server" CssClass ="alert alert-danger d-md-block" Visible="False"></asp:Label>
                     </div>
-                    <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-primary btn-user btn-block" Text="Login" OnClick="btnLogin_Click"/>
+                    <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-primary btn-user btn-block" Text="Login" OnClick="btnLogin_Click"/>
                   <hr/>
                   <div class="text-center">
                     <a class="small" href="#">Forgot Password?</a>

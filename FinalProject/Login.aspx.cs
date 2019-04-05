@@ -8,6 +8,8 @@ using FinalProject.FinalProjectDatasetTableAdapters;
 using FinalProject.service;
 using FinalProject.model;
 
+using System.Web.Security;
+
 namespace FinalProject
 { 
     public partial class LoginWebPage : System.Web.UI.Page
@@ -27,9 +29,44 @@ namespace FinalProject
             string password = txtPassword.Text;
 
             User user = userService.GetUserByUserNameAndUserPassword(email, password);
-            Session["user"] = user;
+            string returnUrl = null;
+            if (user != null)
+            {
+                FormsAuthentication.Initialize();
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+                    1,
+                    user.Email,
+                    DateTime.Now,
+                    DateTime.Now.AddMinutes(30),
+                    cbRememberMe.Checked,
+                    "userRole",
+                    FormsAuthentication.FormsCookiePath);
+                // 5 arg = for remember me check box
 
-            Response.Redirect("~/Default.aspx");
+                string hashedTicket = FormsAuthentication.Encrypt(ticket);
+
+                HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hashedTicket);
+
+                if (ticket.IsPersistent)
+                {
+                    cookie.Expires = ticket.Expiration;
+                }
+                Response.Cookies.Add(cookie);
+
+                //string returnUrl = Request.QueryString.Get("ReturnUrl");
+                returnUrl = Request.QueryString["ReturnUrl"];
+                if (returnUrl == null)       // directly accessing via login page
+                {
+                    returnUrl = "~/Default.aspx";
+                }
+                Session["user"] = user;
+            }
+            else
+            {
+                lblMessage.Text = "Login Failed. Please try again";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+            }
+            Response.Redirect(returnUrl);
         }
     }
 }

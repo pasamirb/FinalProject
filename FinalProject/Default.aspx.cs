@@ -20,7 +20,6 @@ namespace FinalProject
             
             //Master.txt
             User user = (User)Session["user"];
-            
 
             string v = Request.QueryString["category"];
             
@@ -29,7 +28,6 @@ namespace FinalProject
                 BindData(v);
             }
         }
-
         private void BindData(string category)
         {
             if (category == null)

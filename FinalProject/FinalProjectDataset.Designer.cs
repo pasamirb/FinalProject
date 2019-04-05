@@ -5389,7 +5389,7 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductCreationDateTime, 
@@ -5408,6 +5408,20 @@ FROM            Category INNER JOIN
 WHERE        (Product.CategoryId = @CategoryId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CategoryId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductCreationDateTime, 
+                  [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
+FROM     Category INNER JOIN
+                  Product ON Category.CategoryId = Product.CategoryId INNER JOIN
+                  [User] ON Product.UserId = [User].UserId
+WHERE  (UPPER(Product.ProductBrand) LIKE @ProductBrand) OR
+                  (UPPER(Category.CategoryName) LIKE @CategoryName) OR
+                  (UPPER(Product.ProductName) LIKE @ProductName)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductBrand", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CategoryName", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5445,6 +5459,35 @@ WHERE        (Product.CategoryId = @CategoryId)";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            FinalProjectDataset.ProductDetailDataTable dataTable = new FinalProjectDataset.ProductDetailDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FinalProjectDataset.ProductDetailDataTable SearchProducts(string ProductBrand, string CategoryName, string ProductName) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((ProductBrand == null)) {
+                throw new global::System.ArgumentNullException("ProductBrand");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ProductBrand));
+            }
+            if ((CategoryName == null)) {
+                throw new global::System.ArgumentNullException("CategoryName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(CategoryName));
+            }
+            if ((ProductName == null)) {
+                throw new global::System.ArgumentNullException("ProductName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(ProductName));
             }
             FinalProjectDataset.ProductDetailDataTable dataTable = new FinalProjectDataset.ProductDetailDataTable();
             this.Adapter.Fill(dataTable);
