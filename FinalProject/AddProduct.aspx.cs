@@ -57,7 +57,6 @@ protected void btnAddProduct_Click(object sender, EventArgs e)
             if (result)
             {
                 productImage = Server.MapPath("~/Uploads/")  + productImage;
-                productImage = "";
                 int rowInserted = adpProduct.Insert(productName, productDesc, productType, productPrice, productBrand, productImage, userId, categoryId);
             }
         }
@@ -81,7 +80,9 @@ protected void btnAddProduct_Click(object sender, EventArgs e)
                     if (fileSize <= 2097152)
                     {
                         // save file in Uploads folder
-                        flProductImage.SaveAs(Server.MapPath("~/Uploads/") + fileName);
+                        string path = Server.MapPath("~/Uploads/") + fileName;
+                        flProductImage.SaveAs(path);
+                        
                         //lblMessage.Text = "File successfully uploaded";
                         //lblMessage.ForeColor = Color.Green;
                         result = true;

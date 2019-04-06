@@ -14,7 +14,7 @@ namespace FinalProject
         ProductDetailTableAdapter adpProductDetails = new ProductDetailTableAdapter();
         FinalProjectDataset.ProductDetailDataTable tblProductDetails = new FinalProjectDataset.ProductDetailDataTable();
         protected string CategoryName = null;
-
+        string searchQuery;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -22,25 +22,35 @@ namespace FinalProject
             User user = (User)Session["user"];
 
             string v = Request.QueryString["category"];
-            
+            searchQuery = ((Site1)Master.Master).TextBoxSearch;
+            System.Diagnostics.Debug.WriteLine("Search "+searchQuery);
             if (!IsPostBack)
             {
-                BindData(v);
-            }
-        }
-        private void BindData(string category)
-        {
-            if (category == null)
-            {
-                adpProductDetails.Fill(tblProductDetails);
+                BindData(v,searchQuery);
             }
             else
             {
-                tblProductDetails = adpProductDetails.GetProductsByCategoryId(int.Parse(category));
-                CategoryName = tblProductDetails[0].CategoryName;
+                BindData(v, searchQuery);
+            }
+        }
+        private void BindData(string category,string searchQuery)
+        {
+            if (category == null)
+            {
+                if (searchQuery.Equals(""))
+                    adpProductDetails.Fill(tblProductDetails);
+                else
+                    tblProductDetails = adpProductDetails.SearchProducts(searchQuery);
+            }
+            else
+            {
+                    tblProductDetails = adpProductDetails.GetProductsByCategoryId(int.Parse(category));
+                    CategoryName = tblProductDetails[0].CategoryName;
             }
             lvProducts.DataSource = tblProductDetails;
             lvProducts.DataBind();
         }
+
+        
     }
 }

@@ -24,5 +24,15 @@ namespace FinalProject
                 lvCategories.DataBind();
             }
         }
+
+        public string TextBoxSearch
+        {
+            get { return txtSearch.Text; }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
