@@ -7,20 +7,24 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <!-- Content Column -->
 
-    <asp:ListView ID="lvProducts" runat="server">
+    <asp:ListView ID="lvProducts" OnItemCommand="lvProducts_OnItemCommand" runat="server">
         <ItemTemplate>
             <div class="col-lg-4 mb-4">
                 <!-- Illustrations -->
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary"><%# Eval("ProductName")  %> </h6>
+                    <img class="card-img-top" src="content/img/laptop.jpg">
+                    <%--<div class="card-header py-3">
+                        
                     </div>
-                    <div class="card-body">
-                        <div class="text-center" style="margin: -1.25rem;">
+                    --%><div class="card-body">
+                        <h6 class="card-title font-weight-bold text-primary"><%# Eval("ProductName")  %> </h6>
+                        <%--<div class="text-center" style="margin: -1.25rem;">
                             <img class="img-fluid" style="" src="content/img/laptop.jpg" alt="">
                         </div>
-                        <p style="margin-top: 2.5rem"><%# Eval("ProductDesc")  %> </p>
-                        <a class="btn btn-primary float-right" target="_blank" rel="nofollow" href="ProductDetails.aspx?ProductId=<%# Eval("ProductId")  %> ">Enquiry &rarr;</a>
+                        --%><p> <%# Eval("ProductDesc")  %> </p>
+                        <asp:LinkButton ID="btnEnquiry" CommandName="Enquiry" CssClass="btn btn-primary float-right" runat="server">Enquiry</asp:LinkButton>
+                        <asp:LinkButton ID="btnBuyNow" CssClass="btn btn-primary float-right mr-2" runat="server">Buy Now</asp:LinkButton>
+                        
                     </div>
                 </div>
             </div>

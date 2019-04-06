@@ -49,8 +49,27 @@ namespace FinalProject
             }
             lvProducts.DataSource = tblProductDetails;
             lvProducts.DataBind();
+            string[] keyArray = { "ProductId", "UserId" };
+            lvProducts.DataKeyNames = keyArray;
+            //lvProducts.Data
         }
 
-        
+        protected void lvProducts_OnItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            if (String.Equals(e.CommandName, "Enquiry"))
+            {
+                // Verify that the employee ID is not already in the list. If not, add the
+                // employee to the list.
+                ListViewDataItem dataItem = (ListViewDataItem)e.Item;
+
+                //tblProductDetails[dataItem.DataItemIndex];
+                string param =
+                  lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString();
+
+                System.Diagnostics.Debug.WriteLine("Parameter" + param);
+            }
+        }
+
+
     }
 }

@@ -950,6 +950,8 @@ namespace FinalProject {
             
             private global::System.Data.DataColumn columnUserCompany;
             
+            private global::System.Data.DataColumn columnUserId;
+            
             private global::System.Data.DataColumn columnUserImage;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1083,6 +1085,14 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn UserIdColumn {
+                get {
+                    return this.columnUserId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn UserImageColumn {
                 get {
                     return this.columnUserImage;
@@ -1126,7 +1136,7 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, string ProductImage, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, string UserImage) {
+            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, string ProductImage, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage) {
                 ProductDetailRow rowProductDetailRow = ((ProductDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CategoryName,
@@ -1141,6 +1151,7 @@ namespace FinalProject {
                         UserFirstName,
                         UserLastName,
                         UserCompany,
+                        UserId,
                         UserImage};
                 rowProductDetailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductDetailRow);
@@ -1183,6 +1194,7 @@ namespace FinalProject {
                 this.columnUserFirstName = base.Columns["UserFirstName"];
                 this.columnUserLastName = base.Columns["UserLastName"];
                 this.columnUserCompany = base.Columns["UserCompany"];
+                this.columnUserId = base.Columns["UserId"];
                 this.columnUserImage = base.Columns["UserImage"];
             }
             
@@ -1213,6 +1225,8 @@ namespace FinalProject {
                 base.Columns.Add(this.columnUserLastName);
                 this.columnUserCompany = new global::System.Data.DataColumn("UserCompany", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserCompany);
+                this.columnUserId = new global::System.Data.DataColumn("UserId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserId);
                 this.columnUserImage = new global::System.Data.DataColumn("UserImage", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserImage);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -1237,6 +1251,7 @@ namespace FinalProject {
                 this.columnUserLastName.AllowDBNull = false;
                 this.columnUserLastName.MaxLength = 50;
                 this.columnUserCompany.MaxLength = 50;
+                this.columnUserId.AllowDBNull = false;
                 this.columnUserImage.MaxLength = 50;
             }
             
@@ -3579,6 +3594,17 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int UserId {
+                get {
+                    return ((int)(this[this.tableProductDetail.UserIdColumn]));
+                }
+                set {
+                    this[this.tableProductDetail.UserIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string UserImage {
                 get {
                     try {
@@ -5375,6 +5401,7 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
             tableMapping.ColumnMappings.Add("UserFirstName", "UserFirstName");
             tableMapping.ColumnMappings.Add("UserLastName", "UserLastName");
             tableMapping.ColumnMappings.Add("UserCompany", "UserCompany");
+            tableMapping.ColumnMappings.Add("UserId", "UserId");
             tableMapping.ColumnMappings.Add("UserImage", "UserImage");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -5392,15 +5419,15 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductCreationDateTime, 
-                  [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
-FROM     Category INNER JOIN
-                  Product ON Category.CategoryId = Product.CategoryId INNER JOIN
-                  [User] ON Product.UserId = [User].UserId";
+            this._commandCollection[0].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductCreationDateTime,  Product.UserId, 
+                         [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
+FROM            Category INNER JOIN
+                         Product ON Category.CategoryId = Product.CategoryId INNER JOIN
+                         [User] ON Product.UserId = [User].UserId";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductCreationDateTime, 
+            this._commandCollection[1].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductCreationDateTime, Product.UserId,
                          [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
@@ -5410,7 +5437,7 @@ WHERE        (Product.CategoryId = @CategoryId)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CategoryId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductCreationDateTime, 
+            this._commandCollection[2].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductCreationDateTime, Product.UserId,
                          [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
