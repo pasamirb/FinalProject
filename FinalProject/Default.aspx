@@ -29,6 +29,7 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><span class="text-primary">Sold By :</span> <%# Eval("UserCompany")  %></li>
+                        <li class="list-group-item"><span class="text-primary">Category :</span> <%# Eval("CategoryName")  %></li>
                         <li class="list-group-item"><span class="text-primary">Qty :</span> <%# Eval("ProductQty")  %></li>
                         <li class="list-group-item"><span class="text-primary">Brand :</span> <%# Eval("ProductBrand")  %></li>
                     </ul>
