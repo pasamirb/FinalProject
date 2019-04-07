@@ -49,19 +49,21 @@ namespace FinalProject
 
         protected void btnUpdateUserInfo_Click(object sender, EventArgs e)
         {
-            //txtEmail.Text;
+            string email = txtEmail.Text;
             string firstName = txtUserFirstName.Text;
             string lastName = txtUserLastName.Text;
             string userName = txtUserName.Text;
             string companyName = txtUserCompany.Text;
             int phone = int.Parse(txtUserPhone.Text);
             string userImage = fuUserProfilePicture.FileName;
-            string userPassword = "";
+            string userPassword = "tests";
 
             if (uploadFile())
             {
                 string userImagePath = Server.MapPath("~/Uploads/") + userImage;
-                int updateRows = adpUser.Update(firstName, lastName, userName, userPassword, user.Email, phone, companyName, userImagePath, 1, new DateTime(), user.UserId);
+                DateTime dateTime = DateTime.Now;
+
+                int updateRows = adpUser.Update(firstName, lastName, userName, userPassword, email, phone, companyName, userImagePath, 1, dateTime, user.UserId);
             }
         }
 
