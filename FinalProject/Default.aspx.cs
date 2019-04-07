@@ -59,6 +59,7 @@ namespace FinalProject
             }
             lvProducts.DataSource = tblProductDetails;
             lvProducts.DataBind();
+            
             string[] keyArray = { "ProductId" };
             lvProducts.DataKeyNames = keyArray;
             //lvProducts.Data
@@ -110,6 +111,7 @@ namespace FinalProject
 
             }
         }
+       
 
 
     }
