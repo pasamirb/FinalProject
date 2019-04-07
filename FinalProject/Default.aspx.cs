@@ -14,10 +14,12 @@ namespace FinalProject
         ProductDetailTableAdapter adpProductDetails = new ProductDetailTableAdapter();
         MessageProductUserTableAdapter adpMessageProductUser = new MessageProductUserTableAdapter();
         FinalProjectDataset.MessageProductUserDataTable tblMessageProductUser = new FinalProjectDataset.MessageProductUserDataTable();
-
+        ProductTableAdapter adpProduct = new ProductTableAdapter();
         MessageTableAdapter adpMessage = new MessageTableAdapter();
 
         UserProductTableAdapter adpUserProduct = new UserProductTableAdapter();
+        FinalProjectDataset.UserProductDataTable tblUserProduct = new FinalProjectDataset.UserProductDataTable();
+
         FinalProjectDataset.ProductDetailDataTable tblProductDetails = new FinalProjectDataset.ProductDetailDataTable();
         protected string CategoryName = null;
         User user;
@@ -93,8 +95,18 @@ namespace FinalProject
                   int.Parse(lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString());
                 int ProductUserId = int.Parse(e.CommandArgument.ToString());
 
-                adpUserProduct.Insert(user.UserId, ProductId, 1);
-                
+                FinalProjectDataset.ProductDetailRow row = tblProductDetails[dataItem.DisplayIndex];
+                if(string.Equals(row.ProductType, "Available")) {
+                    
+                    adpUserProduct.Insert(user.UserId, ProductId, 1);
+                    if (adpUserProduct.GetTotalQtyByProduct(ProductId) == row.ProductQty)
+                    {
+                        row.ProductType = "Sold";
+                        adpProduct.UpdateProductType(row.ProductType, row.ProductId);
+                        Response.Redirect("");
+                    }
+                }
+
 
             }
         }
