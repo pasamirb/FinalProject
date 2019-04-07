@@ -20,6 +20,12 @@
                     <asp:TextBox ID="txtPtoductDesc" type="text" TextMode="MultiLine" Columns="50" Rows="5" runat="server" CssClass="form-control" placeholder="Enter Product Decription"></asp:TextBox>
                 </div>
             </div>
+                        <div class="form-group row">
+                <asp:Label ID="lblQty" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Quantity:"></asp:Label>
+                <div class="col-sm-10">
+                    <asp:TextBox ID="txtProductQty" type="number" runat="server" CssClass="form-control" placeholder="Enter Product Quantity"></asp:TextBox>
+                </div>
+            </div>
             <div class="form-group row">
                 <asp:Label ID="lblProductType" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Type:"></asp:Label>
                 <div class="col-sm-10">

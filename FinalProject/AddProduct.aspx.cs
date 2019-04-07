@@ -46,6 +46,7 @@ protected void btnAddProduct_Click(object sender, EventArgs e)
         {
             string productName = txtProductName.Text;
             string productDesc = txtPtoductDesc.Text;
+            int productQty = int.Parse(txtProductQty.Text);
             string productType = ddlProductType.SelectedValue;
             decimal productPrice = int.Parse(txtProductPrice.Text);
             string productBrand = txtProductBrand.Text;
@@ -57,7 +58,7 @@ protected void btnAddProduct_Click(object sender, EventArgs e)
             if (result)
             {
                 productImage = Server.MapPath("~/Uploads/")  + productImage;
-                int rowInserted = adpProduct.Insert(productName, productDesc, productType, productPrice, productBrand, productImage, userId, categoryId);
+                int rowInserted = adpProduct.Insert(productName, productDesc, productType, productPrice, productBrand, productImage, userId, categoryId, productQty);
             }
         }
 

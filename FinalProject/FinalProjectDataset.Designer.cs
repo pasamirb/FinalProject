@@ -989,8 +989,6 @@ namespace FinalProject {
             
             private global::System.Data.DataColumn columnProductBrand;
             
-            private global::System.Data.DataColumn columnProductImage;
-            
             private global::System.Data.DataColumn columnProductCreationDateTime;
             
             private global::System.Data.DataColumn columnUserFirstName;
@@ -1003,6 +1001,10 @@ namespace FinalProject {
             
             private global::System.Data.DataColumn columnUserImage;
             
+            private global::System.Data.DataColumn columnExpr1;
+            
+            private global::System.Data.DataColumn columnProductImage;
+          
             private global::System.Data.DataColumn columnProductQty;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1096,14 +1098,6 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ProductImageColumn {
-                get {
-                    return this.columnProductImage;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn ProductCreationDateTimeColumn {
                 get {
                     return this.columnProductCreationDateTime;
@@ -1152,9 +1146,23 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+
+            public global::System.Data.DataColumn Expr1Column {
+                get {
+                    return this.columnExpr1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ProductImageColumn {
+                get {
+                    return this.columnProductImage;
+
             public global::System.Data.DataColumn ProductQtyColumn {
                 get {
                     return this.columnProductQty;
+
                 }
             }
             
@@ -1195,7 +1203,11 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+
+            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage, int Expr1, string ProductImage) {
+
             public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, string ProductImage, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage, int ProductQty) {
+
                 ProductDetailRow rowProductDetailRow = ((ProductDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CategoryName,
@@ -1205,14 +1217,16 @@ namespace FinalProject {
                         ProductType,
                         ProductPrice,
                         ProductBrand,
-                        ProductImage,
                         ProductCreationDateTime,
                         UserFirstName,
                         UserLastName,
                         UserCompany,
                         UserId,
                         UserImage,
+                        Expr1,
+                        ProductImage,
                         ProductQty};
+
                 rowProductDetailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductDetailRow);
                 return rowProductDetailRow;
@@ -1249,13 +1263,14 @@ namespace FinalProject {
                 this.columnProductType = base.Columns["ProductType"];
                 this.columnProductPrice = base.Columns["ProductPrice"];
                 this.columnProductBrand = base.Columns["ProductBrand"];
-                this.columnProductImage = base.Columns["ProductImage"];
                 this.columnProductCreationDateTime = base.Columns["ProductCreationDateTime"];
                 this.columnUserFirstName = base.Columns["UserFirstName"];
                 this.columnUserLastName = base.Columns["UserLastName"];
                 this.columnUserCompany = base.Columns["UserCompany"];
                 this.columnUserId = base.Columns["UserId"];
                 this.columnUserImage = base.Columns["UserImage"];
+                this.columnExpr1 = base.Columns["Expr1"];
+                this.columnProductImage = base.Columns["ProductImage"];
                 this.columnProductQty = base.Columns["ProductQty"];
             }
             
@@ -1276,8 +1291,6 @@ namespace FinalProject {
                 base.Columns.Add(this.columnProductPrice);
                 this.columnProductBrand = new global::System.Data.DataColumn("ProductBrand", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductBrand);
-                this.columnProductImage = new global::System.Data.DataColumn("ProductImage", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProductImage);
                 this.columnProductCreationDateTime = new global::System.Data.DataColumn("ProductCreationDateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductCreationDateTime);
                 this.columnUserFirstName = new global::System.Data.DataColumn("UserFirstName", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1290,6 +1303,10 @@ namespace FinalProject {
                 base.Columns.Add(this.columnUserId);
                 this.columnUserImage = new global::System.Data.DataColumn("UserImage", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserImage);
+                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpr1);
+                this.columnProductImage = new global::System.Data.DataColumn("ProductImage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductImage);
                 this.columnProductQty = new global::System.Data.DataColumn("ProductQty", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductQty);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -1307,7 +1324,6 @@ namespace FinalProject {
                 this.columnProductDesc.MaxLength = 500;
                 this.columnProductType.MaxLength = 50;
                 this.columnProductBrand.MaxLength = 50;
-                this.columnProductImage.MaxLength = 50;
                 this.columnProductCreationDateTime.AllowDBNull = false;
                 this.columnUserFirstName.AllowDBNull = false;
                 this.columnUserFirstName.MaxLength = 50;
@@ -1316,6 +1332,8 @@ namespace FinalProject {
                 this.columnUserCompany.MaxLength = 50;
                 this.columnUserId.AllowDBNull = false;
                 this.columnUserImage.MaxLength = 50;
+                this.columnExpr1.ReadOnly = true;
+                this.columnProductImage.MaxLength = 500;
                 this.columnProductQty.AllowDBNull = false;
             }
             
@@ -2582,6 +2600,8 @@ namespace FinalProject {
             
             private global::System.Data.DataColumn columnCategoryId;
             
+            private global::System.Data.DataColumn columnProductQty;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ProductDataTable() {
@@ -2689,6 +2709,14 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ProductQtyColumn {
+                get {
+                    return this.columnProductQty;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2724,7 +2752,7 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ProductRow AddProductRow(string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, string ProductImage, UserRow parentUserRowByFK_Product_User, CategoryRow parentCategoryRowByFK_Product_Category) {
+            public ProductRow AddProductRow(string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, string ProductImage, UserRow parentUserRowByFK_Product_User, CategoryRow parentCategoryRowByFK_Product_Category, int ProductQty) {
                 ProductRow rowProductRow = ((ProductRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2735,7 +2763,8 @@ namespace FinalProject {
                         ProductBrand,
                         ProductImage,
                         null,
-                        null};
+                        null,
+                        ProductQty};
                 if ((parentUserRowByFK_Product_User != null)) {
                     columnValuesArray[7] = parentUserRowByFK_Product_User[10];
                 }
@@ -2780,6 +2809,7 @@ namespace FinalProject {
                 this.columnProductImage = base.Columns["ProductImage"];
                 this.columnUserId = base.Columns["UserId"];
                 this.columnCategoryId = base.Columns["CategoryId"];
+                this.columnProductQty = base.Columns["ProductQty"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2803,6 +2833,8 @@ namespace FinalProject {
                 base.Columns.Add(this.columnUserId);
                 this.columnCategoryId = new global::System.Data.DataColumn("CategoryId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCategoryId);
+                this.columnProductQty = new global::System.Data.DataColumn("ProductQty", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductQty);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnProductId}, true));
                 this.columnProductId.AutoIncrement = true;
@@ -2818,6 +2850,7 @@ namespace FinalProject {
                 this.columnProductBrand.MaxLength = 50;
                 this.columnProductImage.MaxLength = 50;
                 this.columnUserId.AllowDBNull = false;
+                this.columnProductQty.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3915,22 +3948,6 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ProductImage {
-                get {
-                    try {
-                        return ((string)(this[this.tableProductDetail.ProductImageColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductImage\' in table \'ProductDetail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProductDetail.ProductImageColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public System.DateTime ProductCreationDateTime {
                 get {
                     return ((global::System.DateTime)(this[this.tableProductDetail.ProductCreationDateTimeColumn]));
@@ -4007,6 +4024,35 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+
+            public int Expr1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableProductDetail.Expr1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Expr1\' in table \'ProductDetail\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProductDetail.Expr1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ProductImage {
+                get {
+                    try {
+                        return ((string)(this[this.tableProductDetail.ProductImageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductImage\' in table \'ProductDetail\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProductDetail.ProductImageColumn] = value;
+
             public int ProductQty {
                 get {
                     return ((int)(this[this.tableProductDetail.ProductQtyColumn]));
@@ -4066,18 +4112,6 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsProductImageNull() {
-                return this.IsNull(this.tableProductDetail.ProductImageColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetProductImageNull() {
-                this[this.tableProductDetail.ProductImageColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsUserCompanyNull() {
                 return this.IsNull(this.tableProductDetail.UserCompanyColumn);
             }
@@ -4098,6 +4132,30 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetUserImageNull() {
                 this[this.tableProductDetail.UserImageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsExpr1Null() {
+                return this.IsNull(this.tableProductDetail.Expr1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetExpr1Null() {
+                this[this.tableProductDetail.Expr1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsProductImageNull() {
+                return this.IsNull(this.tableProductDetail.ProductImageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetProductImageNull() {
+                this[this.tableProductDetail.ProductImageColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4668,6 +4726,17 @@ namespace FinalProject {
                 }
                 set {
                     this[this.tableProduct.CategoryIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int ProductQty {
+                get {
+                    return ((int)(this[this.tableProduct.ProductQtyColumn]));
+                }
+                set {
+                    this[this.tableProduct.ProductQtyColumn] = value;
                 }
             }
             
@@ -5953,13 +6022,14 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
             tableMapping.ColumnMappings.Add("ProductType", "ProductType");
             tableMapping.ColumnMappings.Add("ProductPrice", "ProductPrice");
             tableMapping.ColumnMappings.Add("ProductBrand", "ProductBrand");
-            tableMapping.ColumnMappings.Add("ProductImage", "ProductImage");
             tableMapping.ColumnMappings.Add("ProductCreationDateTime", "ProductCreationDateTime");
             tableMapping.ColumnMappings.Add("UserFirstName", "UserFirstName");
             tableMapping.ColumnMappings.Add("UserLastName", "UserLastName");
             tableMapping.ColumnMappings.Add("UserCompany", "UserCompany");
             tableMapping.ColumnMappings.Add("UserId", "UserId");
             tableMapping.ColumnMappings.Add("UserImage", "UserImage");
+            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
+            tableMapping.ColumnMappings.Add("ProductImage", "ProductImage");
             tableMapping.ColumnMappings.Add("ProductQty", "ProductQty");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -5977,12 +6047,20 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductQty, Product.ProductCreationDateTime, 
+            this._commandCollection[0].CommandText = @"SELECT Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, UNICODE(Product.ProductImage) AS Expr1, 
+                  Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, Product.ProductImage
+FROM     Category INNER JOIN
+                  Product ON Category.CategoryId = Product.CategoryId INNER JOIN
+                  [User] ON Product.UserId = [User].UserId
+WHERE  (Product.UserId <> @UserId)";
+
+          this._commandCollection[0].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductQty, Product.ProductCreationDateTime, 
                          Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
 WHERE        (Product.UserId <> @UserId)";
+
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
@@ -6961,6 +7039,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             tableMapping.ColumnMappings.Add("ProductImage", "ProductImage");
             tableMapping.ColumnMappings.Add("UserId", "UserId");
             tableMapping.ColumnMappings.Add("CategoryId", "CategoryId");
+            tableMapping.ColumnMappings.Add("ProductQty", "ProductQty");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -6969,7 +7048,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Product] ([ProductName], [ProductDesc], [ProductType], [ProductPrice], [ProductBrand], [ProductImage], [UserId], [CategoryId]) VALUES (@ProductName, @ProductDesc, @ProductType, @ProductPrice, @ProductBrand, @ProductImage, @UserId, @CategoryId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Product] ([ProductName], [ProductDesc], [ProductType], [ProductPrice], [ProductBrand], [ProductImage], [UserId], [CategoryId], [ProductQty]) VALUES (@ProductName, @ProductDesc, @ProductType, @ProductPrice, @ProductBrand, @ProductImage, @UserId, @CategoryId, @ProductQty)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductDesc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6979,9 +7058,10 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductImage", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductImage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductQty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Product] SET [ProductName] = @ProductName, [ProductDesc] = @ProductDesc, [ProductType] = @ProductType, [ProductPrice] = @ProductPrice, [ProductBrand] = @ProductBrand, [ProductImage] = @ProductImage, [UserId] = @UserId, [CategoryId] = @CategoryId WHERE (([ProductId] = @Original_ProductId))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Product] SET [ProductName] = @ProductName, [ProductDesc] = @ProductDesc, [ProductType] = @ProductType, [ProductPrice] = @ProductPrice, [ProductBrand] = @ProductBrand, [ProductImage] = @ProductImage, [UserId] = @UserId, [CategoryId] = @CategoryId, [ProductQty] = @ProductQty WHERE (([ProductId] = @Original_ProductId))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductDesc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6991,6 +7071,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductImage", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductImage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductQty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -7008,7 +7089,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ProductId, ProductName, ProductDesc, ProductType, ProductPrice, ProductBra" +
-                "nd, ProductImage, UserId, CategoryId\r\nFROM     Product";
+                "nd, ProductImage, UserId, CategoryId, ProductQty\r\nFROM     Product";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -7085,7 +7166,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ProductName, string ProductDesc, string ProductType, global::System.Nullable<decimal> ProductPrice, string ProductBrand, string ProductImage, int UserId, global::System.Nullable<int> CategoryId) {
+        public virtual int Insert(string ProductName, string ProductDesc, string ProductType, global::System.Nullable<decimal> ProductPrice, string ProductBrand, string ProductImage, int UserId, global::System.Nullable<int> CategoryId, int ProductQty) {
             if ((ProductName == null)) {
                 throw new global::System.ArgumentNullException("ProductName");
             }
@@ -7129,6 +7210,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
+            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(ProductQty));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7149,7 +7231,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ProductName, string ProductDesc, string ProductType, global::System.Nullable<decimal> ProductPrice, string ProductBrand, string ProductImage, int UserId, global::System.Nullable<int> CategoryId, int Original_ProductId) {
+        public virtual int Update(string ProductName, string ProductDesc, string ProductType, global::System.Nullable<decimal> ProductPrice, string ProductBrand, string ProductImage, int UserId, global::System.Nullable<int> CategoryId, int ProductQty, int Original_ProductId) {
             if ((ProductName == null)) {
                 throw new global::System.ArgumentNullException("ProductName");
             }
@@ -7193,7 +7275,8 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ProductId));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(ProductQty));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ProductId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
