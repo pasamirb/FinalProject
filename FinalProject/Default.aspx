@@ -13,6 +13,7 @@
                 <!-- Illustrations -->
                 <div class="card shadow mb-4">
                     <img class="card-img-top" src="content/img/laptop.jpg">
+                     <%# Eval("ProductType").ToString().ToUpper().Equals("SOLD") ? "<img class='img-sold' src='content/img/sold_ribbon.png'>" : ""%>
                     <%--<div class="card-header py-3">
                         
                     </div>

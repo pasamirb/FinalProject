@@ -1,3 +1,7 @@
 ﻿.vertical-align-center{
     align-content:center;
 }
+
+.img-sold{
+    position:absolute;
+}

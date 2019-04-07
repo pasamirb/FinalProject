@@ -83,6 +83,7 @@
     <Content Include="content\js\demo\datatables-demo.js" />
     <Content Include="content\js\sb-admin-2.js" />
     <Content Include="content\js\sb-admin-2.min.js" />
+    <Content Include="content\img\sold_ribbon.png" />
     <Content Include="content\vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="content\vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="content\vendor\bootstrap\js\bootstrap.js" />
