@@ -10,159 +10,159 @@
 namespace FinalProject {
     
     
-    public partial class AddProduct {
+    public partial class WebForm4 {
         
         /// <summary>
-        /// lblProductName control.
+        /// lblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductName;
+        protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
-        /// txtProductName control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductName;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// lblProductDesc control.
+        /// lblUserFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductDesc;
+        protected global::System.Web.UI.WebControls.Label lblUserFirstName;
         
         /// <summary>
-        /// txtPtoductDesc control.
+        /// txtUserFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPtoductDesc;
+        protected global::System.Web.UI.WebControls.TextBox txtUserFirstName;
         
         /// <summary>
-        /// lblQty control.
+        /// lblUserLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQty;
+        protected global::System.Web.UI.WebControls.Label lblUserLastName;
         
         /// <summary>
-        /// txtProductQty control.
+        /// txtUserLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductQty;
+        protected global::System.Web.UI.WebControls.TextBox txtUserLastName;
         
         /// <summary>
-        /// lblProductType control.
+        /// lblUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductType;
+        protected global::System.Web.UI.WebControls.Label lblUserName;
         
         /// <summary>
-        /// ddlProductType control.
+        /// txtUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProductType;
+        protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
-        /// lblProductPrice control.
+        /// lblPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductPrice;
+        protected global::System.Web.UI.WebControls.Label lblPassword;
         
         /// <summary>
-        /// txtProductPrice control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductPrice;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// lblProductBrand control.
+        /// lblUserPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductBrand;
+        protected global::System.Web.UI.WebControls.Label lblUserPhone;
         
         /// <summary>
-        /// txtProductBrand control.
+        /// txtUserPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductBrand;
+        protected global::System.Web.UI.WebControls.TextBox txtUserPhone;
         
         /// <summary>
-        /// lblProductImage control.
+        /// lblUsrCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductImage;
+        protected global::System.Web.UI.WebControls.Label lblUsrCompany;
         
         /// <summary>
-        /// flProductImage control.
+        /// txtUserCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flProductImage;
+        protected global::System.Web.UI.WebControls.TextBox txtUserCompany;
         
         /// <summary>
-        /// lblProductCategory control.
+        /// lblUserProfilePicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductCategory;
+        protected global::System.Web.UI.WebControls.Label lblUserProfilePicture;
         
         /// <summary>
-        /// ddlProductCategory control.
+        /// fuUserProfilePicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProductCategory;
+        protected global::System.Web.UI.WebControls.FileUpload fuUserProfilePicture;
         
         /// <summary>
-        /// btnAddProduct control.
+        /// btnUpdateUserInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddProduct;
+        protected global::System.Web.UI.WebControls.Button btnUpdateUserInfo;
     }
 }

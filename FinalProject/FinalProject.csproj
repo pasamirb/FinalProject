@@ -1661,6 +1661,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Messages.aspx" />
     <Content Include="LogOut.aspx" />
+    <Content Include="UpdateUser.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddProduct.aspx.cs">
@@ -1734,6 +1735,13 @@
     </Compile>
     <Compile Include="LogOut.aspx.designer.cs">
       <DependentUpon>LogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateUser.aspx.cs">
+      <DependentUpon>UpdateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateUser.aspx.designer.cs">
+      <DependentUpon>UpdateUser.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
