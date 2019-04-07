@@ -3282,8 +3282,6 @@ namespace FinalProject {
             
             private global::System.Data.DataColumn columnQty;
             
-            private global::System.Data.DataColumn columnUserProductCreationDateTime;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public UserProductDataTable() {
@@ -3351,14 +3349,6 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn UserProductCreationDateTimeColumn {
-                get {
-                    return this.columnUserProductCreationDateTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3394,14 +3384,13 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public UserProductRow AddUserProductRow(UserRow parentUserRowByFK_UserProduct_User, ProductRow parentProductRowByFK_UserProduct_Product, int Qty, System.DateTime UserProductCreationDateTime) {
+            public UserProductRow AddUserProductRow(UserRow parentUserRowByFK_UserProduct_User, ProductRow parentProductRowByFK_UserProduct_Product, int Qty) {
                 UserProductRow rowUserProductRow = ((UserProductRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
-                        Qty,
-                        UserProductCreationDateTime};
+                        Qty};
                 if ((parentUserRowByFK_UserProduct_User != null)) {
                     columnValuesArray[1] = parentUserRowByFK_UserProduct_User[10];
                 }
@@ -3441,7 +3430,6 @@ namespace FinalProject {
                 this.columnUserId = base.Columns["UserId"];
                 this.columnProductId = base.Columns["ProductId"];
                 this.columnQty = base.Columns["Qty"];
-                this.columnUserProductCreationDateTime = base.Columns["UserProductCreationDateTime"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3455,8 +3443,6 @@ namespace FinalProject {
                 base.Columns.Add(this.columnProductId);
                 this.columnQty = new global::System.Data.DataColumn("Qty", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQty);
-                this.columnUserProductCreationDateTime = new global::System.Data.DataColumn("UserProductCreationDateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserProductCreationDateTime);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUserProductId}, true));
                 this.columnUserProductId.AutoIncrement = true;
@@ -3466,7 +3452,6 @@ namespace FinalProject {
                 this.columnUserProductId.ReadOnly = true;
                 this.columnUserProductId.Unique = true;
                 this.columnQty.AllowDBNull = false;
-                this.columnUserProductCreationDateTime.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4985,17 +4970,6 @@ namespace FinalProject {
                 }
                 set {
                     this[this.tableUserProduct.QtyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime UserProductCreationDateTime {
-                get {
-                    return ((global::System.DateTime)(this[this.tableUserProduct.UserProductCreationDateTimeColumn]));
-                }
-                set {
-                    this[this.tableUserProduct.UserProductCreationDateTimeColumn] = value;
                 }
             }
             
@@ -7670,7 +7644,6 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             tableMapping.ColumnMappings.Add("UserId", "UserId");
             tableMapping.ColumnMappings.Add("ProductId", "ProductId");
             tableMapping.ColumnMappings.Add("Qty", "Qty");
-            tableMapping.ColumnMappings.Add("UserProductCreationDateTime", "UserProductCreationDateTime");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -7679,23 +7652,20 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserProductId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserProductId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [UserProduct] ([UserId], [ProductId], [Qty], [UserProductCreationDate" +
-                "Time]) VALUES (@UserId, @ProductId, @Qty, @UserProductCreationDateTime)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [UserProduct] ([UserId], [ProductId], [Qty]) VALUES (@UserId, @Produc" +
+                "tId, @Qty)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserProductCreationDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserProductCreationDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [UserProduct] SET [UserId] = @UserId, [ProductId] = @ProductId, [Qty] = @Q" +
-                "ty, [UserProductCreationDateTime] = @UserProductCreationDateTime WHERE (([UserPr" +
-                "oductId] = @Original_UserProductId))";
+                "ty WHERE (([UserProductId] = @Original_UserProductId))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserProductCreationDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserProductCreationDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserProductId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserProductId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -7712,8 +7682,8 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT UserProductId, UserId, ProductId, Qty, UserProductCreationDateTime\r\nFROM  " +
-                "   UserProduct\r\nORDER BY UserProductCreationDateTime";
+            this._commandCollection[0].CommandText = "SELECT        UserProductId, UserId, ProductId, Qty\r\nFROM            UserProduct\r" +
+                "\nORDER BY UserProductCreationDateTime";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7783,7 +7753,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> UserId, global::System.Nullable<int> ProductId, int Qty, System.DateTime UserProductCreationDateTime) {
+        public virtual int Insert(global::System.Nullable<int> UserId, global::System.Nullable<int> ProductId, int Qty) {
             if ((UserId.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(UserId.Value));
             }
@@ -7797,7 +7767,6 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Qty));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(UserProductCreationDateTime));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7818,7 +7787,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> UserId, global::System.Nullable<int> ProductId, int Qty, System.DateTime UserProductCreationDateTime, int Original_UserProductId) {
+        public virtual int Update(global::System.Nullable<int> UserId, global::System.Nullable<int> ProductId, int Qty, int Original_UserProductId) {
             if ((UserId.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(UserId.Value));
             }
@@ -7832,8 +7801,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Qty));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(UserProductCreationDateTime));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_UserProductId));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_UserProductId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

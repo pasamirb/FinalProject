@@ -16,7 +16,8 @@ namespace FinalProject
         FinalProjectDataset.MessageProductUserDataTable tblMessageProductUser = new FinalProjectDataset.MessageProductUserDataTable();
 
         MessageTableAdapter adpMessage = new MessageTableAdapter();
-        
+
+        UserProductTableAdapter adpUserProduct = new UserProductTableAdapter();
         FinalProjectDataset.ProductDetailDataTable tblProductDetails = new FinalProjectDataset.ProductDetailDataTable();
         protected string CategoryName = null;
         User user;
@@ -80,9 +81,21 @@ namespace FinalProject
                 }
                 else
                 {
-                    adpMessage.Insert("Hey, I am interesterd in this product. I s it still available?", user.UserId, ProductUserId, ProductId);            
+                    adpMessage.Insert("Hey, I am interesterd in this product. Is it still available?", user.UserId, ProductUserId, ProductId);            
                 }
-                System.Diagnostics.Debug.WriteLine("Parameter" + param);
+                //System.Diagnostics.Debug.WriteLine("Parameter" + param);
+            } else if(String.Equals(e.CommandName, "Buy"))
+            {
+                ListViewDataItem dataItem = (ListViewDataItem)e.Item;
+
+                //tblProductDetails[dataItem.DataItemIndex];
+                int ProductId =
+                  int.Parse(lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString());
+                int ProductUserId = int.Parse(e.CommandArgument.ToString());
+
+                adpUserProduct.Insert(user.UserId, ProductId, 1);
+                
+
             }
         }
 
