@@ -1155,10 +1155,13 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ProductImageColumn {
-                get {
+            public global::System.Data.DataColumn ProductImageColumn
+            {
+                get
+                {
                     return this.columnProductImage;
-
+                }
+            }
             public global::System.Data.DataColumn ProductQtyColumn {
                 get {
                     return this.columnProductQty;
@@ -1204,9 +1207,8 @@ namespace FinalProject {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
 
-            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage, int Expr1, string ProductImage) {
-
-            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, string ProductImage, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage, int ProductQty) {
+            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage, int Expr1, string ProductImage, int ProductQty)
+            {
 
                 ProductDetailRow rowProductDetailRow = ((ProductDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -4041,17 +4043,24 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ProductImage {
-                get {
-                    try {
+            public string ProductImage
+            {
+                get
+                {
+                    try
+                    {
                         return ((string)(this[this.tableProductDetail.ProductImageColumn]));
                     }
-                    catch (global::System.InvalidCastException e) {
+                    catch (global::System.InvalidCastException e)
+                    {
                         throw new global::System.Data.StrongTypingException("The value for column \'ProductImage\' in table \'ProductDetail\' is DBNull.", e);
                     }
                 }
-                set {
+                set
+                {
                     this[this.tableProductDetail.ProductImageColumn] = value;
+                }
+            }
 
             public int ProductQty {
                 get {
