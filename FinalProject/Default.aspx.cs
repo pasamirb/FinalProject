@@ -102,9 +102,10 @@ namespace FinalProject
                     adpUserProduct.Insert(user.UserId, ProductId, 1);
                     if (adpUserProduct.GetTotalQtyByProduct(ProductId) == row.ProductQty)
                     {
-                        row.ProductType = "Sold";
-                        adpProduct.UpdateProductType(row.ProductType, row.ProductId);
-                        Response.Redirect("");
+                        //row.ProductType = "Sold";
+                        adpProduct.UpdateProductType("Sold", row.ProductId);
+                        tblProductDetails[dataItem.DisplayIndex].ProductType = "Sold";
+                        //Response.Redirect("");
                     }
                 }
 
