@@ -67,49 +67,53 @@ namespace FinalProject
 
         protected void lvProducts_OnItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            if (String.Equals(e.CommandName, "Enquiry"))
-            {
-                // Verify that the employee ID is not already in the list. If not, add the
-                // employee to the list.
-                ListViewDataItem dataItem = (ListViewDataItem)e.Item;
-
-                //tblProductDetails[dataItem.DataItemIndex];
-                int ProductId =
-                  int.Parse(lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString());
-                int ProductUserId = int.Parse(e.CommandArgument.ToString());
-                tblMessageProductUser = adpMessageProductUser.GetMessages(ProductUserId,ProductId);
-                if(tblMessageProductUser.Count > 0)
+            if (user.UserId != 0) { 
+                if (String.Equals(e.CommandName, "Enquiry"))
                 {
-                    Response.Redirect("~/Messages.aspx");
-                }
-                else
-                {
-                    adpMessage.Insert("Hey, I am interesterd in this product. Is it still available?", user.UserId, ProductUserId, ProductId);            
-                }
-                //System.Diagnostics.Debug.WriteLine("Parameter" + param);
-            } else if(String.Equals(e.CommandName, "Buy"))
-            {
-                ListViewDataItem dataItem = (ListViewDataItem)e.Item;
+                    // Verify that the employee ID is not already in the list. If not, add the
+                    // employee to the list.
+                    ListViewDataItem dataItem = (ListViewDataItem)e.Item;
 
-                //tblProductDetails[dataItem.DataItemIndex];
-                int ProductId =
-                  int.Parse(lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString());
-                int ProductUserId = int.Parse(e.CommandArgument.ToString());
-
-                FinalProjectDataset.ProductDetailRow row = tblProductDetails[dataItem.DisplayIndex];
-                if(string.Equals(row.ProductType, "Available")) {
-                    
-                    adpUserProduct.Insert(user.UserId, ProductId, 1);
-                    if (adpUserProduct.GetTotalQtyByProduct(ProductId) == row.ProductQty)
+                    //tblProductDetails[dataItem.DataItemIndex];
+                    int ProductId =
+                      int.Parse(lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString());
+                    int ProductUserId = int.Parse(e.CommandArgument.ToString());
+                    tblMessageProductUser = adpMessageProductUser.GetMessages(ProductUserId,ProductId);
+                    if(tblMessageProductUser.Count > 0)
                     {
-                        //row.ProductType = "Sold";
-                        adpProduct.UpdateProductType("Sold", row.ProductId);
-                        tblProductDetails[dataItem.DisplayIndex].ProductType = "Sold";
-                        //Response.Redirect("");
+                        Response.Redirect("~/Messages.aspx");
+                    }
+                    else
+                    {
+                        adpMessage.Insert("Hey, I am interesterd in this product. Is it still available?", user.UserId, ProductUserId, ProductId);            
+                    }
+                    //System.Diagnostics.Debug.WriteLine("Parameter" + param);
+                } else if(String.Equals(e.CommandName, "Buy"))
+                {
+                    ListViewDataItem dataItem = (ListViewDataItem)e.Item;
+
+                    //tblProductDetails[dataItem.DataItemIndex];
+                    int ProductId =
+                      int.Parse(lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString());
+                    int ProductUserId = int.Parse(e.CommandArgument.ToString());
+
+                    FinalProjectDataset.ProductDetailRow row = tblProductDetails[dataItem.DisplayIndex];
+                    if(string.Equals(row.ProductType, "Available")) {
+                    
+                        adpUserProduct.Insert(user.UserId, ProductId, 1);
+                        if (adpUserProduct.GetTotalQtyByProduct(ProductId) == row.ProductQty)
+                        {
+                            //row.ProductType = "Sold";
+                            adpProduct.UpdateProductType("Sold", row.ProductId);
+                            tblProductDetails[dataItem.DisplayIndex].ProductType = "Sold";
+                            //Response.Redirect("");
+                        }
                     }
                 }
-
-
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
             }
         }
        

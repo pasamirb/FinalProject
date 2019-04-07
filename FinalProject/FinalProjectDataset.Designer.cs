@@ -1004,7 +1004,7 @@ namespace FinalProject {
             private global::System.Data.DataColumn columnExpr1;
             
             private global::System.Data.DataColumn columnProductImage;
-          
+            
             private global::System.Data.DataColumn columnProductQty;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1146,7 +1146,6 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-
             public global::System.Data.DataColumn Expr1Column {
                 get {
                     return this.columnExpr1;
@@ -1155,17 +1154,17 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ProductImageColumn
-            {
-                get
-                {
+            public global::System.Data.DataColumn ProductImageColumn {
+                get {
                     return this.columnProductImage;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn ProductQtyColumn {
                 get {
                     return this.columnProductQty;
-
                 }
             }
             
@@ -1206,10 +1205,7 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-
-            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage, int Expr1, string ProductImage, int ProductQty)
-            {
-
+            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage, int Expr1, string ProductImage, int ProductQty) {
                 ProductDetailRow rowProductDetailRow = ((ProductDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CategoryName,
@@ -1228,7 +1224,6 @@ namespace FinalProject {
                         Expr1,
                         ProductImage,
                         ProductQty};
-
                 rowProductDetailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductDetailRow);
                 return rowProductDetailRow;
@@ -3985,11 +3980,11 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string UserCompany {
                 get {
-                    try {
-                        return ((string)(this[this.tableProductDetail.UserCompanyColumn]));
+                    if (this.IsUserCompanyNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserCompany\' in table \'ProductDetail\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableProductDetail.UserCompanyColumn]));
                     }
                 }
                 set {
@@ -4026,7 +4021,6 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-
             public int Expr1 {
                 get {
                     try {
@@ -4043,25 +4037,22 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ProductImage
-            {
-                get
-                {
-                    try
-                    {
+            public string ProductImage {
+                get {
+                    try {
                         return ((string)(this[this.tableProductDetail.ProductImageColumn]));
                     }
-                    catch (global::System.InvalidCastException e)
-                    {
+                    catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'ProductImage\' in table \'ProductDetail\' is DBNull.", e);
                     }
                 }
-                set
-                {
+                set {
                     this[this.tableProductDetail.ProductImageColumn] = value;
                 }
             }
-
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int ProductQty {
                 get {
                     return ((int)(this[this.tableProductDetail.ProductQtyColumn]));
@@ -6056,20 +6047,12 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, UNICODE(Product.ProductImage) AS Expr1, 
-                  Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, Product.ProductImage
-FROM     Category INNER JOIN
-                  Product ON Category.CategoryId = Product.CategoryId INNER JOIN
-                  [User] ON Product.UserId = [User].UserId
-WHERE  (Product.UserId <> @UserId)";
-
-          this._commandCollection[0].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductQty, Product.ProductCreationDateTime, 
+            this._commandCollection[0].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductQty, Product.ProductCreationDateTime, 
                          Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
 WHERE        (Product.UserId <> @UserId)";
-
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
