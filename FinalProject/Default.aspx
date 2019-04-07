@@ -22,7 +22,7 @@
                             <img class="img-fluid" style="" src="content/img/laptop.jpg" alt="">
                         </div>
                         --%><p> <%# Eval("ProductDesc")  %> </p>
-                        <asp:LinkButton ID="btnEnquiry" CommandName="Enquiry" CssClass="btn btn-primary float-right" runat="server">Enquiry</asp:LinkButton>
+                        <asp:LinkButton ID="btnEnquiry" CommandName="Enquiry" CommandArgument='<%#Eval("UserId") %>' CssClass="btn btn-primary float-right" runat="server">Enquiry</asp:LinkButton>
                         <asp:LinkButton ID="btnBuyNow" CssClass="btn btn-primary float-right mr-2" runat="server">Buy Now</asp:LinkButton>
                         
                     </div>
