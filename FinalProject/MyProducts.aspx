@@ -25,7 +25,7 @@
                     <div class="card-body" >
                         
                         <a id="btnUpdateProduct" href="Product.aspx?ProductId=<%#Eval("ProductId") %>" class="btn btn-primary float-right mr-2">Update</a>
-                        <asp:LinkButton ID="btnDelete" CommandName="Delete" CssClass="btn btn-danger float-right mr-2" runat="server">Delete</asp:LinkButton>
+                        <asp:LinkButton ID="btnDelete" CommandName="DeleteProduct" CssClass="btn btn-danger float-right mr-2" runat="server">Delete</asp:LinkButton>
                     </div>
                 </div>
             </div>

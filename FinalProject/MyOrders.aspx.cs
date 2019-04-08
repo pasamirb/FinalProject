@@ -11,13 +11,20 @@ namespace FinalProject
 {
     public partial class MyOrders : System.Web.UI.Page
     {
-        MyProductsTableAdapter adpProductDetails = new MyProductsTableAdapter();
-        FinalProjectDataset.MyProductsDataTable tblProductDetails = new FinalProjectDataset.MyProductsDataTable();
+        MyOrdersTableAdapter adpOrders = new MyOrdersTableAdapter();
+        FinalProjectDataset.MyOrdersDataTable tblOrders = new FinalProjectDataset.MyOrdersDataTable();
         User user;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
+            if (user.UserId == 0)
+                Response.Redirect("~/Login.aspx");
+            else
+                if (user.IsCompany) { 
+                    Response.Redirect("~/MyProducts.aspx");
+                }
+
             if (!IsPostBack)
             {
                 BindData();
@@ -27,8 +34,8 @@ namespace FinalProject
         private void BindData()
         {
 
-            tblProductDetails = adpProductDetails.GetMyProducts(user.UserId);
-            lvProducts.DataSource = tblProductDetails;
+            tblOrders = adpOrders.GetMyProducts(user.UserId);
+            lvProducts.DataSource = tblOrders;
             lvProducts.DataBind();
         }
     }

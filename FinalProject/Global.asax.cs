@@ -40,7 +40,7 @@ namespace FinalProject
 
         protected void Session_End(object sender, EventArgs e)
         {
-
+            Session["user"] = new User();
         }
 
         protected void Application_End(object sender, EventArgs e)
