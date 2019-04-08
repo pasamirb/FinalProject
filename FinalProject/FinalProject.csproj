@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MyOrders.aspx" />
     <Content Include="MyProfile.aspx" />
     <Content Include="Product.aspx" />
     <Content Include="App_Data\FinalProject.mdf" />
@@ -1667,6 +1668,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="model\Product.cs" />
+    <Compile Include="MyOrders.aspx.cs">
+      <DependentUpon>MyOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyOrders.aspx.designer.cs">
+      <DependentUpon>MyOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MyProfile.aspx.cs">
       <DependentUpon>MyProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

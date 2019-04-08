@@ -10,7 +10,7 @@
 namespace FinalProject {
     
     
-    public partial class MyProducts {
+    public partial class MyOrders {
         
         /// <summary>
         /// lvProducts control.
