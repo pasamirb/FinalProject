@@ -34,11 +34,5 @@
     </asp:ListView>
 </asp:Content>
 <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="head">
-    <style type="text/css">
-        .auto-style1 {
-            left: 1px;
-            top: 0px;
-        }
-    </style>
 </asp:Content>
 

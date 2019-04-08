@@ -5,7 +5,7 @@
     <h1 class="h3 mb-0 text-gray-800">My Products</h1>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <asp:ListView ID="lvProducts" runat="server">
+    <asp:ListView ID="lvProducts" OnItemCommand="lvProducts_OnItemCommand" runat="server">
         <ItemTemplate>
             <div class="col-lg-4 mb-4">
                 <!-- Illustrations -->
@@ -23,7 +23,9 @@
                         <li class="list-group-item"><span class="text-primary">Brand :</span> <%# Eval("ProductBrand").ToString().Length != 0 ? Eval("ProductBrand") : "Unknown" %></li>
                     </ul>
                     <div class="card-body" >
-                        <a id="btnUpdateProduct" href="Product.aspx?ProductId=<%#Eval("ProductId") %>" class="btn btn-primary float-right">Update Product</a>
+                        
+                        <a id="btnUpdateProduct" href="Product.aspx?ProductId=<%#Eval("ProductId") %>" class="btn btn-primary float-right mr-2">Update</a>
+                        <asp:LinkButton ID="btnDelete" CommandName="Delete" CssClass="btn btn-danger float-right mr-2" runat="server">Delete</asp:LinkButton>
                     </div>
                 </div>
             </div>

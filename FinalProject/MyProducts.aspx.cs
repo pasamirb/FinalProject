@@ -30,6 +30,36 @@ namespace FinalProject
             tblProductDetails = adpProductDetails.GetOwnProducts(user.UserId);
             lvProducts.DataSource = tblProductDetails;
             lvProducts.DataBind();
+
+            string[] keyArray = { "ProductId" };
+            lvProducts.DataKeyNames = keyArray;
+        }
+
+        protected void lvProducts_OnItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            if (user.UserId != 0)
+            {
+                if (String.Equals(e.CommandName, "Delete"))
+                {
+                    // Verify that the employee ID is not already in the list. If not, add the
+                    // employee to the list.
+                    ListViewDataItem dataItem = (ListViewDataItem)e.Item;
+
+                    //tblProductDetails[dataItem.DataItemIndex];
+                    int ProductId =
+                      int.Parse(lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString());
+                    //int ProductUserId = int.Parse(e.CommandArgument.ToString());
+                    
+                    //adpMessage.Insert("Hey, I am interesterd in this product. Is it still available?", user.UserId, ProductUserId, ProductId);
+                    
+                    //System.Diagnostics.Debug.WriteLine("Parameter" + param);
+                }
+                
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
+            }
         }
     }
 }
