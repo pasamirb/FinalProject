@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ContentTemplate.master" AutoEventWireup="true" CodeBehind="MyOrders.aspx.cs" Inherits="FinalProject.MyProducts" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ContentTemplate.master" AutoEventWireup="true" CodeBehind="MyOrders.aspx.cs" Inherits="FinalProject.MyOrders" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageTitle" runat="server">
@@ -19,9 +19,10 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><span class="text-primary">Sold By :</span> <%# Eval("UserCompany").ToString().Length != 0 ? Eval("UserCompany") : Eval("UserFirstName") + " " + Eval("UserLastName")   %></li>
                         <li class="list-group-item"><span class="text-primary">Category :</span> <%# Eval("CategoryName")  %></li>
-                        <li class="list-group-item"><span class="text-primary">Qty :</span> <%# Eval("ProductQty")  %></li>
+                        <li class="list-group-item"><span class="text-primary">Qty :</span> <%# Eval("Qty")  %></li>
                         <li class="list-group-item"><span class="text-primary">Brand :</span> <%# Eval("ProductBrand").ToString().Length != 0 ? Eval("ProductBrand") : "Unknown" %></li>
                     </ul>
+                    
                 </div>
             </div>
         </ItemTemplate>
