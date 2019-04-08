@@ -59,7 +59,7 @@
                     <asp:DropDownList ID="ddlProductCategory" CssClass="form-control" runat="server"></asp:DropDownList>
                 </div>
             </div>
-            <asp:Button ID="btnAddProduct" CssClass="btn btn-primary" runat="server" Text="Add Product" OnClick="btnAddProduct_Click" />
+            <asp:Button ID="btnAddProduct" CssClass="btn btn-primary" runat="server" OnClick="btnAddProduct_Click" />
         </div>
     </div>
 </asp:Content>
