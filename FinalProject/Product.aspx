@@ -38,7 +38,7 @@
             <div class="form-group row">
                 <asp:Label ID="lblProductPrice" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Price:"></asp:Label>
                 <div class="col-sm-10">
-                    <asp:TextBox ID="txtProductPrice" type="number" runat="server" CssClass="form-control" placeholder="Enter Product Price"></asp:TextBox>
+                    <asp:TextBox ID="txtProductPrice" runat="server" CssClass="form-control" placeholder="Enter Product Price" TextMode="SingleLine" ValidationGroup="^[0-9]+(\.[0-9][0-9]?)?$"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group row">
@@ -59,7 +59,7 @@
                     <asp:DropDownList ID="ddlProductCategory" CssClass="form-control" runat="server"></asp:DropDownList>
                 </div>
             </div>
-            <asp:Button ID="btnAddProduct" CssClass="btn btn-primary" runat="server" Text="Add Product" OnClick="btnAddProduct_Click" />
+            <asp:Button ID="btnAddProduct" CssClass="btn btn-primary" runat="server" OnClick="btnAddProduct_Click" />
         </div>
     </div>
 </asp:Content>
