@@ -67,7 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddProduct.aspx" />
+    <Content Include="MyProfile.aspx" />
+    <Content Include="Product.aspx" />
     <Content Include="App_Data\FinalProject.mdf" />
     <Content Include="App_Data\FinalProject_log.ldf">
       <DependentUpon>FinalProject.mdf</DependentUpon>
@@ -1663,15 +1664,22 @@
     <Content Include="Default.aspx" />
     <Content Include="Messages.aspx" />
     <Content Include="LogOut.aspx" />
-    <Content Include="UpdateUser.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddProduct.aspx.cs">
-      <DependentUpon>AddProduct.aspx</DependentUpon>
+    <Compile Include="model\Product.cs" />
+    <Compile Include="MyProfile.aspx.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddProduct.aspx.designer.cs">
-      <DependentUpon>AddProduct.aspx</DependentUpon>
+    <Compile Include="MyProfile.aspx.designer.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
     </Compile>
     <Compile Include="ContentTemplate.master.cs">
       <DependentUpon>ContentTemplate.master</DependentUpon>
@@ -1744,13 +1752,6 @@
     </Compile>
     <Compile Include="LogOut.aspx.designer.cs">
       <DependentUpon>LogOut.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UpdateUser.aspx.cs">
-      <DependentUpon>UpdateUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UpdateUser.aspx.designer.cs">
-      <DependentUpon>UpdateUser.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
