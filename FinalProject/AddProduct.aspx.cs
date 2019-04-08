@@ -23,23 +23,30 @@ namespace FinalProject
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
-     
-         if (!Page.IsPostBack)
+            string queryParameter = Request.QueryString["ProductId"];
+
+            if (!Page.IsPostBack)
             {
-                BindData();
-    }
+                BindData(queryParameter);
+            }
 
-}
+        }
 
-private void BindData()
+private void BindData(string queryParameter)
 {
-            tblCategory = adpCategory.GetCategory();
-            ddlProductCategory.DataSource = tblCategory;
-            ddlProductCategory.DataTextField = tblCategory.CategoryNameColumn.ToString();
-            ddlProductCategory.DataValueField = tblCategory.CategoryIdColumn.ToString();
-            ddlProductCategory.DataBind();
-            ddlProductCategory.Items.Insert(0, "Select Category");
-
+            if (queryParameter == null)
+            {
+                tblCategory = adpCategory.GetCategory();
+                ddlProductCategory.DataSource = tblCategory;
+                ddlProductCategory.DataTextField = tblCategory.CategoryNameColumn.ToString();
+                ddlProductCategory.DataValueField = tblCategory.CategoryIdColumn.ToString();
+                ddlProductCategory.DataBind();
+                ddlProductCategory.Items.Insert(0, "Select Category");
+            }
+            else
+            {
+                int CategoryId = int.Parse(queryParameter);
+            }
         }
 
 protected void btnAddProduct_Click(object sender, EventArgs e)

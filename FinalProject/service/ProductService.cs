@@ -9,11 +9,15 @@ namespace FinalProject.service
 {
     public class ProductService
     {
-        ProductTableAdapter adpProduct = new ProductTableAdapter();
-        FinalProjectDataset.ProductDataTable tblProduct = new FinalProjectDataset.ProductDataTable();
 
-        //public User GetUserByUserNameAndUserPassword(String email, String password)
-        //{
-        //}
+        public Product GetproductByProductId(String productId)
+        {
+            Product product = null;
+
+            return product;
+        }
+        {
+
+        }
     }
 }
