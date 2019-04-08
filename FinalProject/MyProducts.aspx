@@ -10,7 +10,7 @@
             <div class="col-lg-4 mb-4">
                 <!-- Illustrations -->
                 <div class="card shadow mb-4">
-                    <img class="card-img-top" src="content/img/laptop.jpg">
+                    <img class="card-img-top" src="uploads/<%# Eval("ProductImage").ToString()  %>">
                     <%# Eval("ProductType").ToString().ToUpper().Equals("SOLD") ? "<img class='img-sold' src='content/img/sold_ribbon.png'>" : ""%>
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold text-primary"><%# Eval("ProductName")  %> </h6>

@@ -92,16 +92,16 @@ namespace FinalProject
             }
             else
             {
-                result = uploadFile(ref productImage);
+                result = uploadFile();
+
             }
 
-
-            if (result)
+            if ( !flProductImage.HasFile || result)
             {
                 //productImage = Server.MapPath("~/Uploads/") + productImage;
                 int rowInserted;
                 if (product != null && Request.QueryString["ProductId"] != null)
-                {
+                { 
                     rowInserted = adpProduct.Update(
                         productName, productDesc, productType, productPrice, productBrand, productImage, userId, categoryId, productQty, product.ProductId);
                 }
@@ -120,7 +120,7 @@ namespace FinalProject
             }
         }
 
-        private bool uploadFile(ref string productImage)
+        private bool uploadFile()
         {
             bool result = false;
             if (flProductImage.HasFile)
@@ -140,7 +140,7 @@ namespace FinalProject
                     {
                         // save file in Uploads folder
 
-                        productImage = Server.MapPath("~/Uploads/") + fileName;
+                        string productImage = Server.MapPath("~/Uploads/") + fileName;
                         flProductImage.SaveAs(productImage);
 
                         //lblMessage.Text = "File successfully uploaded";
