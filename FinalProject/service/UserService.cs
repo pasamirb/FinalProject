@@ -10,15 +10,15 @@ namespace FinalProject.service
     public class UserService
     {
         UserTableAdapter adpUser = new UserTableAdapter();
-        FinalProjectDataset.UserDataTable table = new FinalProjectDataset.UserDataTable();
+        FinalProjectDataset.UserDataTable tblUser = new FinalProjectDataset.UserDataTable();
 
         public User GetUserByUserNameAndUserPassword(String email, String password)
         {
-            table = adpUser.GetUserByUserNameAndUserPassword(email, password);
+            tblUser = adpUser.GetUserByUserNameAndUserPassword(email, password);
             User user = null;
-            if (table.Count > 0)
+            if (tblUser.Count > 0)
             {
-                var row = table[0];
+                var row = tblUser[0];
 
                 int UserId = row.UserId;
                 string FirstName = row.UserFirstName;

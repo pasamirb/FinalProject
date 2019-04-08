@@ -8,12 +8,14 @@ using FinalProject.FinalProjectDatasetTableAdapters;
 using FinalProject.model;
 using System.Drawing;
 using System.IO;
+using FinalProject.service;
 
 namespace FinalProject
 {
     public partial class AddProduct : System.Web.UI.Page
     {
         User user = null;
+        Product product = null;
         ProductTableAdapter adpProduct = new ProductTableAdapter();
         FinalProjectDataset.ProductDataTable tblProduct = new FinalProjectDataset.ProductDataTable();
 
@@ -32,24 +34,39 @@ namespace FinalProject
 
         }
 
-private void BindData(string queryParameter)
-{
-            if (queryParameter == null)
+        private void BindData(string queryParameter)
+        {
+            tblCategory = adpCategory.GetCategory();
+            ddlProductCategory.DataSource = tblCategory;
+            ddlProductCategory.DataTextField = tblCategory.CategoryNameColumn.ToString();
+            ddlProductCategory.DataValueField = tblCategory.CategoryIdColumn.ToString();
+            ddlProductCategory.DataBind();
+            ddlProductCategory.Items.Insert(0, "Select Category");
+            if (queryParameter != null)
             {
-                tblCategory = adpCategory.GetCategory();
-                ddlProductCategory.DataSource = tblCategory;
-                ddlProductCategory.DataTextField = tblCategory.CategoryNameColumn.ToString();
-                ddlProductCategory.DataValueField = tblCategory.CategoryIdColumn.ToString();
-                ddlProductCategory.DataBind();
-                ddlProductCategory.Items.Insert(0, "Select Category");
-            }
-            else
-            {
-                int CategoryId = int.Parse(queryParameter);
+                int ProductId = int.Parse(queryParameter);
+                ProductService service = new ProductService();
+                product = service.GetproductByProductId(ProductId);
+                if (product != null)
+                {
+                    txtProductName.Text = product.ProductName;
+                    txtProductPrice.Text = product.ProductPrice.ToString();
+                    txtProductBrand.Text = product.ProductBrand;
+                    txtProductQty.Text = product.ProductQty.ToString();
+
+                    ddlProductCategory.SelectedValue = product.CategoryId.ToString();
+
+                    ddlProductType.SelectedValue = product.ProductType.ToString();
+
+                }
+                else
+                {
+                    Response.Redirect("~/MyProducts.aspx");
+                }
             }
         }
 
-protected void btnAddProduct_Click(object sender, EventArgs e)
+        protected void btnAddProduct_Click(object sender, EventArgs e)
         {
             string productName = txtProductName.Text;
             string productDesc = txtPtoductDesc.Text;
@@ -64,8 +81,25 @@ protected void btnAddProduct_Click(object sender, EventArgs e)
             bool result = uploadFile();
             if (result)
             {
-                productImage = Server.MapPath("~/Uploads/")  + productImage;
-                int rowInserted = adpProduct.Insert(productName, productDesc, productType, productPrice, productBrand, productImage, userId, categoryId, productQty);
+                productImage = Server.MapPath("~/Uploads/") + productImage;
+                int rowInserted;
+                if (product != null && Request.QueryString["ProductId"] != null)
+                {
+                    rowInserted = adpProduct.Insert(productName, productDesc, productType, productPrice, productBrand, productImage, userId, categoryId, productQty);
+                }
+                else
+                {
+                    rowInserted = adpProduct.Update(
+                        productName, productDesc, productType, productPrice, productBrand, productImage, userId, categoryId, productQty, product.ProductId);
+                }
+                if(rowInserted > 0)
+                {
+                    Response.Redirect("~/MyProducts.aspx");
+                }
+                else
+                {
+
+                }
             }
         }
 
@@ -74,7 +108,7 @@ protected void btnAddProduct_Click(object sender, EventArgs e)
             bool result = false;
             if (flProductImage.HasFile)
             {
-                
+
                 string fileName = flProductImage.FileName;
                 string fileExtenstion = Path.GetExtension(fileName);
 
@@ -90,7 +124,7 @@ protected void btnAddProduct_Click(object sender, EventArgs e)
                         // save file in Uploads folder
                         string path = Server.MapPath("~/Uploads/") + fileName;
                         flProductImage.SaveAs(path);
-                        
+
                         //lblMessage.Text = "File successfully uploaded";
                         //lblMessage.ForeColor = Color.Green;
                         result = true;
@@ -114,6 +148,6 @@ protected void btnAddProduct_Click(object sender, EventArgs e)
             }
             return result;
         }
-        
+
     }
 }

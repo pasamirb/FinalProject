@@ -8,25 +8,25 @@ namespace FinalProject.model
     public class Product
     {
         public int ProductId { get; set; }
-        public string ProducName { get; private set; }
-        public string ProducDesc { get; private set; }
-        public string ProducType { get; private set; }
-        public double ProducPrice { get; private set; }
-        public string ProducBrand { get; private set; }
-        public string ProducImage { get; private set; }
+        public string ProductName { get; private set; }
+        public string ProductDesc { get; private set; }
+        public string ProductType { get; private set; }
+        public decimal ProductPrice { get; private set; }
+        public string ProductBrand { get; private set; }
+        public string ProductImage { get; private set; }
         public int UserId { get; set; }
         public int CategoryId { get; set; }
         public int ProductQty { get; set; }
 
-        public Product(int productId, string producName, string producDesc, string producType, double producPrice, string producBrand, string producImage, int userId, int categoryId, int productQty)
+        public Product(int productId, string productName, string productDesc, string productType, decimal productPrice, string productBrand, string productImage, int userId, int categoryId, int productQty)
         {
             ProductId = productId;
-            ProducName = producName;
-            ProducDesc = producDesc;
-            ProducType = producType;
-            ProducPrice = producPrice;
-            ProducBrand = producBrand;
-            ProducImage = producImage;
+            ProductName = productName;
+            ProductDesc = productDesc;
+            ProductType = productType;
+            ProductPrice = productPrice;
+            ProductBrand = productBrand;
+            ProductImage = productImage;
             UserId = userId;
             CategoryId = categoryId;
             ProductQty = productQty;

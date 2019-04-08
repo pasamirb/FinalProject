@@ -68,12 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MyOrders.aspx" />
-    <Content Include="MyProfile.aspx" />
-    <Content Include="Product.aspx" />
     <Content Include="App_Data\FinalProject.mdf" />
     <Content Include="App_Data\FinalProject_log.ldf">
       <DependentUpon>FinalProject.mdf</DependentUpon>
     </Content>
+    <Content Include="MyProfile.aspx" />
+    <Content Include="Product.aspx" />
     <Content Include="content\css\sb-admin-2.css" />
     <Content Include="content\css\sb-admin-2.min.css" />
     <Content Include="content\css\style.css" />
@@ -1732,6 +1732,7 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="service\MessageService.cs" />
+    <Compile Include="service\ProductService.cs" />
     <Compile Include="service\UserService.cs" />
     <Compile Include="Template.Master.cs">
       <DependentUpon>Template.Master</DependentUpon>
