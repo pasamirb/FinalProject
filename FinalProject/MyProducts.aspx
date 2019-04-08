@@ -23,7 +23,7 @@
                         <li class="list-group-item"><span class="text-primary">Brand :</span> <%# Eval("ProductBrand").ToString().Length != 0 ? Eval("ProductBrand") : "Unknown" %></li>
                     </ul>
                     <div class="card-body" >
-                        <a id="btnUpdateProduct" href="~/Product.aspx?ProductId=<%#Eval("ProductId") %>" class="btn btn-primary float-right">Update Product</a>
+                        <a id="btnUpdateProduct" href="Product.aspx?ProductId=<%#Eval("ProductId") %>" class="btn btn-primary float-right">Update Product</a>
                     </div>
                 </div>
             </div>
