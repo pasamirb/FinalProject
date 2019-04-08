@@ -25,8 +25,8 @@ namespace FinalProject
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
-            //if (user.UserId == 0)
-            //    Response.Redirect("~/Login.aspx");
+            if (user.UserId == 0)
+                Response.Redirect("~/Login.aspx");
             //selectedContact = new FinalProjectDataset.ContactsRow(null);
             if (!Page.IsPostBack)
             {
@@ -36,10 +36,22 @@ namespace FinalProject
 
         private void BindData()
         {
-            tblContacts = adpContacts.GetContactsAsBuyer(user.UserId);
-            lvContacts.DataSource = tblContacts;
-            lvContacts.DataBind();
-            Cache["tbl"] = tblContacts;
+            if (!user.IsCompany)
+            {
+                tblContacts = adpContacts.GetContactsAsBuyer(user.UserId);
+                lvContacts.DataSource = tblContacts;
+                lvContacts.DataBind();
+                Cache["tbl"] = tblContacts;
+                lvContacts.SelectedIndex = 0;
+            }
+            else
+            {
+                tblContacts = adpContacts.GetContactsAsSeller(user.UserId);
+                lvContacts.DataSource = tblContacts;
+                lvContacts.DataBind();
+                Cache["tbl"] = tblContacts;
+                
+            }
         }
 
         protected void btnSeller_Click(object sender, EventArgs e)
@@ -84,7 +96,8 @@ namespace FinalProject
             lvMessage.DataBind();
 
             chatUser.InnerText = selectedContact.UserFirstName + " " + selectedContact.UserLastName;
-
+            if(!string.IsNullOrEmpty(selectedContact.UserImage))
+                ToUserImage.Src = "uploads/" + selectedContact.UserImage;
             System.Diagnostics.Debug.WriteLine("User Product Id " + selectedContact.ProductId);
         }
 

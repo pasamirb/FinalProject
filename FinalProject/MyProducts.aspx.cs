@@ -13,15 +13,19 @@ namespace FinalProject
     {
         ProductDetailTableAdapter adpProductDetails = new ProductDetailTableAdapter();
         FinalProjectDataset.ProductDetailDataTable tblProductDetails = new FinalProjectDataset.ProductDetailDataTable();
+
+        ProductTableAdapter adpProduct = new ProductTableAdapter();
+
         User user;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
-            if (!IsPostBack)
-            {
-                BindData();
-            }
+            if (user.UserId == 0)
+                Response.Redirect("~/Login.aspx");
+
+            BindData();
+            //}
         }
 
         private void BindData()
@@ -39,7 +43,7 @@ namespace FinalProject
         {
             if (user.UserId != 0)
             {
-                if (String.Equals(e.CommandName, "Delete"))
+                if (String.Equals(e.CommandName, "DeleteProduct"))
                 {
                     // Verify that the employee ID is not already in the list. If not, add the
                     // employee to the list.
@@ -49,9 +53,9 @@ namespace FinalProject
                     int ProductId =
                       int.Parse(lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString());
                     //int ProductUserId = int.Parse(e.CommandArgument.ToString());
-                    
+
                     //adpMessage.Insert("Hey, I am interesterd in this product. Is it still available?", user.UserId, ProductUserId, ProductId);
-                    
+                    adpProduct.UpdateProductType("Deleted", ProductId);
                     //System.Diagnostics.Debug.WriteLine("Parameter" + param);
                 }
                 

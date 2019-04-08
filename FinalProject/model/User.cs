@@ -17,6 +17,18 @@ namespace FinalProject.model
         public string Company { get; private set; }
         public long Phone { get; private set; }
         public DateTime CreationDate { get; private set; }
+        private bool IsSellerCompany;
+
+        public bool IsCompany
+        {
+            get {
+                if(string.Equals(Company, string.Empty) || string.IsNullOrEmpty(Company))
+                    return false;
+                return true;
+            }
+            set { IsCompany = value; }
+        }
+
 
         public User(int userId, string firstName, string lastName, string userName, string password, string email, string image, string company, long phone, DateTime creationDate)
         {

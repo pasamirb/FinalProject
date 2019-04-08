@@ -29,7 +29,10 @@ namespace FinalProject
             
             //Master.txt
             user = (User)Session["user"];
-
+            if (user.IsCompany)
+            {
+                Response.Redirect("~/MyProducts.aspx");
+            }
             string v = Request.QueryString["category"];
             searchQuery = ((Site1)Master.Master).TextBoxSearch;
             System.Diagnostics.Debug.WriteLine("Search "+searchQuery);

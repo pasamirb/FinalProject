@@ -31,28 +31,33 @@
         <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
       </a>
 
+        
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
-
+        <% if (!user.IsCompany)
+            {%>
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="Default.aspx">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
-
+        <%} %>
       <li class="nav-item">
         <a class="nav-link" href="Messages.aspx">
           <i class="fas fa-fw fa-comments"></i>
           <span>Messages</span></a>
       </li>
 
+        <% 
+    if (!user.IsCompany)
+    {%>
       <!-- Divider -->
       <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Interface
+        Browse Categories
       </div>
 
       <!-- Nav Item - Categories Collapse Menu -->
@@ -71,24 +76,7 @@
           </div>
         </div>
       </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
-          </div>
-        </div>
-      </li>
-
+        <%} %>
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -110,12 +98,15 @@
           <span>My Products</span></a>
       </li>
 
+        <% if (!user.IsCompany)
+            { %>
       <!-- Nav Item - MyOrders -->
       <li class="nav-item">
         <a class="nav-link" href="MyOrders.aspx">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>My Orders</span></a>
       </li>
+        <%} %>
 
       
       
@@ -203,7 +194,7 @@
                   Profile
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="LogOut.aspx" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -229,6 +220,24 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+          <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <asp:LinkButton runat="server" OnClick="btnLogout_Click" ID="btnLogout" CssClass="btn btn-primary">Logout</asp:LinkButton>
+        </div>
+      </div>
+    </div>
+  </div>
     </form>
     <!-- Bootstrap core JavaScript-->
   <script src="content/vendor/jquery/jquery.min.js"></script>

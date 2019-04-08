@@ -40,7 +40,7 @@ namespace FinalProject {
         
         private UserProductDataTable tableUserProduct;
         
-        private MyProductsDataTable tableMyProducts;
+        private MyOrdersDataTable tableMyOrders;
         
         private global::System.Data.DataRelation relationFK_Message_Product;
         
@@ -104,8 +104,8 @@ namespace FinalProject {
                 if ((ds.Tables["UserProduct"] != null)) {
                     base.Tables.Add(new UserProductDataTable(ds.Tables["UserProduct"]));
                 }
-                if ((ds.Tables["MyProducts"] != null)) {
-                    base.Tables.Add(new MyProductsDataTable(ds.Tables["MyProducts"]));
+                if ((ds.Tables["MyOrders"] != null)) {
+                    base.Tables.Add(new MyOrdersDataTable(ds.Tables["MyOrders"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -209,9 +209,9 @@ namespace FinalProject {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public MyProductsDataTable MyProducts {
+        public MyOrdersDataTable MyOrders {
             get {
-                return this.tableMyProducts;
+                return this.tableMyOrders;
             }
         }
         
@@ -306,8 +306,8 @@ namespace FinalProject {
                 if ((ds.Tables["UserProduct"] != null)) {
                     base.Tables.Add(new UserProductDataTable(ds.Tables["UserProduct"]));
                 }
-                if ((ds.Tables["MyProducts"] != null)) {
-                    base.Tables.Add(new MyProductsDataTable(ds.Tables["MyProducts"]));
+                if ((ds.Tables["MyOrders"] != null)) {
+                    base.Tables.Add(new MyOrdersDataTable(ds.Tables["MyOrders"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -390,10 +390,10 @@ namespace FinalProject {
                     this.tableUserProduct.InitVars();
                 }
             }
-            this.tableMyProducts = ((MyProductsDataTable)(base.Tables["MyProducts"]));
+            this.tableMyOrders = ((MyOrdersDataTable)(base.Tables["MyOrders"]));
             if ((initTable == true)) {
-                if ((this.tableMyProducts != null)) {
-                    this.tableMyProducts.InitVars();
+                if ((this.tableMyOrders != null)) {
+                    this.tableMyOrders.InitVars();
                 }
             }
             this.relationFK_Message_Product = this.Relations["FK_Message_Product"];
@@ -427,8 +427,8 @@ namespace FinalProject {
             base.Tables.Add(this.tableCategory);
             this.tableUserProduct = new UserProductDataTable();
             base.Tables.Add(this.tableUserProduct);
-            this.tableMyProducts = new MyProductsDataTable();
-            base.Tables.Add(this.tableMyProducts);
+            this.tableMyOrders = new MyOrdersDataTable();
+            base.Tables.Add(this.tableMyOrders);
             this.relationFK_Message_Product = new global::System.Data.DataRelation("FK_Message_Product", new global::System.Data.DataColumn[] {
                         this.tableProduct.ProductIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableMessage.ProductIdColumn}, false);
@@ -501,7 +501,7 @@ namespace FinalProject {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeMyProducts() {
+        private bool ShouldSerializeMyOrders() {
             return false;
         }
         
@@ -585,7 +585,7 @@ namespace FinalProject {
         public delegate void UserProductRowChangeEventHandler(object sender, UserProductRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void MyProductsRowChangeEventHandler(object sender, MyProductsRowChangeEvent e);
+        public delegate void MyOrdersRowChangeEventHandler(object sender, MyOrdersRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3663,7 +3663,7 @@ namespace FinalProject {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class MyProductsDataTable : global::System.Data.TypedTableBase<MyProductsRow> {
+        public partial class MyOrdersDataTable : global::System.Data.TypedTableBase<MyOrdersRow> {
             
             private global::System.Data.DataColumn columnCategoryName;
             
@@ -3697,8 +3697,8 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MyProductsDataTable() {
-                this.TableName = "MyProducts";
+            public MyOrdersDataTable() {
+                this.TableName = "MyOrders";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -3706,7 +3706,7 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal MyProductsDataTable(global::System.Data.DataTable table) {
+            internal MyOrdersDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -3723,7 +3723,7 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected MyProductsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected MyOrdersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -3859,34 +3859,34 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MyProductsRow this[int index] {
+            public MyOrdersRow this[int index] {
                 get {
-                    return ((MyProductsRow)(this.Rows[index]));
+                    return ((MyOrdersRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MyProductsRowChangeEventHandler MyProductsRowChanging;
+            public event MyOrdersRowChangeEventHandler MyOrdersRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MyProductsRowChangeEventHandler MyProductsRowChanged;
+            public event MyOrdersRowChangeEventHandler MyOrdersRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MyProductsRowChangeEventHandler MyProductsRowDeleting;
+            public event MyOrdersRowChangeEventHandler MyOrdersRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MyProductsRowChangeEventHandler MyProductsRowDeleted;
+            public event MyOrdersRowChangeEventHandler MyOrdersRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddMyProductsRow(MyProductsRow row) {
+            public void AddMyOrdersRow(MyOrdersRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MyProductsRow AddMyProductsRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, string ProductImage, System.DateTime ProductCreationDateTime, int Qty, string UserFirstName, string UserLastName, string UserCompany, string UserImage, int UserId) {
-                MyProductsRow rowMyProductsRow = ((MyProductsRow)(this.NewRow()));
+            public MyOrdersRow AddMyOrdersRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, string ProductImage, System.DateTime ProductCreationDateTime, int Qty, string UserFirstName, string UserLastName, string UserCompany, string UserImage, int UserId) {
+                MyOrdersRow rowMyOrdersRow = ((MyOrdersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CategoryName,
                         null,
@@ -3903,22 +3903,22 @@ namespace FinalProject {
                         UserCompany,
                         UserImage,
                         UserId};
-                rowMyProductsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowMyProductsRow);
-                return rowMyProductsRow;
+                rowMyOrdersRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMyOrdersRow);
+                return rowMyOrdersRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MyProductsRow FindByProductId(int ProductId) {
-                return ((MyProductsRow)(this.Rows.Find(new object[] {
+            public MyOrdersRow FindByProductId(int ProductId) {
+                return ((MyOrdersRow)(this.Rows.Find(new object[] {
                             ProductId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                MyProductsDataTable cln = ((MyProductsDataTable)(base.Clone()));
+                MyOrdersDataTable cln = ((MyOrdersDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3926,7 +3926,7 @@ namespace FinalProject {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new MyProductsDataTable();
+                return new MyOrdersDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4011,28 +4011,28 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MyProductsRow NewMyProductsRow() {
-                return ((MyProductsRow)(this.NewRow()));
+            public MyOrdersRow NewMyOrdersRow() {
+                return ((MyOrdersRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new MyProductsRow(builder);
+                return new MyOrdersRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(MyProductsRow);
+                return typeof(MyOrdersRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.MyProductsRowChanged != null)) {
-                    this.MyProductsRowChanged(this, new MyProductsRowChangeEvent(((MyProductsRow)(e.Row)), e.Action));
+                if ((this.MyOrdersRowChanged != null)) {
+                    this.MyOrdersRowChanged(this, new MyOrdersRowChangeEvent(((MyOrdersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -4040,8 +4040,8 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.MyProductsRowChanging != null)) {
-                    this.MyProductsRowChanging(this, new MyProductsRowChangeEvent(((MyProductsRow)(e.Row)), e.Action));
+                if ((this.MyOrdersRowChanging != null)) {
+                    this.MyOrdersRowChanging(this, new MyOrdersRowChangeEvent(((MyOrdersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -4049,8 +4049,8 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.MyProductsRowDeleted != null)) {
-                    this.MyProductsRowDeleted(this, new MyProductsRowChangeEvent(((MyProductsRow)(e.Row)), e.Action));
+                if ((this.MyOrdersRowDeleted != null)) {
+                    this.MyOrdersRowDeleted(this, new MyOrdersRowChangeEvent(((MyOrdersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -4058,14 +4058,14 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.MyProductsRowDeleting != null)) {
-                    this.MyProductsRowDeleting(this, new MyProductsRowChangeEvent(((MyProductsRow)(e.Row)), e.Action));
+                if ((this.MyOrdersRowDeleting != null)) {
+                    this.MyOrdersRowDeleting(this, new MyOrdersRowChangeEvent(((MyOrdersRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveMyProductsRow(MyProductsRow row) {
+            public void RemoveMyOrdersRow(MyOrdersRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -4092,7 +4092,7 @@ namespace FinalProject {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "MyProductsDataTable";
+                attribute2.FixedValue = "MyOrdersDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4967,11 +4967,11 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string UserImage {
                 get {
-                    try {
-                        return ((string)(this[this.tableContacts.UserImageColumn]));
+                    if (this.IsUserImageNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserImage\' in table \'Contacts\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableContacts.UserImageColumn]));
                     }
                 }
                 set {
@@ -5628,25 +5628,25 @@ namespace FinalProject {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class MyProductsRow : global::System.Data.DataRow {
+        public partial class MyOrdersRow : global::System.Data.DataRow {
             
-            private MyProductsDataTable tableMyProducts;
+            private MyOrdersDataTable tableMyOrders;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal MyProductsRow(global::System.Data.DataRowBuilder rb) : 
+            internal MyOrdersRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableMyProducts = ((MyProductsDataTable)(this.Table));
+                this.tableMyOrders = ((MyOrdersDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string CategoryName {
                 get {
-                    return ((string)(this[this.tableMyProducts.CategoryNameColumn]));
+                    return ((string)(this[this.tableMyOrders.CategoryNameColumn]));
                 }
                 set {
-                    this[this.tableMyProducts.CategoryNameColumn] = value;
+                    this[this.tableMyOrders.CategoryNameColumn] = value;
                 }
             }
             
@@ -5654,10 +5654,10 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int ProductId {
                 get {
-                    return ((int)(this[this.tableMyProducts.ProductIdColumn]));
+                    return ((int)(this[this.tableMyOrders.ProductIdColumn]));
                 }
                 set {
-                    this[this.tableMyProducts.ProductIdColumn] = value;
+                    this[this.tableMyOrders.ProductIdColumn] = value;
                 }
             }
             
@@ -5665,10 +5665,10 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string ProductName {
                 get {
-                    return ((string)(this[this.tableMyProducts.ProductNameColumn]));
+                    return ((string)(this[this.tableMyOrders.ProductNameColumn]));
                 }
                 set {
-                    this[this.tableMyProducts.ProductNameColumn] = value;
+                    this[this.tableMyOrders.ProductNameColumn] = value;
                 }
             }
             
@@ -5680,11 +5680,11 @@ namespace FinalProject {
                         return null;
                     }
                     else {
-                        return ((string)(this[this.tableMyProducts.ProductDescColumn]));
+                        return ((string)(this[this.tableMyOrders.ProductDescColumn]));
                     }
                 }
                 set {
-                    this[this.tableMyProducts.ProductDescColumn] = value;
+                    this[this.tableMyOrders.ProductDescColumn] = value;
                 }
             }
             
@@ -5693,14 +5693,14 @@ namespace FinalProject {
             public string ProductType {
                 get {
                     try {
-                        return ((string)(this[this.tableMyProducts.ProductTypeColumn]));
+                        return ((string)(this[this.tableMyOrders.ProductTypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductType\' in table \'MyProducts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductType\' in table \'MyOrders\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMyProducts.ProductTypeColumn] = value;
+                    this[this.tableMyOrders.ProductTypeColumn] = value;
                 }
             }
             
@@ -5709,14 +5709,14 @@ namespace FinalProject {
             public decimal ProductPrice {
                 get {
                     try {
-                        return ((decimal)(this[this.tableMyProducts.ProductPriceColumn]));
+                        return ((decimal)(this[this.tableMyOrders.ProductPriceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductPrice\' in table \'MyProducts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductPrice\' in table \'MyOrders\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMyProducts.ProductPriceColumn] = value;
+                    this[this.tableMyOrders.ProductPriceColumn] = value;
                 }
             }
             
@@ -5725,14 +5725,14 @@ namespace FinalProject {
             public string ProductBrand {
                 get {
                     try {
-                        return ((string)(this[this.tableMyProducts.ProductBrandColumn]));
+                        return ((string)(this[this.tableMyOrders.ProductBrandColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductBrand\' in table \'MyProducts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductBrand\' in table \'MyOrders\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMyProducts.ProductBrandColumn] = value;
+                    this[this.tableMyOrders.ProductBrandColumn] = value;
                 }
             }
             
@@ -5744,11 +5744,11 @@ namespace FinalProject {
                         return null;
                     }
                     else {
-                        return ((string)(this[this.tableMyProducts.ProductImageColumn]));
+                        return ((string)(this[this.tableMyOrders.ProductImageColumn]));
                     }
                 }
                 set {
-                    this[this.tableMyProducts.ProductImageColumn] = value;
+                    this[this.tableMyOrders.ProductImageColumn] = value;
                 }
             }
             
@@ -5756,10 +5756,10 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public System.DateTime ProductCreationDateTime {
                 get {
-                    return ((global::System.DateTime)(this[this.tableMyProducts.ProductCreationDateTimeColumn]));
+                    return ((global::System.DateTime)(this[this.tableMyOrders.ProductCreationDateTimeColumn]));
                 }
                 set {
-                    this[this.tableMyProducts.ProductCreationDateTimeColumn] = value;
+                    this[this.tableMyOrders.ProductCreationDateTimeColumn] = value;
                 }
             }
             
@@ -5767,10 +5767,10 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int Qty {
                 get {
-                    return ((int)(this[this.tableMyProducts.QtyColumn]));
+                    return ((int)(this[this.tableMyOrders.QtyColumn]));
                 }
                 set {
-                    this[this.tableMyProducts.QtyColumn] = value;
+                    this[this.tableMyOrders.QtyColumn] = value;
                 }
             }
             
@@ -5778,10 +5778,10 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string UserFirstName {
                 get {
-                    return ((string)(this[this.tableMyProducts.UserFirstNameColumn]));
+                    return ((string)(this[this.tableMyOrders.UserFirstNameColumn]));
                 }
                 set {
-                    this[this.tableMyProducts.UserFirstNameColumn] = value;
+                    this[this.tableMyOrders.UserFirstNameColumn] = value;
                 }
             }
             
@@ -5789,10 +5789,10 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string UserLastName {
                 get {
-                    return ((string)(this[this.tableMyProducts.UserLastNameColumn]));
+                    return ((string)(this[this.tableMyOrders.UserLastNameColumn]));
                 }
                 set {
-                    this[this.tableMyProducts.UserLastNameColumn] = value;
+                    this[this.tableMyOrders.UserLastNameColumn] = value;
                 }
             }
             
@@ -5801,14 +5801,14 @@ namespace FinalProject {
             public string UserCompany {
                 get {
                     try {
-                        return ((string)(this[this.tableMyProducts.UserCompanyColumn]));
+                        return ((string)(this[this.tableMyOrders.UserCompanyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserCompany\' in table \'MyProducts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserCompany\' in table \'MyOrders\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMyProducts.UserCompanyColumn] = value;
+                    this[this.tableMyOrders.UserCompanyColumn] = value;
                 }
             }
             
@@ -5820,11 +5820,11 @@ namespace FinalProject {
                         return null;
                     }
                     else {
-                        return ((string)(this[this.tableMyProducts.UserImageColumn]));
+                        return ((string)(this[this.tableMyOrders.UserImageColumn]));
                     }
                 }
                 set {
-                    this[this.tableMyProducts.UserImageColumn] = value;
+                    this[this.tableMyOrders.UserImageColumn] = value;
                 }
             }
             
@@ -5832,95 +5832,95 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int UserId {
                 get {
-                    return ((int)(this[this.tableMyProducts.UserIdColumn]));
+                    return ((int)(this[this.tableMyOrders.UserIdColumn]));
                 }
                 set {
-                    this[this.tableMyProducts.UserIdColumn] = value;
+                    this[this.tableMyOrders.UserIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProductDescNull() {
-                return this.IsNull(this.tableMyProducts.ProductDescColumn);
+                return this.IsNull(this.tableMyOrders.ProductDescColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetProductDescNull() {
-                this[this.tableMyProducts.ProductDescColumn] = global::System.Convert.DBNull;
+                this[this.tableMyOrders.ProductDescColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProductTypeNull() {
-                return this.IsNull(this.tableMyProducts.ProductTypeColumn);
+                return this.IsNull(this.tableMyOrders.ProductTypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetProductTypeNull() {
-                this[this.tableMyProducts.ProductTypeColumn] = global::System.Convert.DBNull;
+                this[this.tableMyOrders.ProductTypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProductPriceNull() {
-                return this.IsNull(this.tableMyProducts.ProductPriceColumn);
+                return this.IsNull(this.tableMyOrders.ProductPriceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetProductPriceNull() {
-                this[this.tableMyProducts.ProductPriceColumn] = global::System.Convert.DBNull;
+                this[this.tableMyOrders.ProductPriceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProductBrandNull() {
-                return this.IsNull(this.tableMyProducts.ProductBrandColumn);
+                return this.IsNull(this.tableMyOrders.ProductBrandColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetProductBrandNull() {
-                this[this.tableMyProducts.ProductBrandColumn] = global::System.Convert.DBNull;
+                this[this.tableMyOrders.ProductBrandColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProductImageNull() {
-                return this.IsNull(this.tableMyProducts.ProductImageColumn);
+                return this.IsNull(this.tableMyOrders.ProductImageColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetProductImageNull() {
-                this[this.tableMyProducts.ProductImageColumn] = global::System.Convert.DBNull;
+                this[this.tableMyOrders.ProductImageColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsUserCompanyNull() {
-                return this.IsNull(this.tableMyProducts.UserCompanyColumn);
+                return this.IsNull(this.tableMyOrders.UserCompanyColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetUserCompanyNull() {
-                this[this.tableMyProducts.UserCompanyColumn] = global::System.Convert.DBNull;
+                this[this.tableMyOrders.UserCompanyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsUserImageNull() {
-                return this.IsNull(this.tableMyProducts.UserImageColumn);
+                return this.IsNull(this.tableMyOrders.UserImageColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetUserImageNull() {
-                this[this.tableMyProducts.UserImageColumn] = global::System.Convert.DBNull;
+                this[this.tableMyOrders.UserImageColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6200,22 +6200,22 @@ namespace FinalProject {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class MyProductsRowChangeEvent : global::System.EventArgs {
+        public class MyOrdersRowChangeEvent : global::System.EventArgs {
             
-            private MyProductsRow eventRow;
+            private MyOrdersRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MyProductsRowChangeEvent(MyProductsRow row, global::System.Data.DataRowAction action) {
+            public MyOrdersRowChangeEvent(MyOrdersRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MyProductsRow Row {
+            public MyOrdersRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6890,12 +6890,12 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, UNICODE(Product.ProductImage) as ProductImage, Product.ProductQty, Product.ProductCreationDateTime, 
-                         Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
+            this._commandCollection[0].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand,Product.ProductImage, 
+                         Product.ProductQty, Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
-WHERE        (Product.UserId <> @UserId)";
+WHERE        (Product.UserId <> @UserId) AND (Product.ProductType <> N'Deleted')";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
@@ -6905,7 +6905,7 @@ WHERE        (Product.UserId <> @UserId)";
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
-WHERE        (Product.UserId = @UserId)";
+WHERE        (Product.UserId = @UserId) AND (Product.ProductType <> N'Deleted')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -6915,7 +6915,7 @@ WHERE        (Product.UserId = @UserId)";
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
-WHERE        (Product.CategoryId = @CategoryId) AND (Product.UserId <> @UserId)";
+WHERE        (Product.CategoryId = @CategoryId) AND (Product.UserId <> @UserId) AND (Product.ProductType <> N'Deleted')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CategoryId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6926,7 +6926,7 @@ WHERE        (Product.CategoryId = @CategoryId) AND (Product.UserId <> @UserId)"
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
-WHERE        (Product.UserId <> @UserId) AND (UPPER(Product.ProductBrand) LIKE '%' + UPPER(@SearchQuery) + '%' OR
+WHERE        (Product.UserId <> @UserId) AND (Product.ProductType <> N'Deleted') AND (UPPER(Product.ProductBrand) LIKE '%' + UPPER(@SearchQuery) + '%' OR
                          UPPER(Category.CategoryName) LIKE '%' + UPPER(@SearchQuery) + '%' OR
                          UPPER(Product.ProductName) LIKE '%' + UPPER(@SearchQuery) + '%' OR
                          UPPER([User].UserCompany) LIKE '%' + UPPER(@SearchQuery) + '%' OR
@@ -7942,7 +7942,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ProductId, ProductName, ProductDesc, ProductType, ProductPrice, ProductBra" +
@@ -7952,16 +7952,23 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT ProductId, ProductName, ProductDesc, ProductType, ProductPrice, ProductBra" +
                 "nd, ProductImage, UserId, CategoryId, ProductQty\r\nFROM     Product\r\nWHERE  (Prod" +
-                "uctId = @ProductId)";
+                "uctId = @ProductId) AND (ProductType <> N\'Deleted\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ProductId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "UPDATE       Product\r\nSET                ProductType = @ProductType\r\nWHERE       " +
-                " (ProductId = @Original_ProductId)";
+            this._commandCollection[2].CommandText = "UPDATE       Product\r\nSET                ProductQty = @ProductQty\r\nWHERE        (" +
+                "ProductId = @Original_ProductId)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductType", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ProductType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductQty", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ProductQty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ProductId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE       Product\r\nSET                ProductType = @ProductType\r\nWHERE       " +
+                " (ProductId = @Original_ProductId)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductType", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ProductType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ProductId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8187,8 +8194,33 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateProductType(string ProductType, int Original_ProductId) {
+        public virtual int UpdateProductQty(int ProductQty, int Original_ProductId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(ProductQty));
+            command.Parameters[1].Value = ((int)(Original_ProductId));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateProductType(string ProductType, int Original_ProductId) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((ProductType == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -8928,7 +8960,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MyProductsTableAdapter : global::System.ComponentModel.Component {
+    public partial class MyOrdersTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -8942,7 +8974,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public MyProductsTableAdapter() {
+        public MyOrdersTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -9039,7 +9071,7 @@ ORDER BY MAX(Message.MessageCreationDateTime) DESC";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MyProducts";
+            tableMapping.DataSetTable = "MyOrders";
             tableMapping.ColumnMappings.Add("CategoryName", "CategoryName");
             tableMapping.ColumnMappings.Add("ProductId", "ProductId");
             tableMapping.ColumnMappings.Add("ProductName", "ProductName");
@@ -9077,7 +9109,7 @@ FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId INNER JOIN
                          UserProduct ON Product.ProductId = UserProduct.ProductId
-WHERE        (UserProduct.UserId = @UserId)";
+WHERE        (UserProduct.UserId = @UserId) AND (Product.ProductType <> N'Deleted')";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -9086,7 +9118,7 @@ WHERE        (UserProduct.UserId = @UserId)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual FinalProjectDataset.MyProductsDataTable GetMyProducts(global::System.Nullable<int> UserId) {
+        public virtual FinalProjectDataset.MyOrdersDataTable GetMyProducts(global::System.Nullable<int> UserId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((UserId.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(UserId.Value));
@@ -9094,7 +9126,7 @@ WHERE        (UserProduct.UserId = @UserId)";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            FinalProjectDataset.MyProductsDataTable dataTable = new FinalProjectDataset.MyProductsDataTable();
+            FinalProjectDataset.MyOrdersDataTable dataTable = new FinalProjectDataset.MyOrdersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

@@ -34,5 +34,12 @@ namespace FinalProject
         {
 
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session["user"] = new User();
+            Response.Redirect("Default.aspx");
+        }
     }
 }

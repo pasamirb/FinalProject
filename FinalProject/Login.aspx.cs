@@ -57,7 +57,10 @@ namespace FinalProject
                 returnUrl = Request.QueryString["ReturnUrl"];
                 if (returnUrl == null)       // directly accessing via login page
                 {
-                    returnUrl = "~/Default.aspx";
+                    if(user.IsCompany)
+                        returnUrl = "~/MyProducts.aspx";
+                    else
+                        returnUrl = "~/Default.aspx";
                 }
                 Session["user"] = user;
             }
