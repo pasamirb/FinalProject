@@ -4,8 +4,13 @@
 
 .img-sold{
     position:absolute;
+    left:0;
 }
 
 .display-none{
     display:none;
+}
+
+.card-columns .card{
+    display: flex;
 }
