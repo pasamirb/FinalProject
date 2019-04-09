@@ -12,7 +12,7 @@
                 <asp:Label ID="lblProductName" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Name:"></asp:Label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="txtProductName" type="text" runat="server" CssClass="form-control" placeholder="Enter Product name"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtProductName" ControlToValidate="txtConfirmPassword" Text="Required Field!" runat="server" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtProductName" ControlToValidate="txtProductName" Text="Required Field!" runat="server" />
                 </div>
             </div>
             <div class="form-group row">
@@ -40,7 +40,7 @@
                 <asp:Label ID="lblProductPrice" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Price:"></asp:Label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="txtProductPrice" runat="server" CssClass="form-control" placeholder="Enter Product Price" TextMode="SingleLine" ValidationGroup="^[0-9]+(\.[0-9][0-9]?)?$"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtProductPrice" ControlToValidate="txtConfirmPassword" Text="Required Field!" runat="server" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtProductPrice" ControlToValidate="txtProductPrice" Text="Required Field!" runat="server" />
                 </div>
             </div>
             <div class="form-group row">

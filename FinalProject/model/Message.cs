@@ -1,7 +1,6 @@
 ﻿/* 
 * FileName: Messge.cs
-* Principal Author:  Smit Patel
-* Secondary Author:  Samir Patel
+* Principal Author:  Samir Patel
 * Summary: Model Class for Message entity
 */
 
@@ -33,7 +32,6 @@ namespace FinalProject.model
         /// <summary> Store the information about weather user if sender or not. </summary>
         public Boolean isSender { get; private set; }
 
-
         /// <summary> The class constructor with parameters. </summary>
         public Message(string messageText, string userImage, DateTime messageCreationDate, int messageFromUserId, bool isSender)
         {
@@ -44,7 +42,7 @@ namespace FinalProject.model
             this.isSender = isSender;
         }
 
-        /// <summary> The class constructor. </summary>
+        /// <summary> Default constructor. </summary>
         public Message()
         {
         }

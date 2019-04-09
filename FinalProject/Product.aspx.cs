@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* 
+* FileName: Product.aspx.cs
+* Principal Author:  Smit Patel
+* Summary: Product Page class
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,16 +17,28 @@ using FinalProject.service;
 
 namespace FinalProject
 {
+    /// <summary> Add Product Page Class.</summary>
     public partial class AddProduct : System.Web.UI.Page
     {
+        /// <summary> Store the User object.</summary>
         User user = null;
+
+        /// <summary> Store the Product object.</summary>
         protected Product product = null;
+
+        /// <summary> Store the Product Table Adapter object.</summary>
         ProductTableAdapter adpProduct = new ProductTableAdapter();
+        
+        /// <summary> Store the Product Datatable object.</summary>
         FinalProjectDataset.ProductDataTable tblProduct = new FinalProjectDataset.ProductDataTable();
 
+        /// <summary> Store the Category Table Adapter object.</summary>
         CategoryTableAdapter adpCategory = new CategoryTableAdapter();
+        
+        /// <summary> Store the Category Datatable object.</summary>
         FinalProjectDataset.CategoryDataTable tblCategory = new FinalProjectDataset.CategoryDataTable();
 
+        /// <summary> Method of Page Load. </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
@@ -29,6 +46,7 @@ namespace FinalProject
             {
                 Response.Redirect("~/Login.aspx");
             }
+            /// <summary> Store the Query Parameter Value.</summary>
             string queryParameter = Request.QueryString["ProductId"];
 
             if (queryParameter != null)
@@ -48,6 +66,10 @@ namespace FinalProject
 
         }
 
+        /// <summary>
+        /// Binding data to page component
+        /// </summary>
+        /// <param name="queryParameter">search Query Parameter</param>
         private void BindData(string queryParameter)
         {
             tblCategory = adpCategory.GetCategory();
@@ -69,9 +91,13 @@ namespace FinalProject
                 ddlProductType.SelectedValue = product.ProductType.ToString();
                 btnAddProduct.Text = "Update Product";
             }
-            
         }
 
+        /// <summary>
+        /// Method called when AddProduct button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnAddProduct_Click(object sender, EventArgs e)
         {
             string productName = txtProductName.Text;
@@ -93,12 +119,10 @@ namespace FinalProject
             else
             {
                 result = uploadFile();
-
             }
 
             if ( !flProductImage.HasFile || result)
             {
-                //productImage = Server.MapPath("~/Uploads/") + productImage;
                 int rowInserted;
                 if (product != null && Request.QueryString["ProductId"] != null)
                 { 
@@ -120,12 +144,15 @@ namespace FinalProject
             }
         }
 
+        /// <summary>
+        /// Validate file for upload
+        /// </summary>
+        /// <returns></returns>
         private bool uploadFile()
         {
             bool result = false;
             if (flProductImage.HasFile)
             {
-
                 string fileName = flProductImage.FileName;
                 string fileExtenstion = Path.GetExtension(fileName);
 
@@ -139,7 +166,6 @@ namespace FinalProject
                     if (fileSize <= 2097152)
                     {
                         // save file in Uploads folder
-
                         string productImage = Server.MapPath("~/Uploads/") + fileName;
                         flProductImage.SaveAs(productImage);
 

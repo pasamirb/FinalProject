@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* 
+* FileName: ProductService.cs
+* Principal Author:  Smit Patel
+* Summary: Service Class for Product entity
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,10 +12,20 @@ using FinalProject.model;
 
 namespace FinalProject.service
 {
+    /// <summary> Service class for Product Entity.</summary>
     public class ProductService
     {
+        /// <summary> Store the Product Table Adapter object. </summary>
         ProductTableAdapter adpProduct = new ProductTableAdapter();
+
+        /// <summary> Store the Product Datatable object. </summary>
         FinalProjectDataset.ProductDataTable tblProduct = new FinalProjectDataset.ProductDataTable();
+
+        /// <summary>
+        /// Get Product based on Product Id
+        /// </summary>
+        /// <param name="inputProductId">product id</param>
+        /// <returns>Product Object</returns>
         public Product GetproductByProductId(int inputProductId)
         {
             Product product = null;

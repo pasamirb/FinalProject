@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* 
+* FileName: UserService.cs
+* Principal Author:  Samir Patel
+* Secondary Author:  Smit Patel
+* Summary: Service Class for User entity
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,12 +12,24 @@ using FinalProject.FinalProjectDatasetTableAdapters;
 using FinalProject.model;
 
 namespace FinalProject.service
-{ 
+{
+    /// <summary>
+    /// Service class for User Entity
+    /// </summary>
     public class UserService
     {
+        /// <summary> Stores the User Table Adapter object </summary>
         UserTableAdapter adpUser = new UserTableAdapter();
+
+        /// <summary> Stores the User DataTable object </summary>
         FinalProjectDataset.UserDataTable tblUser = new FinalProjectDataset.UserDataTable();
 
+        /// <summary>
+        /// Get User by UserName and Password
+        /// </summary>
+        /// <param name="email">Contains email address</param>
+        /// <param name="password">contains password</param>
+        /// <returns>User Object</returns>
         public User GetUserByUserNameAndUserPassword(String email, String password)
         {
             tblUser = adpUser.GetUserByUserNameAndUserPassword(email, password);
@@ -37,6 +55,11 @@ namespace FinalProject.service
             return user;
         }
 
+        /// <summary>
+        /// Delete User based on userId
+        /// </summary>
+        /// <param name="UserId">Contains UserId</param>
+        /// <returns>Boolean Value</returns>
         public bool DeleteUserAccount(int UserId)
         {
             int result = adpUser.Delete(UserId);

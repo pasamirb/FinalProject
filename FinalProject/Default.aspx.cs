@@ -21,9 +21,11 @@ namespace FinalProject
     {
         /// <summary> Store the Product Details Adapter object.</summary>
         ProductDetailTableAdapter adpProductDetails = new ProductDetailTableAdapter();
-        /// <summary> Store the  MessageProductUser Adapter object.</summary>
+        
+        /// <summary> Store the MessageProductUser Adapter object.</summary>
         MessageProductUserTableAdapter adpMessageProductUser = new MessageProductUserTableAdapter();
-        /// <summary> Store the  MessageProductUser Table object.</summary>
+        
+        /// <summary> Store the MessageProductUser Table object.</summary>
         FinalProjectDataset.MessageProductUserDataTable tblMessageProductUser = new FinalProjectDataset.MessageProductUserDataTable();
         
         /// <summary> Store the Product Adapter object.</summary>
@@ -32,16 +34,16 @@ namespace FinalProject
         /// <summary> Store the Message Adapter object.</summary>
         MessageTableAdapter adpMessage = new MessageTableAdapter();
 
-        /// <summary> Store the  User Adapter object.</summary>
+        /// <summary> Store the User Product Table Adapter object.</summary>
         UserProductTableAdapter adpUserProduct = new UserProductTableAdapter();
 
-        /// <summary> Store the  UserProduct Table object.</summary>
+        /// <summary> Store the User Product Data Table object.</summary>
         FinalProjectDataset.UserProductDataTable tblUserProduct = new FinalProjectDataset.UserProductDataTable();
 
-        /// <summary> Store the  ProductDetail Table object.</summary>
+        /// <summary> Store the Product Detail Data Table object.</summary>
         FinalProjectDataset.ProductDetailDataTable tblProductDetails = new FinalProjectDataset.ProductDetailDataTable();
 
-        /// <summary> Store the  Category Name.</summary>
+        /// <summary> Store the Category Name.</summary>
         protected string CategoryName = null;
 
         /// <summary> Store the  User object.</summary>
@@ -62,16 +64,16 @@ namespace FinalProject
             }
             
             /// <summary> Store the Query Parameter Value.</summary>
-            string v = Request.QueryString["category"];
+            string queryParameter = Request.QueryString["category"];
             searchQuery = ((Site1)Master.Master).TextBoxSearch;
             System.Diagnostics.Debug.WriteLine("Search "+searchQuery);
             if (!IsPostBack)
             {
-                BindData(v,searchQuery);
+                BindData(queryParameter,searchQuery);
             }
             else
             {
-                BindData(v, searchQuery);
+                BindData(queryParameter, searchQuery);
             }
         }
 
@@ -92,7 +94,8 @@ namespace FinalProject
             else
             {
                     tblProductDetails = adpProductDetails.GetProductsByCategoryId(int.Parse(category), user.UserId);
-                    CategoryName = tblProductDetails[0].CategoryName;
+                    if(tblProductDetails.Count>0)
+                        CategoryName = tblProductDetails[0].CategoryName;
             }
             lvProducts.DataSource = tblProductDetails;
             lvProducts.DataBind();

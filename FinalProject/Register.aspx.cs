@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* 
+* FileName: Register.aspx.cs
+* Principal Author:  Smit Patel
+* Secondary Author:  Samir Patel
+* Summary: Register Page class
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,22 +16,31 @@ using FinalProject.model;
 
 namespace FinalProject
 {
+    /// <summary> Register Page Class.</summary>
     public partial class RegisterForm : System.Web.UI.Page
     {
+        /// <summary> Store the User Table Adapter object.</summary>
         UserTableAdapter adpUser = new UserTableAdapter();
+
+        /// <summary> Store the User object.</summary>
         User user;
 
+        /// <summary> Method of Page Load. </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
-            if (user.UserId != 0 && !user.IsCompany)
-                Response.Redirect("~/Default.aspx");
-            else
-                Response.Redirect("~/MyProducts.aspx");
-            
-
+            if (user.UserId != 0 )
+                if(!user.IsCompany)
+                    Response.Redirect("~/Default.aspx");
+                else
+                    Response.Redirect("~/MyProducts.aspx");
         }
 
+        /// <summary>
+        /// Method called when Register button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             string firstName = txtFirstName.Text;
@@ -36,7 +51,7 @@ namespace FinalProject
             try { 
                 int result = adpUser.RegisterUser(firstName,lastName,username,password,email);
                 if(result>0)
-                    Response.Redirect("~/loginForm.aspx");
+                    Response.Redirect("~/Login.aspx");
             }
             catch (Exception except)
             {

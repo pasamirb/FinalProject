@@ -54,22 +54,19 @@
                                                 Text="Required Field!"
                                                 runat="server" />
                                         </div>
-                                        <div class="form-group">
+                                        <%--<div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <asp:CheckBox ID="cbRememberMe" CssClass="custom-control-input" runat="server" Text="" />
                                                 <label class="custom-control-label" for="customCheck">Remember Me</label>
                                             </div>
-                                        </div>
+                                        </div>--%>
                                         <div class="form-group">
                                             <asp:Label ID="lblMessage" runat="server" CssClass="alert alert-danger d-md-block" Visible="False"></asp:Label>
                                         </div>
                                         <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-primary btn-user btn-block" Text="Login" OnClick="btnLogin_Click" />
                                         <hr />
                                         <div class="text-center">
-                                            <a class="small" href="#">Forgot Password?</a>
-                                        </div>
-                                        <div class="text-center">
-                                            <a class="small" href="~/Register.aspx">Create an Account!</a>
+                                            <a class="small" href="Register.aspx">Create an Account!</a>
                                         </div>
                                     </div>
                                 </div>

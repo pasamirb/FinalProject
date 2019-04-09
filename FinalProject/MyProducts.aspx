@@ -7,6 +7,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:ListView ID="lvProducts" OnItemCommand="lvProducts_OnItemCommand" runat="server">
+        <EmptyDataTemplate>
+            <div class="col-md-12 text-center">There are no products.</div>
+        </EmptyDataTemplate>
         <ItemTemplate>
             <div class="col-lg-4 mb-4">
                 <!-- Illustrations -->

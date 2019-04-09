@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* 
+* FileName: MyProfile.aspx.cs
+* Principal Author:  Smit Patel
+* Secondary Author : Samir Patel
+* Summary: MyProfile Page class
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,26 +18,37 @@ using FinalProject.service;
 
 namespace FinalProject
 {
+    /// <summary> MyProfile Page Class.</summary>
     public partial class WebForm4 : System.Web.UI.Page
     {
+        /// <summary> Store the User object.</summary>
         User user = null;
+        
+        /// <summary> Store the User Table Adapter object.</summary>
         UserTableAdapter adpUser = new UserTableAdapter();
+        
+        /// <summary> Store the User Data Table object.</summary>
         FinalProjectDataset.UserDataTable tblUser = new FinalProjectDataset.UserDataTable();
+        
+        /// <summary> Store the UserService object.</summary>
         UserService userService = new UserService();
+        
+        /// <summary> Method of Page Load. </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
             if (user.UserId == 0)
                 Response.Redirect("~/Login.aspx");
-
             
-                if (!Page.IsPostBack)
-                {
-                    BindData();
-                }
-            
+            if (!Page.IsPostBack)
+            {
+                BindData();
+            }
         }
 
+        /// <summary>
+        /// Method to Bind Data into Page components.
+        /// </summary>
         private void BindData()
         {
             user = (User)Session["user"];
@@ -45,6 +62,11 @@ namespace FinalProject
             //fuUserProfilePicture.FileName. = user.Image;
         }
 
+        /// <summary>
+        /// On UpdateUserInfo button click method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnUpdateUserInfo_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text;
@@ -76,6 +98,10 @@ namespace FinalProject
             }
         }
 
+        /// <summary>
+        /// Validate file for upload
+        /// </summary>
+        /// <returns></returns>
         private bool uploadFile()
         {
             bool result = false;
@@ -119,6 +145,11 @@ namespace FinalProject
             return result;
         }
 
+        /// <summary>
+        /// On DeleteAccount button click method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnDeleteAccount_Click(object sender, EventArgs e)
         {
             userService.DeleteUserAccount(user.UserId);

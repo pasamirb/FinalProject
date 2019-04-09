@@ -1664,7 +1664,6 @@
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
     <Content Include="Messages.aspx" />
-    <Content Include="LogOut.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="model\Product.cs" />
@@ -1754,13 +1753,6 @@
     </Compile>
     <Compile Include="Messages.aspx.designer.cs">
       <DependentUpon>Messages.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LogOut.aspx.cs">
-      <DependentUpon>LogOut.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LogOut.aspx.designer.cs">
-      <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
