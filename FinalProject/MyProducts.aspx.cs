@@ -37,8 +37,8 @@ namespace FinalProject
             user = (User)Session["user"];
             if (user.UserId == 0)
                 Response.Redirect("~/Login.aspx");
-
-            BindData();
+            
+                BindData();
             //}
         }
 
@@ -50,7 +50,7 @@ namespace FinalProject
             tblProductDetails = adpProductDetails.GetOwnProducts(user.UserId);
             lvProducts.DataSource = tblProductDetails;
             lvProducts.DataBind();
-
+            Cache["lvProducts"] = lvProducts;
             string[] keyArray = { "ProductId" };
             lvProducts.DataKeyNames = keyArray;
         }
@@ -64,15 +64,21 @@ namespace FinalProject
         {
             if (user.UserId != 0)
             {
+                ListViewDataItem dataItem = (ListViewDataItem)e.Item;
+
+                //lvProducts = (ListView)Cache["lvProducts"];
+                int ProductId =
+                  int.Parse(lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString());
+
                 if (String.Equals(e.CommandName, "DeleteProduct"))
                 {
-                    ListViewDataItem dataItem = (ListViewDataItem)e.Item;
-
-                    int ProductId =
-                      int.Parse(lvProducts.DataKeys[dataItem.DisplayIndex].Value.ToString());
-
                     adpProduct.UpdateProductType("Deleted", ProductId);
+                } else if (String.Equals(e.CommandName, "UpdateProduct"))
+                {
+                    //Response.Redirect("~/Default.aspx");
+                    Response.Redirect("~/Product.aspx?ProductId="+ProductId);
                 }
+
             }
             else
             {

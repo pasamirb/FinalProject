@@ -1036,8 +1036,6 @@ namespace FinalProject {
             
             private global::System.Data.DataColumn columnUserImage;
             
-            private global::System.Data.DataColumn columnExpr1;
-            
             private global::System.Data.DataColumn columnProductQty;
             
             private global::System.Data.DataColumn columnProductImage;
@@ -1183,14 +1181,6 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
-                get {
-                    return this.columnExpr1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn ProductQtyColumn {
                 get {
                     return this.columnProductQty;
@@ -1250,23 +1240,7 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ProductDetailRow AddProductDetailRow(
-                        string CategoryName, 
-                        string ProductName, 
-                        string ProductDesc, 
-                        string ProductType, 
-                        decimal ProductPrice, 
-                        string ProductBrand, 
-                        System.DateTime ProductCreationDateTime, 
-                        string UserFirstName, 
-                        string UserLastName, 
-                        string UserCompany, 
-                        int UserId, 
-                        string UserImage, 
-                        int Expr1, 
-                        int ProductQty, 
-                        string ProductImage, 
-                        byte UserStatus) {
+            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage, int ProductQty, string ProductImage, byte UserStatus) {
                 ProductDetailRow rowProductDetailRow = ((ProductDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CategoryName,
@@ -1282,7 +1256,6 @@ namespace FinalProject {
                         UserCompany,
                         UserId,
                         UserImage,
-                        Expr1,
                         ProductQty,
                         ProductImage,
                         UserStatus};
@@ -1328,7 +1301,6 @@ namespace FinalProject {
                 this.columnUserCompany = base.Columns["UserCompany"];
                 this.columnUserId = base.Columns["UserId"];
                 this.columnUserImage = base.Columns["UserImage"];
-                this.columnExpr1 = base.Columns["Expr1"];
                 this.columnProductQty = base.Columns["ProductQty"];
                 this.columnProductImage = base.Columns["ProductImage"];
                 this.columnUserStatus = base.Columns["UserStatus"];
@@ -1363,8 +1335,6 @@ namespace FinalProject {
                 base.Columns.Add(this.columnUserId);
                 this.columnUserImage = new global::System.Data.DataColumn("UserImage", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserImage);
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
                 this.columnProductQty = new global::System.Data.DataColumn("ProductQty", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductQty);
                 this.columnProductImage = new global::System.Data.DataColumn("ProductImage", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1394,7 +1364,6 @@ namespace FinalProject {
                 this.columnUserCompany.MaxLength = 50;
                 this.columnUserId.AllowDBNull = false;
                 this.columnUserImage.MaxLength = 50;
-                this.columnExpr1.ReadOnly = true;
                 this.columnProductQty.AllowDBNull = false;
                 this.columnProductImage.ReadOnly = true;
                 this.columnUserStatus.AllowDBNull = false;
@@ -4562,22 +4531,6 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int Expr1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableProductDetail.Expr1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Expr1\' in table \'ProductDetail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProductDetail.Expr1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int ProductQty {
                 get {
                     return ((int)(this[this.tableProductDetail.ProductQtyColumn]));
@@ -4684,18 +4637,6 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetUserImageNull() {
                 this[this.tableProductDetail.UserImageColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsExpr1Null() {
-                return this.IsNull(this.tableProductDetail.Expr1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetExpr1Null() {
-                this[this.tableProductDetail.Expr1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6455,7 +6396,7 @@ namespace FinalProject.FinalProjectDatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserPhone," +
@@ -6465,23 +6406,31 @@ namespace FinalProject.FinalProjectDatasetTableAdapters {
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        UserFirstName, UserLastName, UserName, UserPassword, UserEmail, Use" +
                 "rPhone, UserCompany, UserImage, UserStatus, UserCreationDateTime, UserId\r\nFROM  " +
-                "          [User]\r\nWHERE        (UserEmail = @userEmail) AND (UserPassword = @use" +
-                "rPassword)";
+                "          [User]\r\nWHERE        (UserEmail = @UserEmail)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userEmail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userPassword", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserPassword", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserEmail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"INSERT INTO [User]
-                         (UserFirstName, UserLastName, UserName, UserPassword, UserEmail)
-VALUES        (@UserFirstName,@UserLastName,@UserName,@UserPassword,@UserEmail); 
-SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FROM [User] WHERE (UserId = SCOPE_IDENTITY())";
+            this._commandCollection[2].CommandText = "SELECT        UserFirstName, UserLastName, UserName, UserPassword, UserEmail, Use" +
+                "rPhone, UserCompany, UserImage, UserStatus, UserCreationDateTime, UserId\r\nFROM  " +
+                "          [User]\r\nWHERE        (UserEmail = @userEmail) AND (UserPassword = @use" +
+                "rPassword)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserFirstName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserLastName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserPassword", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserPassword", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserEmail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userEmail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userPassword", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserPassword", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"INSERT INTO [User]
+                         (UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserCompany)
+VALUES        (@UserFirstName,@UserLastName,@UserName,@UserPassword,@UserEmail,@UserCompany);   
+SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FROM [User] WHERE (UserId = SCOPE_IDENTITY())";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserFirstName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserLastName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserPassword", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserPassword", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserEmail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserCompany", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserCompany", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6512,8 +6461,25 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FinalProjectDataset.UserDataTable GetUserByUserNameAndUserPassword(string userEmail, string userPassword) {
+        public virtual FinalProjectDataset.UserDataTable GetUserByEmail(string UserEmail) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((UserEmail == null)) {
+                throw new global::System.ArgumentNullException("UserEmail");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(UserEmail));
+            }
+            FinalProjectDataset.UserDataTable dataTable = new FinalProjectDataset.UserDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FinalProjectDataset.UserDataTable GetUserByUserNameAndUserPassword(string userEmail, string userPassword) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((userEmail == null)) {
                 throw new global::System.ArgumentNullException("userEmail");
             }
@@ -6729,8 +6695,8 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int RegisterUser(string UserFirstName, string UserLastName, string UserName, string UserPassword, string UserEmail) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+        public virtual int RegisterUser(string UserFirstName, string UserLastName, string UserName, string UserPassword, string UserEmail, string UserCompany) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((UserFirstName == null)) {
                 throw new global::System.ArgumentNullException("UserFirstName");
             }
@@ -6760,6 +6726,12 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
             }
             else {
                 command.Parameters[4].Value = ((string)(UserEmail));
+            }
+            if ((UserCompany == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(UserCompany));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6913,7 +6885,6 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
             tableMapping.ColumnMappings.Add("UserCompany", "UserCompany");
             tableMapping.ColumnMappings.Add("UserId", "UserId");
             tableMapping.ColumnMappings.Add("UserImage", "UserImage");
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
             tableMapping.ColumnMappings.Add("ProductQty", "ProductQty");
             tableMapping.ColumnMappings.Add("ProductImage", "ProductImage");
             tableMapping.ColumnMappings.Add("UserStatus", "UserStatus");
@@ -6943,8 +6914,8 @@ WHERE        (Product.UserId <> @UserId) AND (Product.ProductType <> N'Deleted')
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductQty, Product.ProductCreationDateTime, 
-                         Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
+            this._commandCollection[1].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductQty, 
+                         Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, [User].UserStatus
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId

@@ -39,25 +39,29 @@
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control form-control-user" placeholder="First Name"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtFirstName" ControlToValidate="txtFirstName" Text="Required Field!" runat="server" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtFirstName" ControlToValidate="txtFirstName" Text="Required Field!" runat="server" Display="Dynamic" />
                                             </div>
                                             <div class="col-sm-6">
                                                 <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control form-control-user" placeholder="Last Name"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtLastName" ControlToValidate="txtLastName" Text="Required Field!" runat="server" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtLastName" ControlToValidate="txtLastName" Text="Required Field!" runat="server" Display="Dynamic"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <asp:TextBox ID="txtCompanyName" runat="server" CssClass="form-control form-control-user" placeholder="Company Name"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
                                             <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-control-user" placeholder="Email Address" TextMode="Email"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtEmail" ControlToValidate="txtEmail" Text="Required Field!" runat="server" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtEmail" ControlToValidate="txtEmail" Text="Required Field!" runat="server" Display="Dynamic" />
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-user" placeholder="Password" TextMode="Password"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtPassword" ControlToValidate="txtPassword" Text="Required Field!" runat="server" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtPassword" ControlToValidate="txtPassword" Text="Required Field!" runat="server" Display="Dynamic" />
                                             </div>
                                             <div class="col-sm-6">
                                                 <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="form-control form-control-user" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtConfirmPassword" ControlToValidate="txtConfirmPassword" Text="Required Field!" runat="server" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtConfirmPassword" ControlToValidate="txtConfirmPassword" Text="Required Field!" runat="server" Display="Dynamic" />
+                                                <asp:CompareValidator runat="server" id="cmpPasswords" controltovalidate="txtConfirmPassword" controltocompare="txtPassword" operator="Equal" type="String" errormessage="Password is not matching!" Display="Dynamic" /><br />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -66,10 +70,10 @@
                                         <asp:Button ID="btnRegister" runat="server" CssClass="btn btn-primary btn-user btn-block" Text="Register" OnClick="btnRegister_Click" />
                                     </form>
                                     <hr />
-                                    <div class="text-center">
+                                    <%--<div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
-                                    <div class="text-center">
+                                    --%><div class="text-center">
                                         <a class="small" href="Login.aspx">Already have an account? Login!</a>
                                     </div>
                                 </div>

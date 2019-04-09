@@ -48,8 +48,9 @@ namespace FinalProject
             string email = txtEmail.Text;
             string username = txtEmail.Text;
             string password = txtPassword.Text;
+            string companyName = txtCompanyName.Text;
             try { 
-                int result = adpUser.RegisterUser(firstName,lastName,username,password,email);
+                int result = adpUser.RegisterUser(firstName,lastName,username,password,email,companyName);
                 if(result>0)
                     Response.Redirect("~/Login.aspx");
             }

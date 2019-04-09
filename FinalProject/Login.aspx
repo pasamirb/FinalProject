@@ -45,14 +45,14 @@
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtEmail"
                                                 ControlToValidate="txtEmail"
                                                 Text="Required Field!"
-                                                runat="server" />
+                                                runat="server" Display="Dynamic" />
                                         </div>
                                         <div class="form-group">
                                             <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-user" placeholder="Password" TextMode="Password"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtPassword"
                                                 ControlToValidate="txtPassword"
                                                 Text="Required Field!"
-                                                runat="server" />
+                                                runat="server" Display="Dynamic" />
                                         </div>
                                         <%--<div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -61,7 +61,7 @@
                                             </div>
                                         </div>--%>
                                         <div class="form-group">
-                                            <asp:Label ID="lblMessage" runat="server" CssClass="alert alert-danger d-md-block" Visible="False"></asp:Label>
+                                            <asp:Label ID="lblMessage" runat="server" CssClass="alert alert-danger d-md-block" Visible="false"></asp:Label>
                                         </div>
                                         <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-primary btn-user btn-block" Text="Login" OnClick="btnLogin_Click" />
                                         <hr />

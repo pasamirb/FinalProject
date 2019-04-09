@@ -55,6 +55,31 @@ namespace FinalProject.service
             return user;
         }
 
+        public User GetUserByEmail(string email)
+        {
+            tblUser = adpUser.GetUserByEmail(email);
+            User user = null;
+            if (tblUser.Count > 0)
+            {
+                var row = tblUser[0];
+
+                int UserId = row.UserId;
+                string FirstName = row.UserFirstName;
+                string LastName = row.UserLastName;
+                string UserName = row.UserFirstName;
+                string UserPassword = row.UserPassword;
+                string Email = row.UserEmail;
+                string Image = row.UserImage;
+                string Company = (row.UserCompany == null) ? String.Empty : row.UserCompany.ToString();
+                long Phone = row.UserPhone;
+                DateTime CreationDate = row.UserCreationDateTime;
+
+                user = new User(UserId, FirstName, LastName, UserName, UserPassword, Email,
+                Image, Company, Phone, CreationDate);
+            }
+            return user;
+        }
+
         /// <summary>
         /// Delete User based on userId
         /// </summary>

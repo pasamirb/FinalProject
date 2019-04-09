@@ -30,6 +30,7 @@ namespace FinalProject
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
         }
 
         /// <summary> method called when login button is clicked </summary>
@@ -40,6 +41,10 @@ namespace FinalProject
             string password = txtPassword.Text;
 
             User user = userService.GetUserByUserNameAndUserPassword(email, password);
+            if(user == null)
+            {
+                
+            }
             string returnUrl = null;
             if (user != null)
             {
@@ -74,13 +79,22 @@ namespace FinalProject
                         returnUrl = "~/Default.aspx";
                 }
                 Session["user"] = user;
+                Response.Redirect(returnUrl);
             }
             else
             {
-                lblMessage.Text = "Login Failed. Please try again";
-                lblMessage.ForeColor = System.Drawing.Color.Red;
+                user = userService.GetUserByEmail(email);
+                if (user != null)
+                {
+                    lblMessage.Text = "Password is wrong!";
+                }
+                else
+                {
+                    lblMessage.Text = "User not exist!";
+                }
+                lblMessage.Visible = true;
             }
-            Response.Redirect(returnUrl);
+            
         }
     }
 }

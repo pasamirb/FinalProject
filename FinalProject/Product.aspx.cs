@@ -54,7 +54,7 @@ namespace FinalProject
                 int ProductId = int.Parse(queryParameter);
                 ProductService service = new ProductService();
                 product = service.GetproductByProductId(ProductId);
-                if (product != null)
+                if (product == null)
                 {
                     Response.Redirect("~/MyProducts.aspx");
                 }
@@ -113,7 +113,10 @@ namespace FinalProject
             bool result = false;
             if (product != null && Request.QueryString["ProductId"] != null)
             {
-                productImage = product.ProductImage;
+                if (!flProductImage.HasFile)
+                    productImage = product.ProductImage;
+                else
+                    productImage = flProductImage.FileName;
                 result = true;
             }
             else
@@ -131,6 +134,8 @@ namespace FinalProject
                 }
                 else
                 {
+                    if (!flProductImage.HasFile)
+                        productImage = "default.jpg";
                     rowInserted = adpProduct.Insert(productName, productDesc, productType, productPrice, productBrand, productImage, userId, categoryId, productQty);
                 }
                 if (rowInserted > 0)

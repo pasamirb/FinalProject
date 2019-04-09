@@ -22,7 +22,7 @@ namespace FinalProject.model
         public bool IsCompany
         {
             get {
-                if(string.Equals(Company, string.Empty) || string.IsNullOrEmpty(Company))
+                if(string.IsNullOrEmpty(Company))
                     return false;
                 return true;
             }
