@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageTitle" runat="server">
     <h1 class="h3 mb-0 text-gray-800">Update User Information</h1>
+    <asp:LinkButton ID="btnDeleteAccount" runat="server" CssClass="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i class="fas fa-trash fa-sm text-white-50" OnClick="btnDeleteAccount_Click"></i> Delete Account</asp:LinkButton>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="card shadow col-md-12">

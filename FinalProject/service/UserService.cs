@@ -36,5 +36,15 @@ namespace FinalProject.service
             }
             return user;
         }
+
+        public bool DeleteUserAccount(int UserId)
+        {
+            int result = adpUser.Delete(UserId);
+            if (result > 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

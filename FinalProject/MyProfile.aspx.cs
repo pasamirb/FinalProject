@@ -8,6 +8,7 @@ using FinalProject.model;
 using FinalProject.FinalProjectDatasetTableAdapters;
 using System.Drawing;
 using System.IO;
+using FinalProject.service;
 
 namespace FinalProject
 {
@@ -16,7 +17,7 @@ namespace FinalProject
         User user = null;
         UserTableAdapter adpUser = new UserTableAdapter();
         FinalProjectDataset.UserDataTable tblUser = new FinalProjectDataset.UserDataTable();
-
+        UserService userService = new UserService();
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
@@ -118,5 +119,13 @@ namespace FinalProject
             return result;
         }
 
-    }
+        protected void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            userService.DeleteUserAccount(user.UserId);
+            Session.Clear();
+            Session["user"] = new User();
+            Response.Redirect("~/Default.aspx");
+        }
+
+        }
 }
