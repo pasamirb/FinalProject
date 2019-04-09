@@ -24,7 +24,6 @@
     <div class="container">
         <!-- Outer Row -->
         <div class="row justify-content-center vertical-align-center" style="min-height: 100vh;">
-
             <div class="col-xl-12 col-lg-12 col-md-12">
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
@@ -36,27 +35,29 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                     </div>
-
                                     <form id="form1" runat="server">
-
-
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control form-control-user" placeholder="First Name"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtFirstName" ControlToValidate="txtFirstName" Text="Required Field!" runat="server" />
                                             </div>
                                             <div class="col-sm-6">
                                                 <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control form-control-user" placeholder="Last Name"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtLastName" ControlToValidate="txtLastName" Text="Required Field!" runat="server" />
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-control-user" placeholder="Email Address" TextMode="Email"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtEmail" ControlToValidate="txtEmail" Text="Required Field!" runat="server" />
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-user" placeholder="Password" TextMode="Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtPassword" ControlToValidate="txtPassword" Text="Required Field!" runat="server" />
                                             </div>
                                             <div class="col-sm-6">
                                                 <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="form-control form-control-user" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtConfirmPassword" ControlToValidate="txtConfirmPassword" Text="Required Field!" runat="server" />
                                             </div>
                                         </div>
                                         <div class="form-group">
