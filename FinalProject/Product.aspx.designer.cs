@@ -31,6 +31,15 @@ namespace FinalProject {
         protected global::System.Web.UI.WebControls.TextBox txtProductName;
         
         /// <summary>
+        /// RequiredFieldValidator_txtProductName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator_txtProductName;
+        
+        /// <summary>
         /// lblProductDesc control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace FinalProject {
         protected global::System.Web.UI.WebControls.TextBox txtProductPrice;
         
         /// <summary>
+        /// RequiredFieldValidator_txtProductPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator_txtProductPrice;
+        
+        /// <summary>
         /// lblProductBrand control.
         /// </summary>
         /// <remarks>
@@ -155,6 +173,15 @@ namespace FinalProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProductCategory;
+        
+        /// <summary>
+        /// RequiredFieldValidator_ddlProductCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator_ddlProductCategory;
         
         /// <summary>
         /// btnAddProduct control.

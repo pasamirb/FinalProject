@@ -12,18 +12,19 @@
                 <asp:Label ID="lblProductName" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Name:"></asp:Label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="txtProductName" type="text" runat="server" CssClass="form-control" placeholder="Enter Product name"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtProductName" ControlToValidate="txtConfirmPassword" Text="Required Field!" runat="server" />
                 </div>
             </div>
             <div class="form-group row">
                 <asp:Label ID="lblProductDesc" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Description:"></asp:Label>
                 <div class="col-sm-10">
-                    <asp:TextBox ID="txtPtoductDesc" type="text" TextMode="MultiLine" Columns="50" Rows="5" runat="server" CssClass="form-control" placeholder="Enter Product Decription"></asp:TextBox>
+                    <asp:TextBox ID="txtPtoductDesc" type="text" TextMode="MultiLine" Columns="50" Rows="5" runat="server" CssClass="form-control" placeholder="Enter Product Decription"></asp:TextBox>                    
                 </div>
             </div>
-                        <div class="form-group row">
+            <div class="form-group row">
                 <asp:Label ID="lblQty" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Quantity:"></asp:Label>
                 <div class="col-sm-10">
-                    <asp:TextBox ID="txtProductQty" type="number" runat="server" CssClass="form-control" placeholder="Enter Product Quantity"></asp:TextBox>
+                    <asp:TextBox ID="txtProductQty" type="number" runat="server" CssClass="form-control" placeholder="Enter Product Quantity" Text="1"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group row">
@@ -39,6 +40,7 @@
                 <asp:Label ID="lblProductPrice" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Price:"></asp:Label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="txtProductPrice" runat="server" CssClass="form-control" placeholder="Enter Product Price" TextMode="SingleLine" ValidationGroup="^[0-9]+(\.[0-9][0-9]?)?$"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtProductPrice" ControlToValidate="txtConfirmPassword" Text="Required Field!" runat="server" />
                 </div>
             </div>
             <div class="form-group row">
@@ -57,6 +59,7 @@
                 <asp:Label ID="lblProductCategory" CssClass="col-sm-2 col-form-label" runat="server" Text="Product Category:"></asp:Label>
                 <div class="col-sm-10">
                     <asp:DropDownList ID="ddlProductCategory" CssClass="form-control" runat="server"></asp:DropDownList>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator_ddlProductCategory" ControlToValidate="ddlProductCategory" InitialValue="Select Category" Text="Required Field!" runat="server" />
                 </div>
             </div>
             <asp:Button ID="btnAddProduct" CssClass="btn btn-primary" runat="server" OnClick="btnAddProduct_Click" />
