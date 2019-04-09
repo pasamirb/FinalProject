@@ -17,20 +17,28 @@ namespace FinalProject.model
     {
         /// <summary> Store the Message Text. </summary>
         public string MessageText { get; private set; }
+
         /// <summary> Store the Image name of User. </summary>
         public string UserImg { get; private set; }
+
+        /// <summary> Store the value of the User Image. </summary>
+        public string UserImage { get; private set; }
+        
         /// <summary> Store the Date and Time of Message Creation. </summary>
         public DateTime MessageCreationDate { get; private set; }
+
         /// <summary> Store for the Message From User ID. </summary>
         public int MessageFromUserId { get; private set; }
+      
         /// <summary> Store the information about weather user if sender or not. </summary>
         public Boolean isSender { get; private set; }
 
+
         /// <summary> The class constructor with parameters. </summary>
-        public Message(string messageText, string userImg, DateTime messageCreationDate, int messageFromUserId, bool isSender)
+        public Message(string messageText, string userImage, DateTime messageCreationDate, int messageFromUserId, bool isSender)
         {
             MessageText = messageText;
-            UserImg = userImg;
+            UserImage = userImage;
             MessageCreationDate = messageCreationDate;
             MessageFromUserId = messageFromUserId;
             this.isSender = isSender;

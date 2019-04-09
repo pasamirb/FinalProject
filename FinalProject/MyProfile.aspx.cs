@@ -20,17 +20,15 @@ namespace FinalProject
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (User)Session["user"];
-            if (user != null)
-            {
+            if (user.UserId == 0)
+                Response.Redirect("~/Login.aspx");
+
+            
                 if (!Page.IsPostBack)
                 {
                     BindData();
                 }
-            }
-            else
-            {
-                Response.Redirect("~/Default.aspx");
-            }
+            
         }
 
         private void BindData()
@@ -59,7 +57,7 @@ namespace FinalProject
 
             if (uploadFile())
             {
-                string userImagePath = Server.MapPath("~/Uploads/") + userImage;
+                string userImagePath = userImage;
                 DateTime dateTime = DateTime.Now;
 
                 int updateRows = adpUser.Update(firstName, lastName, userName, userPassword, email, phone, companyName, userImagePath, 1, dateTime, user.UserId);

@@ -55,7 +55,12 @@ namespace FinalProject
         {
             //Master.txt
             user = (User)Session["user"];
-
+            
+            if (user.IsCompany)
+            {
+                Response.Redirect("~/MyProducts.aspx");
+            }
+            
             /// <summary> Store the Query Parameter Value.</summary>
             string v = Request.QueryString["category"];
             searchQuery = ((Site1)Master.Master).TextBoxSearch;

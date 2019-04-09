@@ -6,15 +6,23 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Diagnostics;
 using FinalProject.FinalProjectDatasetTableAdapters;
+using FinalProject.model;
 
 namespace FinalProject
 {
     public partial class RegisterForm : System.Web.UI.Page
     {
         UserTableAdapter adpUser = new UserTableAdapter();
-        
+        User user;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            user = (User)Session["user"];
+            if (user.UserId != 0 && !user.IsCompany)
+                Response.Redirect("~/Default.aspx");
+            else
+                Response.Redirect("~/MyProducts.aspx");
+            
 
         }
 

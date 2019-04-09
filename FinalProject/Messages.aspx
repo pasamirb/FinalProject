@@ -36,25 +36,10 @@
 	<div id="sidepanel">
 		<div id="profile">
 			<div class="wrap">
-				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
+				<img id="profile-img" src="Uploads/<%= user.Image %>" class="online" alt="" />
 				<p><%= user.FirstName %> <%= user.LastName %></p>
 				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
-				<div id="status-options">
-					<ul>
-						<li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>
-						<li id="status-away"><span class="status-circle"></span> <p>Away</p></li>
-						<li id="status-busy"><span class="status-circle"></span> <p>Busy</p></li>
-						<li id="status-offline"><span class="status-circle"></span> <p>Offline</p></li>
-					</ul>
-				</div>
-				<div id="expanded">
-					<label for="twitter"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></label>
-					<input name="twitter" type="text" value="mikeross" />
-					<label for="twitter"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></label>
-					<input name="twitter" type="text" value="ross81" />
-					<label for="twitter"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></label>
-					<input name="twitter" type="text" value="mike.ross" />
-				</div>
+				
 			</div>
 		</div>
 		<%--<div id="search">
@@ -69,7 +54,7 @@
 				
                 <li class="contact">
                     <div class="wrap">
-						<img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
+						<img src="Uploads/<%# Eval("UserImage")  %>" alt="" />
 						<div class="meta">
 							<p class="name"><%# Eval("UserFirstName")  %> <%# Eval("UserLastName")  %></p>
 							<p class="preview"><%# Eval("ProductName")  %></p>
@@ -81,17 +66,18 @@
           </asp:ListView>
                 </ul>
 		</div>
+        <%if (!user.IsCompany)
+                {%>
         <div id="bottom-bar">
-			<%--<button runat="server" id="btnBuyer"><span>Buyer</span></button>--%>
             <asp:LinkButton ID="btnBuyer" runat="server" OnClick="btnBuyer_Click"><span>Selling Products</span></asp:LinkButton>
-			<%--<button runat="server" id="btnSeller"></button>--%>
             <asp:LinkButton ID="btnSeller" runat="server" OnClick="btnSeller_Click"><span>Buying Products</span></asp:LinkButton>
 		</div>
+        <%} %>
 	</div>
 	<div class="content">
 		<div class="contact-profile">
-			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-			<p id="chatUser" runat="server">Harvey Specter</p>
+			<img id="ToUserImage" runat="server" src="Uploads/defaultUser.png" alt="" />
+			<p id="chatUser" runat="server"></p>
 		</div>
 		<div class="messages">
 			<ul>
@@ -99,7 +85,7 @@
         <ItemTemplate>
             
 				<li class="<%# Eval("isSender").ToString().ToUpper() == "TRUE" ? "sent" : "replies" %>">
-					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+					<img src="Uploads/<%# Eval("UserImage") %>" alt="" />
 					<p><%# Eval("MessageText") %></p>
 				</li>
                 </ItemTemplate>
