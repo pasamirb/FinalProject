@@ -39,11 +39,11 @@
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control form-control-user" placeholder="First Name"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtFirstName" ControlToValidate="txtFirstName" Text="Required Field!" runat="server" Display="Dynamic" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtFirstName" ControlToValidate="txtFirstName" CssClass="text-danger" Text="Required Field!" runat="server" Display="Dynamic" />
                                             </div>
                                             <div class="col-sm-6">
                                                 <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control form-control-user" placeholder="Last Name"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtLastName" ControlToValidate="txtLastName" Text="Required Field!" runat="server" Display="Dynamic"/>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtLastName" ControlToValidate="txtLastName" CssClass="text-danger" Text="Required Field!" runat="server" Display="Dynamic"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -51,7 +51,10 @@
                                         </div>
                                         <div class="form-group">
                                             <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-control-user" placeholder="Email Address" TextMode="Email"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtEmail" ControlToValidate="txtEmail" Text="Required Field!" runat="server" Display="Dynamic" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_txtEmail" ControlToValidate="txtEmail" CssClass="text-danger" Text="Required Field!" runat="server" Display="Dynamic" />
+                                            <asp:RegularExpressionValidator ID="revEmail" runat="server" CssClass="text-danger" 
+                                            ControlToValidate="txtEmail" ErrorMessage="Please enter corect email" 
+                                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"></asp:RegularExpressionValidator>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">

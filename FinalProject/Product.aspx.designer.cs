@@ -121,6 +121,15 @@ namespace FinalProject {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator_txtProductPrice;
         
         /// <summary>
+        /// revProductPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revProductPrice;
+        
+        /// <summary>
         /// lblProductBrand control.
         /// </summary>
         /// <remarks>
@@ -155,6 +164,15 @@ namespace FinalProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload flProductImage;
+        
+        /// <summary>
+        /// revProductImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revProductImage;
         
         /// <summary>
         /// lblProductCategory control.

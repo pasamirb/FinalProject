@@ -73,12 +73,13 @@ namespace FinalProject
                 if (String.Equals(e.CommandName, "DeleteProduct"))
                 {
                     adpProduct.UpdateProductType("Deleted", ProductId);
+                    
                 } else if (String.Equals(e.CommandName, "UpdateProduct"))
                 {
                     //Response.Redirect("~/Default.aspx");
                     Response.Redirect("~/Product.aspx?ProductId="+ProductId);
                 }
-
+                BindData();
             }
             else
             {

@@ -133,15 +133,33 @@ namespace FinalProject
             Cache["MessageToId"] = selectedContact.MessageToUserId;
             Cache["ProductId"] = selectedContact.ProductId;
 
-            List <Message> messages = messageService.GetMessages(selectedContact.UserId, selectedContact.ProductId, user);
+            Cache["SelectedContact"] = selectedContact;
+
+            LoadMessages();
+            //List<Message> messages = messageService.GetMessages(selectedContact.UserId, selectedContact.ProductId, user);
             
+            //lvMessage.DataSource = messages;
+            //lvMessage.DataBind();
+
+            //chatUser.InnerText = selectedContact.UserFirstName + " " + selectedContact.UserLastName;
+            //if(!string.IsNullOrEmpty(selectedContact.UserImage))
+            //    ToUserImage.Src = "uploads/" + selectedContact.UserImage;
+            System.Diagnostics.Debug.WriteLine("User Product Id " + selectedContact.ProductId);
+        }
+        /// <summary>
+        /// Load Messages in Message panel
+        /// </summary>
+        private void LoadMessages()
+        {
+            selectedContact = (FinalProjectDataset.ContactsRow)Cache["SelectedContact"];
+            List<Message> messages = messageService.GetMessages(selectedContact.UserId, selectedContact.ProductId, user);
+
             lvMessage.DataSource = messages;
             lvMessage.DataBind();
 
             chatUser.InnerText = selectedContact.UserFirstName + " " + selectedContact.UserLastName;
-            if(!string.IsNullOrEmpty(selectedContact.UserImage))
+            if (!string.IsNullOrEmpty(selectedContact.UserImage))
                 ToUserImage.Src = "uploads/" + selectedContact.UserImage;
-            System.Diagnostics.Debug.WriteLine("User Product Id " + selectedContact.ProductId);
         }
 
         /// <summary>
@@ -154,18 +172,20 @@ namespace FinalProject
             MessageFromId = int.Parse(Cache["MessageFromId"].ToString());
             MessageToId = int.Parse(Cache["MessageToId"].ToString());
             ProductId = int.Parse(Cache["ProductId"].ToString());
-
-            int ToUserId = MessageFromId != user.UserId ? MessageFromId : MessageToId;
-            int insertedRow = adpMessage.Insert(txtMessage.Text, user.UserId, ToUserId, ProductId);
-            if (insertedRow > 0)
+            if (!string.IsNullOrEmpty(txtMessage.Text))
             {
-                System.Diagnostics.Debug.WriteLine("Messege sent successfully.");
-                lvMessage.DataSource = messageService.GetMessages(selectedContact.UserId, selectedContact.ProductId, user);
-                lvMessage.DataBind();
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("Messege Failure.");
+                int ToUserId = MessageFromId != user.UserId ? MessageFromId : MessageToId;
+                int insertedRow = adpMessage.Insert(txtMessage.Text, user.UserId, ToUserId, ProductId);
+                if (insertedRow > 0)
+                {
+                    System.Diagnostics.Debug.WriteLine("Messege sent successfully.");
+                    txtMessage.Text = "";
+                    LoadMessages();
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("Messege Failure.");
+                }
             }
         }
     }
