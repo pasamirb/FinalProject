@@ -1,0 +1,80 @@
+CREATE TABLE [dbo].[User] (
+    [UserId]               INT            IDENTITY (1, 1) NOT NULL,
+    [UserFirstName]        NVARCHAR (50)  NOT NULL,
+    [UserLastName]         NVARCHAR (50)  NOT NULL,
+    [UserName]             NVARCHAR (50)  NOT NULL,
+    [UserPassword]         NVARCHAR (50)  NOT NULL,
+    [UserEmail]            NVARCHAR (50)  NOT NULL,
+    [UserPhone]            BIGINT         NULL,
+    [UserCompany]          NVARCHAR (50)  NULL,
+    [UserImage]            NVARCHAR (500) DEFAULT ('defaultUser.png') NULL,
+    [UserStatus]           TINYINT        DEFAULT ('1') NOT NULL,
+    [UserCreationDateTime] DATETIME       DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC),
+    UNIQUE NONCLUSTERED ([UserName] ASC),
+    CONSTRAINT [UNQ_KEY_EMAIL] UNIQUE NONCLUSTERED ([UserEmail] ASC)
+);
+
+CREATE TABLE [dbo].[Category] (
+    [CategoryId]               INT           IDENTITY (1, 1) NOT NULL,
+    [CategoryName]             NVARCHAR (50) NOT NULL,
+    [CategoryDesc]             NVARCHAR (50) NOT NULL,
+    [CategoryParentId]         INT           DEFAULT (NULL) NULL,
+    [CategoryImage]            NVARCHAR (50) DEFAULT (NULL) NULL,
+    [CategorySlug]             NVARCHAR (50) DEFAULT (NULL) NULL,
+    [CategoryCreationDateTime] DATETIME      DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([CategoryId] ASC),
+    UNIQUE NONCLUSTERED ([CategoryName] ASC)
+);
+
+CREATE TABLE [dbo].[Product] (
+    [ProductId]               INT            IDENTITY (1, 1) NOT NULL,
+    [ProductName]             NVARCHAR (50)  NOT NULL,
+    [ProductDesc]             NVARCHAR (500) DEFAULT (NULL) NULL,
+    [ProductType]             NVARCHAR (50)  DEFAULT (NULL) NULL,
+    [ProductPrice]            MONEY          CONSTRAINT [DF_Product_ProductPrice] DEFAULT ((0.00)) NULL,
+    [ProductBrand]            NVARCHAR (50)  DEFAULT (NULL) NULL,
+    [ProductImage]            NVARCHAR (50)  DEFAULT (NULL) NULL,
+    [UserId]                  INT            NOT NULL,
+    [CategoryId]              INT            DEFAULT (NULL) NULL,
+    [ProductCreationDateTime] DATETIME       DEFAULT (getdate()) NOT NULL,
+    [ProductQty]              INT            DEFAULT ((1)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([ProductId] ASC),
+    CONSTRAINT [FK_Product_Category] FOREIGN KEY ([CategoryId]) REFERENCES [dbo].[Category] ([CategoryId]),
+    CONSTRAINT [FK_Product_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
+);
+
+CREATE TABLE [dbo].[UserProduct] (
+    [UserProductId]               INT      IDENTITY (1, 1) NOT NULL,
+    [UserId]                      INT      NULL,
+    [ProductId]                   INT      NULL,
+    [Qty]                         INT      DEFAULT ((1)) NOT NULL,
+    [UserProductCreationDateTime] DATETIME DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserProductId] ASC),
+    CONSTRAINT [FK_UserProduct_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId]),
+    CONSTRAINT [FK_UserProduct_Product] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product] ([ProductId])
+);
+
+CREATE TABLE [dbo].[Message] (
+    [MessageId]               INT            IDENTITY (1, 1) NOT NULL,
+    [MessageText]             NVARCHAR (100) NOT NULL,
+    [MessageFromUserId]       INT            NOT NULL,
+    [MessageToUserId]         INT            NOT NULL,
+    [ProductId]               INT            NOT NULL,
+    [MessageCreationDateTime] DATETIME       DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([MessageId] ASC),
+    CONSTRAINT [FK_Message_From_User] FOREIGN KEY ([MessageFromUserId]) REFERENCES [dbo].[User] ([UserId]),
+    CONSTRAINT [FK_Message_To_User] FOREIGN KEY ([MessageToUserId]) REFERENCES [dbo].[User] ([UserId]),
+    CONSTRAINT [FK_Message_Product] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product] ([ProductId])
+);
+
+SET IDENTITY_INSERT [dbo].[Category] ON
+INSERT INTO [dbo].[Category] ([CategoryId], [CategoryName], [CategoryDesc], [CategoryParentId], [CategoryImage], [CategorySlug], [CategoryCreationDateTime]) VALUES (1, N'Home Appliances', N'Home Appliances', NULL, NULL, N'home-appliances', N'2019-03-31 23:43:22')
+INSERT INTO [dbo].[Category] ([CategoryId], [CategoryName], [CategoryDesc], [CategoryParentId], [CategoryImage], [CategorySlug], [CategoryCreationDateTime]) VALUES (2, N'Two Wheeler', N'Two Wheeler', NULL, NULL, N'two-wheelor', N'2019-03-31 23:44:00')
+INSERT INTO [dbo].[Category] ([CategoryId], [CategoryName], [CategoryDesc], [CategoryParentId], [CategoryImage], [CategorySlug], [CategoryCreationDateTime]) VALUES (3, N'Mobile Phones', N'Mobile Phones', NULL, NULL, N'mobile-phones', N'2019-03-31 23:44:22')
+INSERT INTO [dbo].[Category] ([CategoryId], [CategoryName], [CategoryDesc], [CategoryParentId], [CategoryImage], [CategorySlug], [CategoryCreationDateTime]) VALUES (4, N'Tablets', N'Tablets', NULL, NULL, N'tablets', N'2019-03-31 23:46:06')
+INSERT INTO [dbo].[Category] ([CategoryId], [CategoryName], [CategoryDesc], [CategoryParentId], [CategoryImage], [CategorySlug], [CategoryCreationDateTime]) VALUES (5, N'Desktop Computers', N'Desktop Computers', NULL, NULL, N'desktop-computers', N'2019-03-31 23:47:34')
+INSERT INTO [dbo].[Category] ([CategoryId], [CategoryName], [CategoryDesc], [CategoryParentId], [CategoryImage], [CategorySlug], [CategoryCreationDateTime]) VALUES (6, N'Laptop', N'Laptop', NULL, NULL, N'laptop', N'2019-03-31 23:47:51')
+INSERT INTO [dbo].[Category] ([CategoryId], [CategoryName], [CategoryDesc], [CategoryParentId], [CategoryImage], [CategorySlug], [CategoryCreationDateTime]) VALUES (7, N'Furniture', N'Furniture', NULL, NULL, N'furniture', N'2019-04-01 00:02:00')
+INSERT INTO [dbo].[Category] ([CategoryId], [CategoryName], [CategoryDesc], [CategoryParentId], [CategoryImage], [CategorySlug], [CategoryCreationDateTime]) VALUES (8, N'Heating', N'heating and cooler', NULL, NULL, N'heating', N'2019-04-07 12:34:00')
+SET IDENTITY_INSERT [dbo].[Category] OFF
