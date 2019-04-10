@@ -88,6 +88,11 @@ namespace FinalProject
                 if(updateRows > 0)
                 {
                     Response.Redirect("~/Default.aspx");
+                    User user = (User)Session["user"];
+                    user.Image = userImagePath;
+                    Session["user"] = user;
+
+
                 }
                 else
                 {

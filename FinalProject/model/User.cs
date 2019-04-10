@@ -13,7 +13,7 @@ namespace FinalProject.model
         public string UserName { get; private set; }
         public string Password { get; set; }
         public string Email { get; private set; }
-        public string Image { get; private set; }
+        public string Image { get; set; }
         public string Company { get; private set; }
         public long Phone { get; private set; }
         public DateTime CreationDate { get; private set; }

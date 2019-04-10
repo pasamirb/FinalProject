@@ -126,7 +126,7 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductQty, 
-                         Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, [User].UserStatus
+                         Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
@@ -154,14 +154,13 @@ WHERE        (Product.UserId &lt;&gt; @UserId) AND (Product.ProductType &lt;&gt;
               <Mapping SourceColumn="UserImage" DataSetColumn="UserImage" />
               <Mapping SourceColumn="ProductQty" DataSetColumn="ProductQty" />
               <Mapping SourceColumn="ProductImage" DataSetColumn="ProductImage" />
-              <Mapping SourceColumn="UserStatus" DataSetColumn="UserStatus" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="FinalProjectConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetOwnProducts" GetMethodModifier="Public" GetMethodName="GetOwnProducts" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetOwnProducts" UserSourceName="GetOwnProducts">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductQty, 
-                         Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, [User].UserStatus
+                         Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
@@ -196,7 +195,7 @@ WHERE        (Product.CategoryId = @CategoryId) AND (Product.UserId &lt;&gt; @Us
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
-WHERE        (Product.UserId &lt;&gt; @UserId) AND (Product.ProductType &lt;&gt; N'Deleted') AND ([User].UserStatus = 1) AND (UPPER(Product.ProductBrand) LIKE '%' + UPPER(@SearchQuery) + '%' OR
+WHERE        (Product.UserId &lt;&gt; @UserId) AND (Product.ProductType &lt;&gt; N'Deleted') AND  (UPPER(Product.ProductBrand) LIKE '%' + UPPER(@SearchQuery) + '%' OR
                          UPPER(Category.CategoryName) LIKE '%' + UPPER(@SearchQuery) + '%' OR
                          UPPER(Product.ProductName) LIKE '%' + UPPER(@SearchQuery) + '%' OR
                          UPPER([User].UserCompany) LIKE '%' + UPPER(@SearchQuery) + '%' OR
@@ -749,7 +748,7 @@ WHERE        (UserProduct.UserId = @UserId) AND (Product.ProductType &lt;&gt; N'
         <xs:element name="ProductDetail" msprop:Generator_TableClassName="ProductDetailDataTable" msprop:Generator_TableVarName="tableProductDetail" msprop:Generator_TablePropName="ProductDetail" msprop:Generator_RowDeletingName="ProductDetailRowDeleting" msprop:Generator_RowChangingName="ProductDetailRowChanging" msprop:Generator_RowEvHandlerName="ProductDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductDetailRowDeleted" msprop:Generator_UserTableName="ProductDetail" msprop:Generator_RowChangedName="ProductDetailRowChanged" msprop:Generator_RowEvArgName="ProductDetailRowChangeEvent" msprop:Generator_RowClassName="ProductDetailRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CategoryName" msprop:Generator_ColumnVarNameInTable="columnCategoryName" msprop:Generator_ColumnPropNameInRow="CategoryName" msprop:Generator_ColumnPropNameInTable="CategoryNameColumn" msprop:Generator_UserColumnName="CategoryName">
+              <xs:element name="CategoryName" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="CategoryName" msprop:Generator_ColumnVarNameInTable="columnCategoryName" msprop:Generator_ColumnPropNameInTable="CategoryNameColumn" msprop:Generator_UserColumnName="CategoryName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -757,21 +756,21 @@ WHERE        (UserProduct.UserId = @UserId) AND (Product.ProductType &lt;&gt; N'
                 </xs:simpleType>
               </xs:element>
               <xs:element name="ProductId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProductId" msprop:Generator_ColumnPropNameInRow="ProductId" msprop:Generator_ColumnPropNameInTable="ProductIdColumn" msprop:Generator_UserColumnName="ProductId" type="xs:int" />
-              <xs:element name="ProductName" msprop:Generator_ColumnVarNameInTable="columnProductName" msprop:Generator_ColumnPropNameInRow="ProductName" msprop:Generator_ColumnPropNameInTable="ProductNameColumn" msprop:Generator_UserColumnName="ProductName">
+              <xs:element name="ProductName" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="ProductName" msprop:Generator_ColumnVarNameInTable="columnProductName" msprop:Generator_ColumnPropNameInTable="ProductNameColumn" msprop:Generator_UserColumnName="ProductName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ProductDesc" msprop:Generator_ColumnVarNameInTable="columnProductDesc" msprop:Generator_ColumnPropNameInRow="ProductDesc" msprop:Generator_ColumnPropNameInTable="ProductDescColumn" msprop:Generator_UserColumnName="ProductDesc" minOccurs="0">
+              <xs:element name="ProductDesc" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="ProductDesc" msprop:Generator_ColumnVarNameInTable="columnProductDesc" msprop:Generator_ColumnPropNameInTable="ProductDescColumn" msprop:Generator_UserColumnName="ProductDesc" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ProductType" msprop:Generator_ColumnVarNameInTable="columnProductType" msprop:Generator_ColumnPropNameInRow="ProductType" msprop:Generator_ColumnPropNameInTable="ProductTypeColumn" msprop:Generator_UserColumnName="ProductType" minOccurs="0">
+              <xs:element name="ProductType" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="ProductType" msprop:Generator_ColumnVarNameInTable="columnProductType" msprop:Generator_ColumnPropNameInTable="ProductTypeColumn" msprop:Generator_UserColumnName="ProductType" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -779,7 +778,7 @@ WHERE        (UserProduct.UserId = @UserId) AND (Product.ProductType &lt;&gt; N'
                 </xs:simpleType>
               </xs:element>
               <xs:element name="ProductPrice" msprop:Generator_ColumnVarNameInTable="columnProductPrice" msprop:Generator_ColumnPropNameInRow="ProductPrice" msprop:Generator_ColumnPropNameInTable="ProductPriceColumn" msprop:Generator_UserColumnName="ProductPrice" type="xs:decimal" minOccurs="0" />
-              <xs:element name="ProductBrand" msprop:Generator_ColumnVarNameInTable="columnProductBrand" msprop:Generator_ColumnPropNameInRow="ProductBrand" msprop:Generator_ColumnPropNameInTable="ProductBrandColumn" msprop:Generator_UserColumnName="ProductBrand" minOccurs="0">
+              <xs:element name="ProductBrand" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="ProductBrand" msprop:Generator_ColumnVarNameInTable="columnProductBrand" msprop:Generator_ColumnPropNameInTable="ProductBrandColumn" msprop:Generator_UserColumnName="ProductBrand" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -787,14 +786,14 @@ WHERE        (UserProduct.UserId = @UserId) AND (Product.ProductType &lt;&gt; N'
                 </xs:simpleType>
               </xs:element>
               <xs:element name="ProductCreationDateTime" msprop:Generator_ColumnVarNameInTable="columnProductCreationDateTime" msprop:Generator_ColumnPropNameInRow="ProductCreationDateTime" msprop:Generator_ColumnPropNameInTable="ProductCreationDateTimeColumn" msprop:Generator_UserColumnName="ProductCreationDateTime" type="xs:dateTime" />
-              <xs:element name="UserFirstName" msprop:Generator_ColumnVarNameInTable="columnUserFirstName" msprop:Generator_ColumnPropNameInRow="UserFirstName" msprop:Generator_ColumnPropNameInTable="UserFirstNameColumn" msprop:Generator_UserColumnName="UserFirstName">
+              <xs:element name="UserFirstName" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="UserFirstName" msprop:Generator_ColumnVarNameInTable="columnUserFirstName" msprop:Generator_ColumnPropNameInTable="UserFirstNameColumn" msprop:Generator_UserColumnName="UserFirstName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="UserLastName" msprop:Generator_ColumnVarNameInTable="columnUserLastName" msprop:Generator_ColumnPropNameInRow="UserLastName" msprop:Generator_ColumnPropNameInTable="UserLastNameColumn" msprop:Generator_UserColumnName="UserLastName">
+              <xs:element name="UserLastName" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="UserLastName" msprop:Generator_ColumnVarNameInTable="columnUserLastName" msprop:Generator_ColumnPropNameInTable="UserLastNameColumn" msprop:Generator_UserColumnName="UserLastName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -818,7 +817,6 @@ WHERE        (UserProduct.UserId = @UserId) AND (Product.ProductType &lt;&gt; N'
               </xs:element>
               <xs:element name="ProductQty" msprop:Generator_ColumnVarNameInTable="columnProductQty" msprop:Generator_ColumnPropNameInRow="ProductQty" msprop:Generator_ColumnPropNameInTable="ProductQtyColumn" msprop:Generator_UserColumnName="ProductQty" type="xs:int" />
               <xs:element name="ProductImage" msdata:ReadOnly="true" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="ProductImage" msprop:Generator_ColumnVarNameInTable="columnProductImage" msprop:Generator_ColumnPropNameInTable="ProductImageColumn" msprop:Generator_UserColumnName="ProductImage" type="xs:string" minOccurs="0" />
-              <xs:element name="UserStatus" msprop:Generator_ColumnVarNameInTable="columnUserStatus" msprop:Generator_ColumnPropNameInRow="UserStatus" msprop:Generator_ColumnPropNameInTable="UserStatusColumn" msprop:Generator_UserColumnName="UserStatus" type="xs:unsignedByte" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1003,7 +1001,7 @@ WHERE        (UserProduct.UserId = @UserId) AND (Product.ProductType &lt;&gt; N'
                 </xs:simpleType>
               </xs:element>
               <xs:element name="CategoryParentId" msprop:Generator_ColumnVarNameInTable="columnCategoryParentId" msprop:Generator_ColumnPropNameInRow="CategoryParentId" msprop:Generator_ColumnPropNameInTable="CategoryParentIdColumn" msprop:Generator_UserColumnName="CategoryParentId" type="xs:int" minOccurs="0" />
-              <xs:element name="CategoryImage" msprop:Generator_ColumnVarNameInTable="columnCategoryImage" msprop:Generator_ColumnPropNameInRow="CategoryImage" msprop:Generator_ColumnPropNameInTable="CategoryImageColumn" msprop:Generator_UserColumnName="CategoryImage" minOccurs="0">
+              <xs:element name="CategoryImage" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="CategoryImage" msprop:Generator_ColumnVarNameInTable="columnCategoryImage" msprop:Generator_ColumnPropNameInTable="CategoryImageColumn" msprop:Generator_UserColumnName="CategoryImage" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

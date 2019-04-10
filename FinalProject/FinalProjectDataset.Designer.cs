@@ -1040,8 +1040,6 @@ namespace FinalProject {
             
             private global::System.Data.DataColumn columnProductImage;
             
-            private global::System.Data.DataColumn columnUserStatus;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ProductDetailDataTable() {
@@ -1197,14 +1195,6 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn UserStatusColumn {
-                get {
-                    return this.columnUserStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1240,7 +1230,7 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage, int ProductQty, string ProductImage, byte UserStatus) {
+            public ProductDetailRow AddProductDetailRow(string CategoryName, string ProductName, string ProductDesc, string ProductType, decimal ProductPrice, string ProductBrand, System.DateTime ProductCreationDateTime, string UserFirstName, string UserLastName, string UserCompany, int UserId, string UserImage, int ProductQty, string ProductImage) {
                 ProductDetailRow rowProductDetailRow = ((ProductDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CategoryName,
@@ -1257,8 +1247,7 @@ namespace FinalProject {
                         UserId,
                         UserImage,
                         ProductQty,
-                        ProductImage,
-                        UserStatus};
+                        ProductImage};
                 rowProductDetailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductDetailRow);
                 return rowProductDetailRow;
@@ -1303,7 +1292,6 @@ namespace FinalProject {
                 this.columnUserImage = base.Columns["UserImage"];
                 this.columnProductQty = base.Columns["ProductQty"];
                 this.columnProductImage = base.Columns["ProductImage"];
-                this.columnUserStatus = base.Columns["UserStatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1339,8 +1327,6 @@ namespace FinalProject {
                 base.Columns.Add(this.columnProductQty);
                 this.columnProductImage = new global::System.Data.DataColumn("ProductImage", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductImage);
-                this.columnUserStatus = new global::System.Data.DataColumn("UserStatus", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnProductId}, true));
                 this.columnCategoryName.AllowDBNull = false;
@@ -1366,7 +1352,6 @@ namespace FinalProject {
                 this.columnUserImage.MaxLength = 50;
                 this.columnProductQty.AllowDBNull = false;
                 this.columnProductImage.ReadOnly = true;
-                this.columnUserStatus.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4393,11 +4378,11 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string ProductDesc {
                 get {
-                    try {
-                        return ((string)(this[this.tableProductDetail.ProductDescColumn]));
+                    if (this.IsProductDescNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductDesc\' in table \'ProductDetail\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableProductDetail.ProductDescColumn]));
                     }
                 }
                 set {
@@ -4409,11 +4394,11 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string ProductType {
                 get {
-                    try {
-                        return ((string)(this[this.tableProductDetail.ProductTypeColumn]));
+                    if (this.IsProductTypeNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductType\' in table \'ProductDetail\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableProductDetail.ProductTypeColumn]));
                     }
                 }
                 set {
@@ -4441,11 +4426,11 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string ProductBrand {
                 get {
-                    try {
-                        return ((string)(this[this.tableProductDetail.ProductBrandColumn]));
+                    if (this.IsProductBrandNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductBrand\' in table \'ProductDetail\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableProductDetail.ProductBrandColumn]));
                     }
                 }
                 set {
@@ -4553,17 +4538,6 @@ namespace FinalProject {
                 }
                 set {
                     this[this.tableProductDetail.ProductImageColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public byte UserStatus {
-                get {
-                    return ((byte)(this[this.tableProductDetail.UserStatusColumn]));
-                }
-                set {
-                    this[this.tableProductDetail.UserStatusColumn] = value;
                 }
             }
             
@@ -5417,11 +5391,11 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string CategoryImage {
                 get {
-                    try {
-                        return ((string)(this[this.tableCategory.CategoryImageColumn]));
+                    if (this.IsCategoryImageNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CategoryImage\' in table \'Category\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableCategory.CategoryImageColumn]));
                     }
                 }
                 set {
@@ -6887,7 +6861,6 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
             tableMapping.ColumnMappings.Add("UserImage", "UserImage");
             tableMapping.ColumnMappings.Add("ProductQty", "ProductQty");
             tableMapping.ColumnMappings.Add("ProductImage", "ProductImage");
-            tableMapping.ColumnMappings.Add("UserStatus", "UserStatus");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -6905,7 +6878,7 @@ SELECT UserFirstName, UserLastName, UserName, UserPassword, UserEmail, UserId FR
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductQty, 
-                         Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, [User].UserStatus
+                         Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
@@ -6915,7 +6888,7 @@ WHERE        (Product.UserId <> @UserId) AND (Product.ProductType <> N'Deleted')
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT        Category.CategoryName, Product.ProductId, Product.ProductName, Product.ProductDesc, Product.ProductType, Product.ProductPrice, Product.ProductBrand, Product.ProductImage, Product.ProductQty, 
-                         Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage, [User].UserStatus
+                         Product.ProductCreationDateTime, Product.UserId, [User].UserFirstName, [User].UserLastName, [User].UserCompany, [User].UserImage
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
@@ -6940,7 +6913,7 @@ WHERE        (Product.CategoryId = @CategoryId) AND (Product.UserId <> @UserId) 
 FROM            Category INNER JOIN
                          Product ON Category.CategoryId = Product.CategoryId INNER JOIN
                          [User] ON Product.UserId = [User].UserId
-WHERE        (Product.UserId <> @UserId) AND (Product.ProductType <> N'Deleted') AND ([User].UserStatus = 1) AND (UPPER(Product.ProductBrand) LIKE '%' + UPPER(@SearchQuery) + '%' OR
+WHERE        (Product.UserId <> @UserId) AND (Product.ProductType <> N'Deleted') AND  (UPPER(Product.ProductBrand) LIKE '%' + UPPER(@SearchQuery) + '%' OR
                          UPPER(Category.CategoryName) LIKE '%' + UPPER(@SearchQuery) + '%' OR
                          UPPER(Product.ProductName) LIKE '%' + UPPER(@SearchQuery) + '%' OR
                          UPPER([User].UserCompany) LIKE '%' + UPPER(@SearchQuery) + '%' OR
